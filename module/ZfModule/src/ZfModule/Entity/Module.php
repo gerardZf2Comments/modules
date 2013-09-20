@@ -1,10 +1,14 @@
 <?php
 
 namespace ZfModule\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class Module implements ModuleInterface
 {
-    
+    /**
+     * @var ZfModule\Entity\tag
+     */
+    protected $tags;
     /**
      * @var id
      */
@@ -27,14 +31,14 @@ class Module implements ModuleInterface
     protected $url = null;
 
     /**
-     * @var int
+     * @var datetime
      */
-    protected $createdAt = null;
+    protected $createdAt;
 
     /**
-     * @var int
+     * @var datetime
      */
-    protected $updatedAt = null;
+    protected $updatedAt;
 
     /**
      * @var string
@@ -47,7 +51,14 @@ class Module implements ModuleInterface
     protected $photoUrl = null;
 
     protected $metaData;
-    
+    public function __construct() {
+        $this->tags = new ArrayCollection;
+    }
+
+    public function getTags(){
+        return $this->tags;
+    }
+
     public function getPhotoUrl()
     {
         return $this->photoUrl;

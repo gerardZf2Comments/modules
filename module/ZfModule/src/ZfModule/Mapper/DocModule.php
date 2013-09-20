@@ -10,7 +10,8 @@ use Zend\Stdlib\Hydrator\HydratorInterface;
  * @entity Docmodule
  * @table (name="module")
  */
-class DocModule extends Module {
+class DocModule extends Module 
+{
 
     /**
      * @var \Doctrine\ORM\EntityManager
@@ -27,7 +28,8 @@ class DocModule extends Module {
      * @param \Doctrine\ORM\EntityManager $em
      * @param \ZfModule\Options\ModuleOptions $options
      */
-    public function __construct(EntityManager $em, ModuleOptions $options) {
+    public function __construct(EntityManager $em, ModuleOptions $options) 
+    {
         $this->em = $em;
         $this->options = $options;
     }
@@ -56,25 +58,33 @@ class DocModule extends Module {
      * @param string $sort
      * @return \Zend\Paginator\Paginator
      */
-    public function search($page, $limit, $query = null, $orderBy = null, $sort = 'ASC')
+    public function search($page, $limit =15, $query = null, $orderBy = null, $sort = 'DESC')
     {
-        $options = new \ZfModule\Options\SearchOptions();
+      //  $options = new \ZfModule\Options\SearchOptions();
        
          /** @var qb Doctrine\ORM\QueryBuilder */
         $qb = $this->getBaseQueryBuilder();
-        
+        if($orderBy) {
+            $qb->orderBy('m.'.$orderBy, 'ASC');
+        }
          // add where to retrict the search
         if ($query) {
-            $qb->add('where', $qb->expr()->orx(
+            $where = $qb->expr()->orx(
                                   $qb->expr()->like('m.name', ':query'), 
                                   $qb->expr()->like('m.description', ':query')
-                    ));
-            $qb->setParameter('query', $query);
+                    );
+            $qb->add('where',$where);
+            $qb->setParameter('query', $query.'%');
         }
+         
          /** @var q \Doctrine\ORM\Query */
         $q = $this->setQueryLimits($qb, $page, $limit);
         
-        return $q->getResult();
+        $result = $q->getResult();
+        $this->postRead($result);
+        
+        return $result;
+               
     }
     /**
      * 
@@ -83,10 +93,12 @@ class DocModule extends Module {
      * @param int $limit
      * @return \Doctrine\ORM\Query
      */
-    public function setQueryLimits( \Doctrine\ORM\QueryBuilder $qb, $page, $limit){
-       list($maxResults, $offset) = $this->limits($page, $limit);
+    public function setQueryLimits( \Doctrine\ORM\QueryBuilder $qb, $page, $limit)
+    {
+        list($maxResults, $offset) = $this->limits($page, $limit);
+         /** @var q \Doctrine\ORM\Query */
         $q = $qb->getQuery();
-        /** @var q \Doctrine\ORM\Query */
+        
         $q->setMaxResults($maxResults);
         $q->setFirstResult($offset);
         
@@ -99,9 +111,11 @@ class DocModule extends Module {
      * @param int $limit
      * @return array
      */
-    public function limits($page, $limit){
+    public function limits($page, $limit)
+    {
         $page = (int) $page;
         $limit = (int) $limit;
+        
         $maxResults = $page * $limit;
         $offset = ($page -1) * $limit;
         
@@ -115,8 +129,9 @@ class DocModule extends Module {
     public function getBaseQueryBuilder($columns = '')
     {
         $qb = $this->em->createQueryBuilder();
+       
         return $qb->add('select', 'm')
-               ->add('from', "ZfModule\Entity\Module m $columns");
+                  ->add('from', "ZfModule\Entity\Module m $columns");
     }
     /**
      * 
@@ -125,7 +140,8 @@ class DocModule extends Module {
      * @param int $limit
      * @return \Zend\Paginator\Paginator
      */
-    public function _paginate(array $data, $page, $limit){
+    public function _paginate(array $data, $page, $limit)
+    {
         $page = (int) $page;
         $limit = (int) $limit;
          //instanciate adapter and paginator 
@@ -137,6 +153,13 @@ class DocModule extends Module {
      
         return $paginator;
     }
+    /**
+     * 
+     * @param int $limit
+     * @param string $orderBy
+     * @param string $sort
+     * @return array
+     */
     public function findAll($limit= null, $orderBy = null, $sort = 'ASC')
     {
          /** @var qb Doctrine/ORM/QueryBuilder */
@@ -145,44 +168,138 @@ class DocModule extends Module {
         if($orderBy) {
             $qb->orderBy($orderBy . ' ' . $sort);
         }
-
-        if($limit) {
-            $select->limit($limit);
+         /** @var q \Doctrine\ORM\Query */
+        $q = $qb->getQuery();
+        if($limit) {          
+            $q->setMaxResults($limit);
+        } 
+        $result = $q->getResult();
+        $this->postRead($result);
+        return $result;
+    }
+    /**
+     * 
+     * @param string $owner
+     * @return array
+     */
+    public function findByOwner($owner, $limit= null, $orderBy = null, $sort = 'ASC') 
+    {
+         /** @var qb Doctrine/ORM/QueryBuilder */
+        $qb = $this->getBaseQueryBuilder();
+        
+         // why we are here
+        $qb->where('m.owner = :owner');
+        $qb->setParameter('owner',$owner);
+        
+        if($orderBy) {
+            $qb->orderBy($orderBy . ' ' . $sort);
         }
-
-        $entity = $this->select($select);
-        $this->getEventManager()->trigger('find', $this, array('entity' => $entity));
-        return $entity;
-    }
-    public function findByEmail($email) {
-        $er = $this->em->getRepository($this->options->getModuleEntityClass());
-
-        return $er->findOneBy(array('email' => $email));
-    }
-
-    public function findByUsername($username) {
-        $er = $this->em->getRepository($this->options->getUserEntityClass());
-        return $er->findOneBy(array('username' => $username));
+         /** @var q \Doctrine\ORM\Query */
+        $q = $qb->getQuery();
+        
+        if($limit) {          
+            $q->setMaxResults($limit);
+        } 
+        
+        $result = $q->getResult();
+        $this->postRead($result);
+       
+        return $result;
     }
 
-    public function findById($id) {
-        $er = $this->em->getRepository($this->options->getUserEntityClass());
-        return $er->find($id);
+    /**
+     * 
+     * @param string $name
+     * @return \ZfModule\Entity\Module
+     * @throws Exception @todo
+     */
+    public function findByName($name) {
+         /** @var qb Doctrine/ORM/QueryBuilder */
+        $qb = $this->getBaseQueryBuilder();
+        
+          // why we are here
+        $qb->where('m.name = :name');
+        $qb->setParameter('name',$name);
+        
+        $result = $qb->getQuery()->getSingleResult();
+        $this->postRead($result);
+        
+        return $result;
     }
-
+      /**
+     * 
+     * @param string $url
+     * @return \ZfModule\Entity\Module
+     * @throws Exception @todo
+     */
+    public function findByUrl($url) 
+    {
+         /** @var qb Doctrine/ORM/QueryBuilder */
+        $qb = $this->getBaseQueryBuilder();
+         
+          // why we are here
+        $qb->where('m.url = :url');
+        $qb->setParameter('url',$url);
+       
+        $result = $qb->getQuery()->getSingleResult();
+        $this->postRead($result);
+       
+        return $result;
+    }
+    /**
+     * 
+     * @param string $id
+     * @return \ZfModule\Entity\Module
+     * @throws Exception @todo
+     */
+    public function findById($id) 
+    {
+         /** @var qb Doctrine/ORM/QueryBuilder */
+        $qb = $this->getBaseQueryBuilder();
+        
+         // why we are here
+        $qb->where('m.id = :id');
+        $qb->setParameter('id',$id);
+        
+        $result = $qb->getQuery()->getSingleResult();
+        $this->postRead($result);
+        
+        return $result;        
+    }
+    /**
+     * 
+     * @param object $entity
+     * @return object
+     */
     public function insert($entity, $tableName = null, HydratorInterface $hydrator = null) {
         return $this->persist($entity);
     }
-
+     /**
+     * 
+     * @param object $entity
+     * @return object
+     */
     public function update($entity, $where = null, $tableName = null, HydratorInterface $hydrator = null) {
         return $this->persist($entity);
     }
-
+     /**
+     * 
+     * @param object $entity
+     * @return object
+     */
     protected function persist($entity) {
         $this->em->persist($entity);
         $this->em->flush();
 
         return $entity;
+    }
+     /**
+     * 
+     * @param object $entity
+     * @return object
+     */
+    protected function postRead($result){
+        $this->getEventManager()->trigger('find', $this, array('entity' => $result));
     }
 
 }
