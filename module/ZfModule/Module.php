@@ -54,6 +54,16 @@ class Module implements AutoloaderProviderInterface
 
                     return $storage;
                 },
+               'zfmodule_mapper_module' => function ($sm) {
+                    $options =   new \ZfModule\Options\ModuleOptions();
+                    $options->setModuleEntityClass('ZfModule\Entity\Module');
+                    return new \ZfModule\Mapper\DocModule(
+                            
+                        $sm->get('doctrine.entitymanager.orm_default'),
+                     $options
+                    );
+                },
+                        /*
                 'zfmodule_mapper_module' => function ($sm) {
                     $mapper = new Mapper\Module();
                     $mapper->setDbAdapter($sm->get('zfcuser_zend_db_adapter'));
@@ -61,6 +71,7 @@ class Module implements AutoloaderProviderInterface
                     $mapper->setHydrator(new Mapper\ModuleHydrator());
                     return $mapper;
                 },
+                         */
                 'zfmodule_service_module' => function($sm) {
                     $service = new  Service\Module;
                     return $service;

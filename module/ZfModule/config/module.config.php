@@ -1,5 +1,24 @@
 <?php
 return array(
+     'doctrine' => array(
+        'driver' => array(
+            // defines an annotation driver with two paths, and names it `my_annotation_driver`
+            'zfmodule_entity_module' => array(
+                'class' => 'Doctrine\ORM\Mapping\Driver\XmlDriver',
+                'paths' => __DIR__ . '/xml/module'
+            ),
+
+            // default metadata driver, aggregates all other drivers into a single one.
+            // Override `orm_default` only if you know what you're doing
+            'orm_default' => array(
+                'drivers' => array(
+                    // register `my_annotation_driver` for any entity under namespace `My\Namespace`
+                    'ZfModule\Entity\Module'  => 'zfmodule_entity_module',
+                )
+            ),
+            
+        )
+    ),
     'controllers' => array(
         'invokables' => array(
             'ZfModule\Controller\Index' => 'ZfModule\Controller\IndexController',

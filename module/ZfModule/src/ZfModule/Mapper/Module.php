@@ -21,11 +21,10 @@ class Module extends AbstractDbMapper implements ModuleInterface
         }
 
         if(null !== $query) {
-            $spec = function ( $where) use ($query) {
-                $where->like('name', '%'.$query.'%')->or->like('description', '%'.$query.'%');
-            };
-            $select->where($spec);
+            $select->where->like('name', '%'.$query.'%');
+            $select->where->OR->like('description', '%'.$query.'%');
         }
+       
         $adapter = new \Zend\Paginator\Adapter\DbSelect(
             $select,
             $this->getSql(),

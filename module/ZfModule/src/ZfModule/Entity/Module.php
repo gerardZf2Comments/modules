@@ -4,10 +4,12 @@ namespace ZfModule\Entity;
 
 class Module implements ModuleInterface
 {
+    
     /**
      * @var id
      */
     protected $id = null;
+   
 
     /**
      * @var string
@@ -44,6 +46,8 @@ class Module implements ModuleInterface
      */
     protected $photoUrl = null;
 
+    protected $metaData;
+    
     public function getPhotoUrl()
     {
         return $this->photoUrl;
