@@ -15,12 +15,13 @@ use ZfcBase\EventManager\EventProvider;
  *
  * @author gerard
  */
-class ModuleIndexer extends EventProvider implements ServiceLocatorAwareInterface {
+class ModuleIndexer extends EventProvider implements ServiceLocatorAwareInterface 
+{
 
     //works frm base of vendor or module directory of a 
     //normal sample app
     protected $indexPath;
-    protected $indexPath;
+    
     protected $index = null;
 
     public function getIndexPath(){
@@ -99,13 +100,13 @@ class ModuleIndexer extends EventProvider implements ServiceLocatorAwareInterfac
         
         return $finalTag;
     }
-
-    /**
+   /**
      * 
      * @param \ZfModule\Entity\ModuleInterface $entity
      * @return \ZfModule\Service\ModuleIndexer
      */
-    private function addToModuleIndex( ModuleInterface $entity ) {
+    private function addToModuleIndex( ModuleInterface $entity ) 
+    {
         $tags = $this->getTags( $entity );
         $doc = new Document();
         //create text fields for anylisis
@@ -117,10 +118,8 @@ class ModuleIndexer extends EventProvider implements ServiceLocatorAwareInterfac
             $this->createTextField( 'description', $entity ),
             Document\Field::text( 'tags', $tags ),
             //create unstored field for easy rendering of search results;
-            $this->createUnindexedField( 'photoUrl' , $entity ),
-            $this->createUnindexedField( 'url', $entity ),
-            $this->createUnindexedField( 'owner', $entity ),
-            Document\Field::unIndexed( 'createdAt', $entity->getCreatedAt()->format('Y-m-d') ),
+             Document\Field::text(  'moduleId' , $entity->getId() ),
+            
                 )
         );
 
