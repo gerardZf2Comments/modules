@@ -77,6 +77,19 @@ class Module extends EventProvider implements ServiceLocatorAwareInterface
         return true;
     }
 
+     /**
+     * 
+     * @param int $moduleId
+     * @return array
+     */
+    public function commentsByModuleId($moduleId)
+    {
+        $moduleMapper = $this->getServiceLocator()->get('zfmodule_mapper_module');
+        $module = $moduleMapper->findById($moduleId);
+       
+        return $module->getComments();
+    }
+
     /**
      * getModuleMapper
      *

@@ -14,6 +14,12 @@ use Zend\View\Model\JsonModel;
  */
 class CommentController extends AbstractActionController
 {
+    
+/**
+     * @var \Doctrine\ORM\EntityManager
+     */
+    protected $em;
+
     /**
      * 
      * add comment, user must be logged in
@@ -122,6 +128,26 @@ class CommentController extends AbstractActionController
         $view = new ViewModel(array('success' => 0));
         $view->setTerminal(true);
     }
+    public function listAction()
+    {
+        $em = $this->getServiceLocator()->get('zfcuser_doctrine_em');
+        
+        $moduleId = (int) $this->params()->fromRoute('module-id');
+        if(!$moduleId){
+            throw new Exception;
+        }
+        try {
+        
+        $service = $this->getServiceLocator()->get('zfmodule_service_module');
+        $comments = $service->listModule($moduleId);      
+        
+        } catch (Exception $exc){
+            
+        }
+        
+        return array('comments' => $comments);
+    }
+    
 }
 
 ?>
