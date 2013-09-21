@@ -1,0 +1,11 @@
+<?php $comment = $this->comment ?>
+<?php
+if ($comment) {
+?>
+<?php// foreach ($comments as $key => $comment) { ?>
+<div class="comment-container comment<?=$key?>"></div>
+ <span class="comment" ><?=$comment->getComment() ?></span> 
+ <span class="user"><?= $comment->getUser()->getUserName()  ?> </span>
+</div> <!--  end comment-container -->
+<?php// }  // end foreach ?>
+<?php } // end if ?>
