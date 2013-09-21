@@ -6,7 +6,7 @@ use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\Stdlib\Hydrator\ClassMethods;
 use ZfcBase\EventManager\EventProvider;
-
+use ZendSearch\Lucene\Index;
 /**
  * Description of ModuleSearch
  *
@@ -15,11 +15,22 @@ use ZfcBase\EventManager\EventProvider;
 class ModuleSearch extends EventProvider implements ServiceLocatorAwareInterface 
 {
 
+    protected $index;
     protected $sortType = SORT_NUMERIC;
     protected $sortOrder = SORT_DESC;
-    //fix this to work from base dir
-    protected $indexPath = 'data/search/module';
+    //works frm base of vendor or module directory of a 
+    //normal sample app
+    protected $indexPath;
 
+    /**
+     * from the mdule options
+     * @return string
+     */
+     public function getIndexPath()
+     {
+        $options = new \ZfModule\Options\ModuleOptions;
+         return $options->getModuleIndexPath();
+     } 
     /**
      * 
      * @param string $query
@@ -35,26 +46,21 @@ class ModuleSearch extends EventProvider implements ServiceLocatorAwareInterface
         $index = $this->initIndex();
         if ($sort) {
             $sortOrder = ($sortOrder === null) ? $this->sortOrder : $sortOrder;
-            $sortType = ($sortType === null) ? $this->sortType : $sortType;
-            
-            
+            $sortType = ($sortType === null) ? $this->sortType : $sortType;           
             
             return $index->find($query, $sort, $sortType, $sortOrder);
         } else {
-            return $index->find($query);
-            
+           
+            return $index->find($query);            
         }
     }
-
-     /**
-     * 
-     * @param bool $create
+    /**
      * @return  \ZendSearch\Lucene\Index
      */
-    public function initIndex($create = false) {
+    public function initIndex() {
 
         /** @var index \ZendSearch\Lucene\Index  */
-        return $this->getIndex($this->indexPath, $create);
+        return $this->getIndex($this->getIndexPath());
         
     }
     /**
@@ -73,10 +79,10 @@ class ModuleSearch extends EventProvider implements ServiceLocatorAwareInterface
      * @param bool $create
      * @return ZendSearch\Lucene\Index
      */
-    public function getIndex( $path = null, $create = false )
+    public function getIndex( $path = null)
     {
         if( !$this->index && $path ){
-            $this->index = new Index( $path, $create );
+            $this->index = new Index( $path );
         }
         return $this->index;
     }

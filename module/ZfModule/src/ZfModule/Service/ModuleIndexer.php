@@ -17,9 +17,16 @@ use ZfcBase\EventManager\EventProvider;
  */
 class ModuleIndexer extends EventProvider implements ServiceLocatorAwareInterface {
 
-    protected $indexPath = 'data/search/module';
+    //works frm base of vendor or module directory of a 
+    //normal sample app
+    protected $indexPath;
+    protected $indexPath;
     protected $index = null;
 
+    public function getIndexPath(){
+        $options = new \ZfModule\Options\ModuleOptions;
+         return $options->getModuleIndexPath();
+} 
     public function addAll() 
     {
         $this->initIndex(true);
@@ -49,7 +56,7 @@ class ModuleIndexer extends EventProvider implements ServiceLocatorAwareInterfac
     {
         /** @var index \ZendSearch\Lucene\Index  */
         
-        return $this->getIndex($this->indexPath, $create);        
+        return $this->getIndex($this->getIndexPath(), $create);        
     }
     /**
      * 
@@ -110,10 +117,10 @@ class ModuleIndexer extends EventProvider implements ServiceLocatorAwareInterfac
             $this->createTextField( 'description', $entity ),
             Document\Field::text( 'tags', $tags ),
             //create unstored field for easy rendering of search results;
-            $this->createUnstoredField( 'photoUrl' , $entity ),
-            $this->createUnstoredField( 'url', $entity ),
-            $this->createUnstoredField( 'owner', $entity ),
-            $this->createUnstoredField( 'createdAt', $entity ),
+            $this->createUnindexedField( 'photoUrl' , $entity ),
+            $this->createUnindexedField( 'url', $entity ),
+            $this->createUnindexedField( 'owner', $entity ),
+            Document\Field::unIndexed( 'createdAt', $entity->getCreatedAt()->format('Y-m-d') ),
                 )
         );
 
@@ -129,6 +136,7 @@ class ModuleIndexer extends EventProvider implements ServiceLocatorAwareInterfac
     public function createTextField( $field, ModuleInterface $entity ) 
     {
         $method = 'get'.ucfirst($field);
+        
         return Document\Field::text( $field, $entity->$method() );
     }
     /**
@@ -136,10 +144,10 @@ class ModuleIndexer extends EventProvider implements ServiceLocatorAwareInterfac
      * @param \ZfModule\Entity\ModuleInterface $entity
      * @return Document\Field
      */
-    public function createUnstoredField( $field, ModuleInterface $entity ) 
+    public function createUnindexedField( $field, ModuleInterface $entity ) 
     {   
         $method = 'get'.ucfirst($field);   
-        return Document\Field::unStored( $field, $entity->method );
+        return Document\Field::unIndexed( $field, $entity->$method() );
     }
     /**
      * 

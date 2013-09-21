@@ -23,24 +23,12 @@ class TagSearch extends EventProvider implements ServiceLocatorAwareInterface {
      * @param string $query
      * @return \Zend\Db\ResultSet\HydratingResultSet
      */
-    public function search($query){
-       $cache = new \Zend\Cache\Storage\Adapter\Filesystem();
-       $cache->getOptions()->setTtl(3600);
-         
-       $plugin = new \Zend\Cache\Storage\Plugin\ExceptionHandler();
-       $plugin->getOptions()->setThrowExceptions(false);
-       $cache->addPlugin($plugin);
-       $cache->getOptions()->setNamespace(__NAMESPACE__.__CLASS__);
-       
-       $sm = $this->getServiceLocator();
-       $tagMapper = $sm->get('zfmodule_mapper_tag');
-      
+    public function search($query)
+    {
+      $tagMapper = $this->getServiceLocator()->get('zfmodule_mapper_tag');      
      
-       return  $tagMapper->findByStarts($query, 15);
-                     
-           
-    }
-    
+      return  $tagMapper->findByStarts($query, 15);                    
+     }    
     /**
      * 
      * @return \Zend\ServiceManager\ServiceLocatorInterface
