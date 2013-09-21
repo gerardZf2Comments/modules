@@ -18,27 +18,14 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-        /*
-       $module = new \ZfModule\Entity\Module();
-       $module->setName('mName');
-       $module->setOwner('mOwner');
-       $module->setUrl('http://hel.com');
-       $module->setDescription('mutha fucka');
-       
-        $sl = $this->getServiceLocator();
-        /** @var Doctrine\ORM\EntityManager */
-        /*  $em = $sl->get('Doctrine\ORM\EntityManager');
-          
-          $er = $em->getRepository('ZfModule\Entity\Module');
-          $mod = $er->find(1);
-          foreach ($mod->getTags() as $tag){
-              var_dump($tag);
-          }
-          
-          $em->persist($module);
-          $em->flush();
-           * 
-           */
+        $mapper = $this->getServiceLocator()->get('zfmodule_mapper_module');    
+        $entity =$mapper->findById(1);
+       // foreach ($collection as $entity) {
+            foreach ($entity->getComments() as $comment) {
+                var_dump($comment->getComment()); 
+            }
+      //  }
+        die();
         $query =  $this->params()->fromQuery('query', null);
 
         $page = (int) $this->params()->fromRoute('page', 1);

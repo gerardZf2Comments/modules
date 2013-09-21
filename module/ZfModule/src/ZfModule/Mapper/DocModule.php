@@ -60,9 +60,7 @@ class DocModule extends Module
      */
     public function search($page, $limit =15, $query = null, $orderBy = null, $sort = 'DESC')
     {
-      //  $options = new \ZfModule\Options\SearchOptions();
-       
-         /** @var qb Doctrine\ORM\QueryBuilder */
+     /** @var qb Doctrine\ORM\QueryBuilder */
         $qb = $this->getBaseQueryBuilder();
         if($orderBy) {
             $qb->orderBy('m.'.$orderBy, 'ASC');
@@ -153,6 +151,22 @@ class DocModule extends Module
      
         return $paginator;
     }
+    /**
+     * 
+     * @param array $array
+     * @return array
+     */
+    public function findByInAsArray($array)
+    {       
+        $qb = $this->getBaseQueryBuilder();
+       $qb->add('where', $qb->expr()->in('m.id', $array));
+        
+      //  $qb->where('WHERE m.id IN :in');
+      //  $qb->setParameter('in', $array);
+        
+        return $qb->getQuery()->getArrayResult();
+    }
+
     /**
      * 
      * @param int $limit

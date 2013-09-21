@@ -12,7 +12,7 @@ return array(
         'routes' => array(
           
              'gol-search' => array(
-                'type' => 'Segment',
+                'type' => 'Literal',
                 
                 'options' => array(       
                     'route' => '/search',
@@ -25,10 +25,10 @@ return array(
                 'may_terminate' => true,
                 'child_routes' => array(
                     'tag' => array(
-                         'type' =>  'segment',
+                         'type' =>  'Segment',
                        'options' => array( 
                        
-                        'route' => '/tag[:query]',
+                        'route' => '/tag[/:query]',
                         'defaults' => array(
                             'controller' => 'Application\Controller\Search',
                             'action' => 'tag',
@@ -38,7 +38,7 @@ return array(
                     'tagajax' => array(
                         'type' =>  'segment',
                         'options' => array(
-                        'route' => '/tagajax[:query]',
+                        'route' => '/tag-ajax[/:query]',
                         'defaults' => array(
                             'controller' => 'Application\Controller\Search',
                             'action' => 'tagAjax',
@@ -48,7 +48,7 @@ return array(
                     'module' => array(
                         'type' =>  'segment',
                         'options' => array(
-                        'route' => '/module[:query]',
+                        'route' => '/module[/:query]',
                         'defaults' => array(
                             'controller' => 'Application\Controller\Search',
                             'action' => 'module',
@@ -58,7 +58,7 @@ return array(
                     'module-ajax' => array(
                         'type' =>  'segment',
                         'options' => array(
-                        'route' => '/module-ajax[:query]',
+                        'route' => '/module-ajax[/:query]',
                         'defaults' => array(
                             'controller' => 'Application\Controller\Search',
                             'action' => 'moduleAjax',

@@ -5,6 +5,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 class Module implements ModuleInterface
 {
+    protected $comments;
     /**
      * @var ZfModule\Entity\tag
      */
@@ -53,6 +54,7 @@ class Module implements ModuleInterface
     protected $metaData;
     public function __construct() {
         $this->tags = new ArrayCollection;
+        $this->comments = new ArrayCollection;;
     }
 
     public function getTags(){
@@ -188,5 +190,8 @@ class Module implements ModuleInterface
     {
         $this->name = $name;
         return $this;
+    }
+    public function getComments(){
+        return $this->comments;
     }
 }

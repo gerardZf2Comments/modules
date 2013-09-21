@@ -50,7 +50,7 @@
                             <p>
                                 <!--<span class="author-label">Version:</span> 1.2.1<br />-->
                                  <span class="author-label">Created:</span> <?php
-                                                            $date = new DateTime($module->getCreatedAt());
+                                                            $date = $module->getCreatedAt(); // new DateTime($module->getCreatedAt());
                                                             echo $date->format('Y-m-d');
                                                             ?><br>
                                 <!--<span class="author-label">Edited:</span> <a>15 days ago</a><br />
@@ -80,8 +80,8 @@
     </div>
     <div class="span4">
         <div class="sidebar">
-            <?php echo $this->newModule() ?>
-            <?php echo $this->newUsers() ?>
+           <?php // echo $this->newModule() ?>
+           <?php //echo $this->newUsers() ?>
         </div>
     </div>
 </div>

@@ -63,6 +63,14 @@ class Module implements AutoloaderProviderInterface
                      $options
                     );
                 },
+                'zfmodule_mapper_tag' => function ($sm) {
+                    $options =   new \ZfModule\Options\ModuleOptions();
+                    $options->setTagEntityClass('ZfModule\Entity\Tag');
+                    return new \ZfModule\Mapper\Tag(                            
+                        $sm->get('doctrine.entitymanager.orm_default'),
+                     $options
+                    );
+                },
                         /*
                 'zfmodule_mapper_module' => function ($sm) {
                     $mapper = new Mapper\Module();

@@ -52,7 +52,9 @@ class SearchController extends AbstractActionController
      * module search
      */
     public function moduleAction()
-    {    
+    {   $s = new \ZfModule\Service\ModuleIndexer;
+        $s->setServiceLocator($this->getServiceLocator());
+    $s->addAll();
         $query =  $this->params()->fromRoute('query', '');
         $modules = $this->getModules($query); 
            
@@ -64,7 +66,7 @@ class SearchController extends AbstractActionController
      * @param bool $ajax
      * @return \Zend\View\Model\ViewModel
      */
-    public function renderModuleLayout(array $modules, $ajax = false)
+    public function renderModuleLayout($modules, $ajax = false)
     {        
         $viewModel = new ViewModel(array(
             'modules' => $modules,

@@ -1,0 +1,7 @@
+{
+    "require": {
+        "doctrine/doctrine-module": "0.*",
+        "doctrine/doctrine-orm-module": "*"
+       
+    }
+}

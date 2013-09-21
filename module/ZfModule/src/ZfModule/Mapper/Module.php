@@ -124,7 +124,8 @@ class Module extends AbstractDbMapper implements ModuleInterface
         $this->getEventManager()->trigger('find', $this, array('entity' => $entity));
         return $entity;
     }
-
+    
+    
     public function findById($id)
     {
         $sql = $this->getSql();

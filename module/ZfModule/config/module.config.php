@@ -7,13 +7,22 @@ return array(
                 'class' => 'Doctrine\ORM\Mapping\Driver\XmlDriver',
                 'paths' => __DIR__ . '/xml/module'
             ),
-
+            'zfmodule_entity_tag' => array(
+                'class' => 'Doctrine\ORM\Mapping\Driver\XmlDriver',
+                'paths' => __DIR__ . '/xml/tag'
+            ),
+            'zfmodule_entity_module_comment'  => array(
+                'class' => 'Doctrine\ORM\Mapping\Driver\XmlDriver',
+                'paths' => __DIR__ . '/xml/modulecomment'
+            ),
             // default metadata driver, aggregates all other drivers into a single one.
             // Override `orm_default` only if you know what you're doing
             'orm_default' => array(
                 'drivers' => array(
                     // register `my_annotation_driver` for any entity under namespace `My\Namespace`
                     'ZfModule\Entity\Module'  => 'zfmodule_entity_module',
+                    'ZfModule\Entity\Tag'  => 'zfmodule_entity_tag',
+                    'ZfModule\Entity\ModuleComment'  => 'zfmodule_entity_module_comment',
                 )
             ),
             
@@ -104,8 +113,8 @@ return array(
             'adapter'   => array(
                 'name' => 'filesystem',
                 'options' => array(
-                    'cache_dir' => realpath('./data/cache'),
-                    'writable' => false,
+                    'cache_dir' => dirname(__FILE__). '/../../../data/search',
+                    'writable' => true,
                 ),
             ),
             'plugins' => array(
