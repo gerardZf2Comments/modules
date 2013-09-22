@@ -24,6 +24,8 @@ class IndexController extends AbstractActionController
      $users = $em->findById(2);
         $page = (int) $this->params()->fromRoute('page', 1);
         $modules= $this->getModules($query);
+        $modules = ($modules) ? $modules : array();
+        
         $adapter = new \Zend\Paginator\Adapter\ArrayAdapter($modules);
         $paginator = new \Zend\Paginator\Paginator($adapter);
         $paginator->setCurrentPageNumber($page);

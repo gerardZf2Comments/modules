@@ -156,15 +156,16 @@ class DocModule extends Module
      * @param array $array
      * @return array
      */
-    public function findByInAsArray($array)
-    {       
+    public function findByInAsArray(array $array)
+    {   
+        if(count($array)){
         $qb = $this->getBaseQueryBuilder();
-       $qb->add('where', $qb->expr()->in('m.id', $array));
-        
-      //  $qb->where('WHERE m.id IN :in');
-      //  $qb->setParameter('in', $array);
-        
+        $qb->add('where', $qb->expr()->in('m.id', $array));
+       
         return $qb->getQuery()->getArrayResult();
+        } else {
+            return $array;
+        }
     }
 
     /**

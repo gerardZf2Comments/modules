@@ -15,14 +15,7 @@ return array(
                 'class' => 'Doctrine\ORM\Mapping\Driver\XmlDriver',
                 'paths' => __DIR__ . '/xml/comment'
             ),
-            'zfmodule_entity_adult'  => array(
-                'class' => 'Doctrine\ORM\Mapping\Driver\XmlDriver',
-                'paths' => __DIR__ . '/xml/comment'
-            ),
-            'zfmodule_entity_child'  => array(
-                'class' => 'Doctrine\ORM\Mapping\Driver\XmlDriver',
-                'paths' => __DIR__ . '/xml/comment'
-            ),
+           
             // default metadata driver, aggregates all other drivers into a single one.
             // Override `orm_default` only if you know what you're doing
             'orm_default' => array(
@@ -31,8 +24,7 @@ return array(
                     'ZfModule\Entity\Module'  => 'zfmodule_entity_module',
                     'ZfModule\Entity\Tag'  => 'zfmodule_entity_tag',
                     'ZfModule\Entity\Comment'  => 'zfmodule_entity_comment',
-                    'ZfModule\Entity\Adult'  => 'zfmodule_entity_comment',
-                    'ZfModule\Entity\Child'  => 'zfmodule_entity_comment',
+                    
                 )
             ),
             

@@ -46,7 +46,7 @@ class SearchController extends AbstractActionController
      */
     public function moduleAjaxAction()
     {  
-        $query =  $this->params()->fromRoute('query', '');
+        $query =  $this->params()->fromQuery('query', '');
         $modules = $this->getModules($query); 
         
         return $this->renderModuleLayout($modules, true);
