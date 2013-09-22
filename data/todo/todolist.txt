@@ -1,0 +1,2 @@
+change pagination urls
+fix sidebar where new things are listed
