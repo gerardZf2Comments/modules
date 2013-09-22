@@ -10,7 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Comment {
     protected $id;
     protected $moduleId;
-    protected $userId;
+    protected $user;
     protected $comment;
     protected $createdAt;
     //protected $updatedAt;
@@ -30,11 +30,11 @@ class Comment {
         $this->moduleId = $moduleId;
         return $this;
     }
-    public function getUserId(){
-       return $this->userId; 
+    public function getUser(){
+       return $this->user; 
     }
-    public function setUserId($userId){
-        $this->userid = $userId;
+    public function setUser($user){
+        $this->userid = $user;
         return $this;
     }
     public function getComment(){

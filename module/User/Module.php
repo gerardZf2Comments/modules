@@ -40,6 +40,7 @@ class Module extends AbstractModule
     {
         return array(
             'factories' => array(
+                /*
                 'zfcuser_user_mapper' => function ($sm) {
                     $options = $sm->get('zfcuser_module_options');
                     $mapper = new Mapper\User();
@@ -49,6 +50,8 @@ class Module extends AbstractModule
                     $mapper->setHydrator(new Mapper\UserHydrator());
                     return $mapper;
                 },
+                 * 
+                 */
             ),
         );
     }

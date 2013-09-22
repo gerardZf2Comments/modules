@@ -139,7 +139,7 @@ class CommentController extends AbstractActionController
         try {
         
         $service = $this->getServiceLocator()->get('zfmodule_service_module');
-        $comments = $service->listModule($moduleId);      
+        $comments = $service->commentsByModuleId($moduleId);      
         
         } catch (Exception $exc){
             

@@ -51,7 +51,7 @@ class ModuleSearch extends EventProvider implements ServiceLocatorAwareInterface
      * @throws \ZendSearch\Lucene\Exception\InvalidArgumentException
      * @throws \ZendSearch\Lucene\Exception\RuntimeException
      */
-     private function _search($query, $sort = null, $sortType = null, $sortOrder = null) 
+    private function _search($query, $sort = null, $sortType = null, $sortOrder = null) 
     {
         $index = $this->initIndex();
         if ($sort) {
@@ -66,14 +66,15 @@ class ModuleSearch extends EventProvider implements ServiceLocatorAwareInterface
         
         return $results;
     }
-    public function search($query){
+    public function search($query)
+    {
         $entities = $this->getCachedSearch($query);
         if(!$entities){
             $searchResults = $this->_search($query);
             $entityResults = $this->entitiesFromResults($searchResults);
             $this->cacheResults($entityResults, $query);
-        }
-        
+        }    
+
         return $entities;       
     }
 
@@ -81,7 +82,7 @@ class ModuleSearch extends EventProvider implements ServiceLocatorAwareInterface
     {
         $inArray = array();
         foreach($results as $queryHit){
-            /** @var $queryHit ZendSearch\Lucene\Search\QueryHit */
+             /** @var $queryHit ZendSearch\Lucene\Search\QueryHit */
             $inArray[] = $queryHit->moduleId;
         }
         
@@ -135,8 +136,8 @@ class ModuleSearch extends EventProvider implements ServiceLocatorAwareInterface
      */
     public function setIndex( Index $index)
     {
-         $this->index = $index;
-         return $this;
+        $this->index = $index;
+        return $this;
     }
     /**
      * 

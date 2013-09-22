@@ -80,6 +80,8 @@ class Comment {
        
         return $this->getCommentMapper()->delete($commentEntity);
     }
+   
+
     /**
     * 
     * @return \Zend\ServiceManager\ServiceLocatorInterface

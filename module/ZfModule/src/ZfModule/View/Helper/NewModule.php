@@ -34,7 +34,7 @@ class NewModule extends AbstractHelper implements ServiceLocatorAwareInterface
         $sl = $sl->getServiceLocator();
 
         $mapper = $sl->get('zfmodule_mapper_module');
-        $modules = $mapper->findAll(10, 'created_at', 'DESC');
+        $modules = $mapper->findAll(10, 'createdAt', 'DESC');
 
         //return $modules;
         $vm = new ViewModel(array(

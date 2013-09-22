@@ -180,7 +180,7 @@ class DocModule extends Module
        $qb = $this->getBaseQueryBuilder();
       
         if($orderBy) {
-            $qb->orderBy($orderBy . ' ' . $sort);
+            $qb->orderBy('m.'.$orderBy , $sort);
         }
          /** @var q \Doctrine\ORM\Query */
         $q = $qb->getQuery();

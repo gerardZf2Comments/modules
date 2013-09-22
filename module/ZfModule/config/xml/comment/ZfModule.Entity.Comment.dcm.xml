@@ -8,10 +8,15 @@
         <id name="id" type="integer" column="id">
             <generator strategy="AUTO" />
         </id>
-    <field name="moduleId" column="module_id" type="integer"   />
+       <!--  <one-to-one field="user" target-entity="\ZfcUserDoctrineORM\Entity\User" column="user_id" mapped-by="user"/> -->
+         <many-to-one field="user" target-entity="\ZfcUserDoctrineORM\Entity\User" >
+         <!--   <cascade><cascade-remove /></cascade>
+            <join-column name="user" referenced-column-name="user_id" on-delete="CASCADE" on-update="CASCADE"/> -->
+        </many-to-one>
+        <field name="moduleId" column="module_id" type="integer"   />
         <field name="comment" type="string" nullable="false" />
         <field name="createdAt" column="created_at" type="datetime"   />
-       <field name="userId" column="user_id" type="integer" nullable="false" />
+       
       
    
            

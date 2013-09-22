@@ -20,6 +20,9 @@ class SearchController extends AbstractActionController
      */
     public function tagAjaxAction()
     {
+          $s = new \ZfModule\Service\ModuleIndexer;
+        $s->setServiceLocator($this->getServiceLocator());
+    $s->addAll();
         $query =  $this->params()->fromRoute('query', '');
         $tags = $this->getTags($query);
         
@@ -31,6 +34,7 @@ class SearchController extends AbstractActionController
      */
     public function tagAction()
     {
+        
         $query =  $this->params()->fromRoute('query', '');
         $tags = $this->getTags($query);
         
@@ -52,13 +56,15 @@ class SearchController extends AbstractActionController
      * module search
      */
     public function moduleAction()
-    {   $s = new \ZfModule\Service\ModuleIndexer;
-        $s->setServiceLocator($this->getServiceLocator());
-    $s->addAll();
+    { 
         $query =  $this->params()->fromRoute('query', '');
         $modules = $this->getModules($query); 
-           
-        return $this->renderModuleLayout($modules);
+           $adapter = new \Zend\Paginator\Adapter\ArrayAdapter($modules);
+           $paginator = new \Zend\Paginator\Paginator($adapter);
+           $paginator->setCurrentPageNumber(1);
+           $paginator->setItemCountPerPage(1);
+           $currentModules = $paginator->getCurrentItems();
+        return $this->renderModuleLayout($currentModules);
     }
     /**
      * adds modules to layout object and sets terminal if (ajax)

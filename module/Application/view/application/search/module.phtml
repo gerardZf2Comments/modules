@@ -1,3 +1,11 @@
+<?php
+$paginator = $this->paginator;
+if ($paginator->count()) { 
+?>
+
+
+
+<?php } // end - if ($paginator->count) { ?>
  <?php foreach($this->modules as $module) { ?>
         <div class="row-fluid module-row">
             <div class="span12">

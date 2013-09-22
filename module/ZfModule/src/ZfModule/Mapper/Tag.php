@@ -95,6 +95,7 @@ ORDER BY tagcount DESC
  */
     public function findByStarts($query, $limit = null, $orderBy = null, $sort = 'ASC')
     {
+       $child = $this->em->find('ZfModule\Entity\Child', 1);
          /** @var qb Doctrine/ORM/QueryBuilder */
        $qb = $this->getBaseQueryBuilder();
        

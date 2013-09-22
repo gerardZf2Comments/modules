@@ -18,28 +18,40 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-        $mapper = $this->getServiceLocator()->get('zfmodule_mapper_module');    
-        $entity =$mapper->findById(1);
-       // foreach ($collection as $entity) {
-            foreach ($entity->getComments() as $comment) {
-                var_dump($comment->getComment()); 
-            }
-      //  }
-        die();
-        $query =  $this->params()->fromQuery('query', null);
+        $query =  $this->params()->fromQuery('query','cunt');
 
+         $em = $this->getServiceLocator()->get('zfcuser_user_mapper');
+     $users = $em->findById(2);
         $page = (int) $this->params()->fromRoute('page', 1);
+        $modules= $this->getModules($query);
+        $adapter = new \Zend\Paginator\Adapter\ArrayAdapter($modules);
+        $paginator = new \Zend\Paginator\Paginator($adapter);
+        $paginator->setCurrentPageNumber($page);
+        $paginator->setItemCountPerPage(15);
+        /*
         $sm = $this->getServiceLocator();
         $mapper = $this->getServiceLocator()->get('zfmodule_mapper_module');
 
         $repositories = $mapper->pagination($page, 15, $query, 'createdAt', 'DESC');
-
+        $repositories = $this->getServiceLocator()->get('zfmodule_service_module');
+         */
         return array(
-            'repositories' => $repositories,
+            'repositories' => $paginator,
             'query' => $query,
         );
     }
-
+  /**
+     * 
+     * @param string $query
+     * @return array
+     */
+    public function getModules($query)
+    {
+        $service = new \ZfModule\Service\ModuleSearch();
+        $service->setServiceLocator($this->getServiceLocator());
+          
+        return $service->search($query); 
+    }
     /**
      * RSS feed for recently added modules
      * @return FeedModel

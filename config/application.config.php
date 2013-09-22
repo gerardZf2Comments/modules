@@ -9,6 +9,7 @@ return array(
         'LfjErrorLayout',
         'ZfcBase',
         'ZfcUser',
+         'ZfcUserDoctrineORM',
         'ScnSocialAuth',
         'HybridAuth',
         'EdpGithub',

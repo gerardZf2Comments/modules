@@ -32,7 +32,7 @@ class NewUsers extends AbstractHelper implements ServiceLocatorAwareInterface
         //need to fetch top lvl ServiceLocator
         $sl = $sl->getServiceLocator();
         $mapper = $sl->get('zfcuser_user_mapper');
-        $users = $mapper->findAll(16, 'created_at', 'DESC');
+        $users = $mapper->findAll(16, 'createdAt', 'DESC');
 
         $vm = new ViewModel(array(
             'users' => $users,

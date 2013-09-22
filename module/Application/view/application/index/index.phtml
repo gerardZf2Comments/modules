@@ -10,7 +10,7 @@
             </div>
             <?php
             $this->inlineScript()->appendScript('
-                $(\'#live-search input[name="query"]\').liveSearch({url: "/live-search?query="});
+                $(\'#live-search input[name="query"]\').liveSearch({url: "/search/tag-ajax/"});
             ');?>
 
           </div>
@@ -24,13 +24,13 @@
                         <div class="span6 module-author">
                             <div class="row-fluid">
                                 <div class="span2">
-                                    <img src="<?php echo $module->getPhotoUrl()?>" alt="<?php echo $module->getOwner()?>">
+                                    <img src="<?php echo $module['photoUrl']?>" alt="<?php echo $module['Name']?>">
                                 </div>
                                 <div class="span10">
-                                    <strong><?php echo $module->getOwner()?></strong>
+                                    <strong><?php echo $module['owner']?></strong>
                                     <p>
                                         <span class="author-label">Github:</span>
-                                        <a href="<?php echo $module->getUrl()?>"><?php echo $module->getName()?></a>
+                                        <a href="<?php echo $module['url']?>"><?php echo $module['name']?></a>
                                         <!--
                                   <span class="author-label">Blog:</span> <a>placeholder</a><br />
                                   <span class="author-label">Modules:</span> <a>5</a><br /><br />
@@ -43,14 +43,14 @@
                             <strong><a href="<?php
                                             echo
                                             $this->url('view-module', array(
-                                                    'vendor' => $module->getOwner(),
-                                                    'module' =>  $module->getName(),
+                                                    'vendor' => $module['owner'],
+                                                    'module' =>  $module['name'],
                                                 )
-                                            );?>"><?php echo $module->getName()?></a></strong>
+                                            );?>"><?php echo $module['name']?></a></strong>
                             <p>
                                 <!--<span class="author-label">Version:</span> 1.2.1<br />-->
                                  <span class="author-label">Created:</span> <?php
-                                                            $date = $module->getCreatedAt(); // new DateTime($module->getCreatedAt());
+                                                            $date = $module['createdAt']; // new DateTime($module->getCreatedAt());
                                                             echo $date->format('Y-m-d');
                                                             ?><br>
                                 <!--<span class="author-label">Edited:</span> <a>15 days ago</a><br />
@@ -68,7 +68,7 @@
                     <div class="module-description">
                         <div class="span12">
                             <p>
-                                <?php echo $module->getDescription()?>
+                                <?php echo $module['Description']?>
                             </p>
                         </div>
                         <div style="clear: both;"></div>
@@ -80,8 +80,8 @@
     </div>
     <div class="span4">
         <div class="sidebar">
-           <?php // echo $this->newModule() ?>
-           <?php //echo $this->newUsers() ?>
+           <?php  echo $this->newModule() ?>
+           <?php  echo $this->newUsers() ?>
         </div>
     </div>
 </div>
