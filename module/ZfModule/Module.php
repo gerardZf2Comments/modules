@@ -71,6 +71,14 @@ class Module implements AutoloaderProviderInterface
                      $options
                     );
                 },
+                'zfmodule_mapper_comment' => function ($sm) {
+                    $options =   new \ZfModule\Options\ModuleOptions();
+                    $options->setCommentEntityClass('ZfModule\Entity\Comment');
+                    return new \ZfModule\Mapper\Comment(                            
+                        $sm->get('doctrine.entitymanager.orm_default'),
+                     $options
+                    );
+                },
                         /*
                 'zfmodule_mapper_module' => function ($sm) {
                     $mapper = new Mapper\Module();
@@ -82,6 +90,11 @@ class Module implements AutoloaderProviderInterface
                          */
                 'zfmodule_service_module' => function($sm) {
                     $service = new  Service\Module;
+                    return $service;
+                },
+                 'zfmodule_service_comment' => function($sm) {
+                    $service = new Service\Comment();
+                    $service->setServiceLocator($sm);
                     return $service;
                 },
                 'zfmodule_service_repository' => function($sm) {
@@ -99,6 +112,19 @@ class Module implements AutoloaderProviderInterface
                     return $client;
                 }*/
             ),
+        );
+    }
+    
+    public function getViewHelperConfig()
+    {
+        return array(
+            'factories' => array(
+                'zfmoduleComments' => function ($sm) {
+                    $helper = new \ZfModule\View\Helper\Comments;
+                    $helper->setCommentService($sm->getServiceLocator()->get('zfmodule_service_comment'));
+                    return $helper;
+                }
+            )
         );
     }
 }

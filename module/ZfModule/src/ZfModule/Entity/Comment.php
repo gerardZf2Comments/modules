@@ -8,6 +8,11 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @author gerard
  */
 class Comment {
+    protected $hasParent;
+    protected $parentId;
+    protected $parentComments;
+    
+    protected $childComments;
     protected $id;
     protected $moduleId;
     protected $user;
@@ -15,6 +20,9 @@ class Comment {
     protected $createdAt;
     //protected $updatedAt;
     
+    public function getChildComments(){
+        return $this->childComments;
+    }
     public function getId(){
        return $this->id; 
     }

@@ -5,7 +5,7 @@
  */
 error_reporting(E_ERROR);
 ini_set('display_errors', 1);
-//ini_get_all());die();
+
 chdir(dirname(__DIR__));
 // Setup autoloading
 include 'init_autoloader.php';

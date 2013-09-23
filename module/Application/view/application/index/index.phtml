@@ -4,8 +4,8 @@
         <div class="span12">
           <div class="navbar">
             <div class="navbar-inner" >
-              <form action="/search/module-ajax" class="navbar-search pull-left span12" id="live-search">
-                <input type="text" name="query" class="search-query span12" placeholder="Type to start searching...">
+              <form  class="navbar-search pull-left span12" id="live-search">
+                <input type="text" name="query" id="search-query"class="search-query span12" placeholder="Type to start searching...">
               </form>
             </div>
             <?php
@@ -16,6 +16,7 @@
           </div>
         </div>
       </div>
+        <div id="search-results-wrapper">
         <?php foreach($this->repositories as $module) { ?>
         <div class="row-fluid module-row">
             <div class="span12">
@@ -24,7 +25,7 @@
                         <div class="span6 module-author">
                             <div class="row-fluid">
                                 <div class="span2">
-                                    <img src="<?php echo $module['photoUrl']?>" alt="<?php echo $module['Name']?>">
+                                    <img src="<?php echo $module['photoUrl']?>" alt="<?php echo $module['name']?>">
                                 </div>
                                 <div class="span10">
                                     <strong><?php echo $module['owner']?></strong>
@@ -68,7 +69,8 @@
                     <div class="module-description">
                         <div class="span12">
                             <p>
-                                <?php echo $module['Description']?>
+                                <?= $module['description']?>
+                             
                             </p>
                         </div>
                         <div style="clear: both;"></div>
@@ -78,10 +80,12 @@
         </div><?php } ?>
         <?php echo $this->paginationControl($this->repositories, 'Sliding', 'application/index/pagination', array('query' =>$query)); ?>
     </div>
+        </div><!-- end - id="search-results-wrapper"-->
     <div class="span4">
         <div class="sidebar">
            <?php  echo $this->newModule() ?>
            <?php  echo $this->newUsers() ?>
+               <?= $this->zfmoduleComments(1) ?>
         </div>
     </div>
 </div>

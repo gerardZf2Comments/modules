@@ -17,20 +17,23 @@ class SearchController extends AbstractActionController
     /**
      * 
      *ajax rendering of tag search
+     * @todo limit search
      */
     public function tagAjaxAction()
     {
           $s = new \ZfModule\Service\ModuleIndexer;
         $s->setServiceLocator($this->getServiceLocator());
     $s->addAll();
+          //do search
         $query =  $this->params()->fromRoute('query', '');
         $tags = $this->getTags($query);
-        
+          
         return $this->renderTagLayout($tags, true);       
     }
     /**
      * 
      * tag search
+     * @todo limit search
      */
     public function tagAction()
     {
@@ -46,10 +49,15 @@ class SearchController extends AbstractActionController
      */
     public function moduleAjaxAction()
     {  
-        $query =  $this->params()->fromQuery('query', '');
+         //do search
+        $query =  $this->params()->fromRoute('query', '');
         $modules = $this->getModules($query); 
+        $modules = ($modules) ? $modules : array();
+         //pagination
+        $paginator = $this->getPaginator($modules);
+        $currentModules = $paginator->getCurrentItems();
         
-        return $this->renderModuleLayout($modules, true);
+        return $this->renderModuleLayout($currentModules, $paginator, $query, true);
     }
     /**
      * 
@@ -57,25 +65,45 @@ class SearchController extends AbstractActionController
      */
     public function moduleAction()
     { 
+         //do search
         $query =  $this->params()->fromRoute('query', '');
-        $modules = $this->getModules($query); 
-           $adapter = new \Zend\Paginator\Adapter\ArrayAdapter($modules);
-           $paginator = new \Zend\Paginator\Paginator($adapter);
-           $paginator->setCurrentPageNumber(1);
-           $paginator->setItemCountPerPage(1);
-           $currentModules = $paginator->getCurrentItems();
-        return $this->renderModuleLayout($currentModules);
+        $modules = $this->getModules($query);
+         //pagination
+        $paginator = $this->getPaginator($modules);
+        $currentModules = $paginator->getCurrentItems();
+        
+        return $this->renderModuleLayout($currentModules, $paginator, $query);
     }
     /**
-     * adds modules to layout object and sets terminal if (ajax)
+     * instanciate a paginator with array addaper
      * @param array $modules
+     * @return \Zend\Paginator\Paginator
+     */
+    public function getPaginator(array $modules) 
+    {
+        $currentPage = (int)$this->params()->fromQuery('page', 1);
+        $itemCountPerPage = (int) $this->params()->fromQuery('limit', 15);
+        $adapter = new \Zend\Paginator\Adapter\ArrayAdapter($modules);
+        $paginator = new \Zend\Paginator\Paginator($adapter);
+        $paginator->setCurrentPageNumber($currentPage);
+        $paginator->setItemCountPerPage($itemCountPerPage);
+        return $paginator;
+    }
+
+    /**
+     * adds modules to layout object and sets terminal if (ajax)
+     * @param \ArrayIterator $modules
+     * @param \Zend\Paginator\Paginator  $paginator 
+     * @param string $query
      * @param bool $ajax
      * @return \Zend\View\Model\ViewModel
      */
-    public function renderModuleLayout($modules, $ajax = false)
-    {        
+    public function renderModuleLayout(\ArrayIterator $modules, \Zend\Paginator\Paginator $paginator, $query, $ajax = false)
+    {      
         $viewModel = new ViewModel(array(
             'modules' => $modules,
+            'paginator' => $paginator,
+            'query' => $query,
         ));
         $viewModel->setTerminal($ajax);
         

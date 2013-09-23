@@ -80,7 +80,15 @@ class Comment {
        
         return $this->getCommentMapper()->delete($commentEntity);
     }
-   
+   /**
+    * 
+    * @param int $moduleId
+    * @return array array of comment objects
+    */
+    public function commentsByModuleId($moduleId, $limit = 15, $sort = null, $order= null)
+    {
+        return $this->getCommentMapper()->findParentsBy('moduleId',$moduleId, $limit,  $sort, $order);
+    }
 
     /**
     * 
@@ -106,7 +114,7 @@ class Comment {
      */
     public function getCommentMapper()
     {
-        return $this->getServiceLocator()->get('zfmodule_entity_comment');
+        return $this->getServiceLocator()->get('zfmodule_mapper_comment');
         
     }
 

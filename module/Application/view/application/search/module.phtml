@@ -65,4 +65,9 @@ if ($paginator->count()) {
                     </div>
                 </div>
             </div>
-        </div><?php } ?>
+            
+        </div>
+           
+        <?php echo $this->paginationControl($this->repositories, 'Sliding', 'application/index/pagination', array('query' =>$query)); ?>
+    
+            <?php } ?>

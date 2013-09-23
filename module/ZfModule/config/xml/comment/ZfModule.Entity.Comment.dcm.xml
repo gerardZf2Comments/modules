@@ -8,16 +8,29 @@
         <id name="id" type="integer" column="id">
             <generator strategy="AUTO" />
         </id>
-       <!--  <one-to-one field="user" target-entity="\ZfcUserDoctrineORM\Entity\User" column="user_id" mapped-by="user"/> -->
+       
          <many-to-one field="user" target-entity="\ZfcUserDoctrineORM\Entity\User" >
-         <!--   <cascade><cascade-remove /></cascade>
-            <join-column name="user" referenced-column-name="user_id" on-delete="CASCADE" on-update="CASCADE"/> -->
+        
         </many-to-one>
         <field name="moduleId" column="module_id" type="integer"   />
         <field name="comment" type="string" nullable="false" />
         <field name="createdAt" column="created_at" type="datetime"   />
+        <field name="parentId" column="parent_id" type="integer"   />
+        <field name="hasParent" column="has_parent" type="integer"   />
        
       
+        
+   <one-to-many field="childComments" target-entity="Comment" mapped-by="parentComments" >
+            
+          <!--  <join-columns>
+                <join-column name="parent_id" referencedColumnName="id"/>
+            </join-columns>  -->         
+       
+  </one-to-many>
+   <many-to-one field="parentComments" target-entity="Comment" inversed-by="childComments">
+       
+   </many-to-one>
+        
    
            
                

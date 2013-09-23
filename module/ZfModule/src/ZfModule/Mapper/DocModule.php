@@ -313,7 +313,8 @@ class DocModule extends Module
      * @param object $entity
      * @return object
      */
-    protected function postRead($result){
+    protected function postRead($result)
+    {
         $this->getEventManager()->trigger('find', $this, array('entity' => $result));
     }
 

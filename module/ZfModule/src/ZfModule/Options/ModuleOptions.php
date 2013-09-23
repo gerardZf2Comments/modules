@@ -14,9 +14,25 @@ class ModuleOptions extends AbstractOptions {
     protected $moduleEntityClass;
     protected $tagEntityClass;
     protected $moduleIndexPath;
+    protected $commentEntityClass;
 
-    public function setModuleEntityClass($string) {
-        $this->moduleEntityClass = $string;
+    /**
+     * 
+     * @param string $className
+     */
+    public function setCommentEntityClass($className){
+        $this->commentEntityClass=$className;
+    }
+    /**
+     * 
+     * @return string
+     */
+    public function getCommentEntityClass(){
+        return $this->commentEntityClass;
+    }
+
+    public function setModuleEntityClass($className) {
+        $this->moduleEntityClass = $className;
         return $this;
     }
 

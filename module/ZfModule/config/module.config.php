@@ -154,6 +154,7 @@ return array(
             'moduleView' => 'ZfModule\View\Helper\ModuleView',
             'moduleDescription' => 'ZfModule\View\Helper\ModuleDescription',
         ),
+        
     ),
     'zfmodule' => array(
         /**
