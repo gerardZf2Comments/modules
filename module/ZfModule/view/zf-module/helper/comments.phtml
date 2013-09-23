@@ -1,0 +1,37 @@
+
+
+
+<div id="module-comments-wrapper block">
+    <div class="row">
+        <div class="span4">
+            <span class="module-comments-title">Comments</span>
+        </div><!-- end // class="span4" -->
+    </div><!-- end // class="row" -->
+    <?php
+    $comments = $this->comments;
+    if (count($comments)) {
+        //loop to display comments
+        foreach ($comments as $key => $comment) {   
+        ?>
+        
+        <div class="module-comment-wrapper">
+            <div>
+                <span class="module-comments-username"><?=  $this->EscapeHtml($comment->getUser()->getUserName()) ?> </span>
+            </div>
+            <div>
+                <span class="module-comments-comment"><?=  $this->EscapeHtml($comment->getComment()) ?> </span>
+            </div> 
+            <?php //loop the child comments 
+ foreach ($comment->getChildComments() as $childComment) {
+    echo  $this->partial('zf-module/helper/child-comment.phtml', array('comment' => $comment));
+ }?>
+        </div><!-- end - class="module-comment-wrapper" -->
+        <?php } // - foreach ($comments as $key => $comment) { ?>
+  
+  <?php } else { // end - if (count($comments)){ ?> 
+
+        <?php var_dump($this->comments) ?>
+        <span class="module-comments-no-comments"><?= $this->translate('Be the first') ?></span>
+
+            <?php } // end else  ?>
+</div><!-- end - id="module-comments-wrapper" -->
