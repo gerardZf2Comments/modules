@@ -9,8 +9,10 @@ use Zend\Stdlib\AbstractOptions;
  *
  * @author gerard
  */
-class ModuleOptions extends AbstractOptions {
+class ModuleOptions extends AbstractOptions 
+{
 
+    protected $userEntityClassName;
     protected $moduleEntityClass;
     protected $tagEntityClass;
     protected $moduleIndexPath;
@@ -20,14 +22,23 @@ class ModuleOptions extends AbstractOptions {
      * 
      * @param string $className
      */
-    public function setCommentEntityClass($className){
+    public function setCommentEntityClassName($className){
         $this->commentEntityClass=$className;
+        return $this;
     }
+    public function getUserEntityClassName(){
+        return $this->userEntityClassName;
+    }
+    public function setUserEntityClassName($className){
+         $this->userEntityClassName=$className;
+    }
+    
+
     /**
      * 
      * @return string
      */
-    public function getCommentEntityClass(){
+    public function getCommentEntityClassName(){
         return $this->commentEntityClass;
     }
 

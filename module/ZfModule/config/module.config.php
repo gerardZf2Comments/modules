@@ -53,7 +53,7 @@ return array(
             'comment' => array(
                 'type' => 'Segment',
                 'options' => array (
-                    'route' => '/comment[/:module-id]',
+                    'route' => '/comment',
                     'defaults' => array(
                         'controller' => 'ZfModule\Controller\Comment',
                         'action' => 'list',
@@ -69,6 +69,16 @@ return array(
                             
                             'defaults' => array(
                                 'action' => 'add',
+                            ),
+                        ),
+                    ),
+                    'add-reply' => array(
+                        'type' => 'Literal',
+                        'options' => array(
+                            'route' => '/add-reply',
+                            
+                            'defaults' => array(
+                                'action' => 'addReply',
                             ),
                         ),
                     ),

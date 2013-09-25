@@ -163,7 +163,15 @@ class Comment {
         $this->postRead($result);
         return $result;
     }
-     
+    public function getCommentEntityClass(){
+        return $this->options->getCommentEntityClassName();
+    }
+    public function getUserEntityClass(){
+        return $this->options->getUserEntityClassName();
+    }
+    public function getEntityManager(){
+        return $this->em;
+    }
 }
 
 ?>

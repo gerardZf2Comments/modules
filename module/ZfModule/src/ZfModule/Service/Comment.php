@@ -17,21 +17,55 @@ class Comment {
      * @param int $userId
      * @param int $moduleId
      * @param string $comment
+     * @param string title
      * @return type
      * @throws Exc
      */
-    public function add($userId, $moduleId, $comment){
+    public function add($userId, $moduleId, $comment, $title){
         $userId = (int) $userId;
         $moduleId = (int) $moduleId;
         $comment = (string) $comment;
+        $title = (string)$title;
+        $user = $this->getUserById($userId);
          /** @var \ZfModule\Entity\Comment */
         $commentEntity = $this->getCommentEntity();
-        $commentEntity->setUserId($userId);
+       // $parent = $this->getCommentEntity();
+        $userId = $user->getId();
+        $commentEntity->setUser($user);
+        
+        $user->getUserComments()->add($commentEntity);
         $commentEntity->setModuleId($moduleId);
         $commentEntity->setComment($comment);
+        $commentEntity->setTitle($title);
+    //    $commentEntity->setParent($parent);
+        $commentEntity->setHasParent(0);
+        return $this->getCommentMapper()->insert($commentEntity);
+    }
+    public function addReply($userId, $comment, $parentCommentId)
+    {
+        $userId = (int) $userId;
+        $parentCommentId = (int) $parentCommentId;
+        $comment = (string) $comment;
+        
+        
+        $commentMapper = $this->getCommentMapper();
+        $em = $commentMapper->getEntityManager();
+        $parentComment = $em->find( $commentMapper->getCommentEntityClass(), 
+                                  $parentCommentId);
+        $moduleId = $parentComment->getModuleId();
+        $user = $em->find('ZfcUserDoctrineORM\Entity\User', $userId);
+        /** @var \ZfModule\Entity\Comment */
+        $commentEntity = $this->getCommentEntity();
+        $userId = $user->getId();
+        $commentEntity->setUser($user);
+        $commentEntity->setModuleId($moduleId);
+        $commentEntity->setParent($parentComment);
+        $commentEntity->setComment($comment);
+        $commentEntity->setHasParent(1);
         
         return $this->getCommentMapper()->insert($commentEntity);
     }
+
     /**
      * 
      * @param int $userId
@@ -125,6 +159,18 @@ class Comment {
     public function getCommentEntity()
     {
         return $this->getServiceLocator()->get('zfmodule_entity_comment');
+    }
+     /**
+     * 
+     * @return \ZfcUserDoctrineORM\Entity\User
+     */
+    public function getUserById($id)
+    {
+        $commentMapper = $this->getCommentMapper();
+        $em = $commentMapper->getEntityManager();
+        
+        return $em->find( $commentMapper->getUserEntityClass(), 
+                                  $id);
     }
    
  }

@@ -1,2 +1,9 @@
-change pagination urls
-fix sidebar where new things are listed
+DONE :: change pagination urls
+DONE :: fix sidebar where new things are listed 
+create link that will paginate ajax search
+change code to pass on info to paginator
+
+finish comment ui html
+   -- add form form add new 
+   -- add form form edit probably the same as add new
+   -- check translation and escaping is correct - so far so good

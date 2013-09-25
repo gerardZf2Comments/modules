@@ -15,7 +15,8 @@ use Zend\View\Model\JsonModel;
 class CommentController extends AbstractActionController
 {
     
-/**
+    private $addReplySuccessTemplate = 'zf-module/helper/child-comment';
+    /**
      * @var \Doctrine\ORM\EntityManager
      */
     protected $em;
@@ -27,13 +28,13 @@ class CommentController extends AbstractActionController
     public function addAction()
     {
         if (!$this->zfcUserAuthentication()->hasIdentity()) {
-            return $this->redirect()->toRoute('zfcuser/login');
+          //  return $this->redirect()->toRoute('zfcuser/login');
         }
-        list($userId, $moduleId, $comment) = $this->basicInfo();
-        
-        $service = $this->getServiceLocator()->get('zfmodule_comment_service');
+        list($userId, $moduleId, $comment, $title) = $this->basicInfo();
+        $userId = 2;
+        $service = $this->getServiceLocator()->get('zfmodule_service_comment');
         try {
-             $success = $service->add($userId, $moduleId, $comment);
+             $success = $service->add($userId, $moduleId, $comment, $title);
         } catch (Exception $exc) {
             $this->renderAddExeception($exc);
         }
@@ -41,6 +42,27 @@ class CommentController extends AbstractActionController
         return $this->renderAddSuccess();        
         
     }
+    public function addReplyAction(){
+        if (!$this->zfcUserAuthentication()->hasIdentity()) {
+         //   return $this->redirect()->toRoute('zfcuser/login');
+        }
+        $userId = $this->zfcUserAuthentication()->getIdentity();
+        $parentCommentId = $this->params()->fromPost('parent-comment-id');
+        $comment = $this->params()->fromPost('comment');  
+        
+        $service = $this->getServiceLocator()->get('zfmodule_service_comment');
+        try {
+            $userId =2;
+            $parentCommentId=1;
+           
+             $success = $service->addReply($userId, $comment, $parentCommentId);
+        } catch (Exception $exc) {
+            $this->renderAddExeception($exc);
+        }
+      $template =  $this->getAddReplySuccessTemplate();
+        return $this->renderAddReplySuccess(array('comment' => $success), true, $template );       
+    }
+
     /**
      * gets info frm params and auth // return array($userId, $moduleId, $comment);
      * return array
@@ -48,10 +70,11 @@ class CommentController extends AbstractActionController
     public function basicInfo()
     {
         $userId = $this->zfcUserAuthentication()->getIdentity();
-        $moduleId = $this->params()->fromPost('module_id');
-        $comment = $this->params()->fromPost('user_id');
+        $moduleId = $this->params()->fromPost('module-id','');
+        $comment = $this->params()->fromPost('comment', '');
+        $title = $this->params()->fromPost('title' ,'');
         
-        return array($userId, $moduleId, $comment);
+        return array($userId, $moduleId, $comment, $title);
     }
      /**
      * 
@@ -102,14 +125,23 @@ class CommentController extends AbstractActionController
     {
         return $this->renderDefaultSucess();
     }
+   
+     public function renderAddReplySuccess($result, $termial=false,  $template='')
+    {
+        return $this->renderDefaultSuccess($result, true, $template);
+    }
     public function renderAddSucess()
     {
-        return $this->renderDefaultSucess();
+        return $this->renderDefaultSuccess();
     }
-    public function renderDefaultSucess()
+    public function renderDefaultSuccess($viewParams, $terminal=false, $template='')
     {
-        $view = new ViewModel(array('success' => 1));
-        $view->setTerminal(true);
+        $view = new ViewModel($viewParams);
+        $view->setTerminal($terminal);
+        if($template){
+           $view->setTemplate($template); 
+        }
+        return $view;
     }
     public function renderEditException()
     {
@@ -146,6 +178,9 @@ class CommentController extends AbstractActionController
         }
         
         return array('comments' => $comments);
+    }
+    public function getAddReplySuccessTemplate(){
+        return $this->addReplySuccessTemplate;
     }
     
 }

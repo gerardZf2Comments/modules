@@ -28,17 +28,17 @@ return array(
                          'type' =>  'Segment',
                        'options' => array( 
                        
-                        'route' => '/tag[/:query]',
+                        'route' => '/tag[/:query][/:page][/:limit]',
                         'defaults' => array(
                             'controller' => 'Application\Controller\Search',
                             'action' => 'tag',
                         ),
                     ),
                         ),
-                    'tagajax' => array(
+                    'tag-ajax' => array(
                         'type' =>  'segment',
                         'options' => array(
-                        'route' => '/tag-ajax[/:query]',
+                        'route' => '/tag-ajax[/:query][/:page][/:limit]',
                         'defaults' => array(
                             'controller' => 'Application\Controller\Search',
                             'action' => 'tagAjax',
@@ -48,7 +48,7 @@ return array(
                     'module' => array(
                         'type' =>  'segment',
                         'options' => array(
-                        'route' => '/module[/:query]',
+                        'route' => '/module[/:query][/:page][/:limit]',
                         'defaults' => array(
                             'controller' => 'Application\Controller\Search',
                             'action' => 'module',
@@ -58,7 +58,7 @@ return array(
                     'module-ajax' => array(
                         'type' =>  'segment',
                         'options' => array(
-                        'route' => '/module-ajax[/:query]',
+                        'route' => '/module-ajax[/:query][/:page][/:limit]',
                         'defaults' => array(
                             'controller' => 'Application\Controller\Search',
                             'action' => 'moduleAjax',

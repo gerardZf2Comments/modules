@@ -63,6 +63,10 @@ class Module implements AutoloaderProviderInterface
                      $options
                     );
                 },
+                'zfmodule_entity_comment'  => function ($sm) {
+                   $entity = new \ZfModule\Entity\Comment;
+                   return $entity;
+                },
                 'zfmodule_mapper_tag' => function ($sm) {
                     $options =   new \ZfModule\Options\ModuleOptions();
                     $options->setTagEntityClass('ZfModule\Entity\Tag');
@@ -73,7 +77,8 @@ class Module implements AutoloaderProviderInterface
                 },
                 'zfmodule_mapper_comment' => function ($sm) {
                     $options =   new \ZfModule\Options\ModuleOptions();
-                    $options->setCommentEntityClass('ZfModule\Entity\Comment');
+                    $options->setCommentEntityClassName('ZfModule\Entity\Comment');
+                    $options->setUserEntityClassName('ZfcUserDoctrineORM\Entity\User');
                     return new \ZfModule\Mapper\Comment(                            
                         $sm->get('doctrine.entitymanager.orm_default'),
                      $options

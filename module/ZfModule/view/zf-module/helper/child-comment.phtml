@@ -1,8 +1,10 @@
 <div class="module-child-comment-wrapper">
-            <div>
-                <span class="module-comments-username"><?=  $this->EscapeHtml($comment->getUser()->getUserName()) ?> </span>
-            </div>
-            <div>
-                <span class="module-comments-comment"><?=  $this->EscapeHtml($comment->getComment()) ?> </span>
-            </div> 
+    <div>
+        <span class="module-comments-username">
+            <strong><?= $this->EscapeHtml($comment->getUser()->getUserName()) ?> </strong>
+        </span>
+    </div>
+    <div>
+        <span class="module-comments-comment"><?= $this->EscapeHtml($comment->getComment()) ?> </span>
+    </div> 
 </div><!-- end class="module-comment-wrapper" -->

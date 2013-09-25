@@ -76,13 +76,14 @@ class SearchController extends AbstractActionController
     }
     /**
      * instanciate a paginator with array addaper
+     * set the page and limit
      * @param array $modules
      * @return \Zend\Paginator\Paginator
      */
     public function getPaginator(array $modules) 
     {
-        $currentPage = (int)$this->params()->fromQuery('page', 1);
-        $itemCountPerPage = (int) $this->params()->fromQuery('limit', 15);
+        $currentPage = (int)$this->params()->fromRoute('page', 1);
+        $itemCountPerPage = (int) $this->params()->fromRoute('limit', 15);
         $adapter = new \Zend\Paginator\Adapter\ArrayAdapter($modules);
         $paginator = new \Zend\Paginator\Paginator($adapter);
         $paginator->setCurrentPageNumber($currentPage);

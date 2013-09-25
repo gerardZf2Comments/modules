@@ -7,12 +7,12 @@
                     <?php if(isset($this->previous)): ?>
                     <!-- First page link -->
                     <li>
-                        <a href="<?php echo $this->url('home/query', array('page' => $this->first, 'query' => $query)); ?>">&lt;&lt; First</a>
+                        <a class="module-search-pagination-link" href="<?php echo $this->url('gol-search/module-ajax', array('page' => $this->first, 'query' => $query, /* 'limit'=> $limit, */)); ?>">&lt;&lt; First</a>
                     </li>
 
                     <!-- Previous page link -->
                     <li>
-                        <a href="<?php echo $this->url('home/query', array('page' => $this->previous,'query' => $query)); ?>">Previous &gt;</a>
+                        <a class="module-search-pagination-link" href="<?php echo $this->url('gol-search/module-ajax', array('page' => $this->previous,'query' => $query, /* 'limit'=> $limit, */)) ?>">Previous &gt;</a>
                     </li>
                     <?php endif; ?>
 
@@ -20,19 +20,19 @@
                     <!-- Numbered page links -->
                     <?php foreach ($this->pagesInRange as $page): ?>
                     <li<?php echo ($page == $this->current) ? ' class="active"' : ''; ?>>
-                        <a href="<?php echo $this->url('home/query', array('page' => $page, 'query' => $query)); ?>"><?php echo $page; ?></a>
+                        <a class="module-search-pagination-link" href="<?php echo $this->url('gol-search/module-ajax', array( 'query' => $query, 'page' => $page,/* 'limit'=> $limit, */)); ?>"><?php echo $page; ?></a>
                     </li>
                     <?php endforeach; ?>
 
                     <?php if(isset($this->next)): ?>
                     <!-- Next page link -->
                     <li>
-                        <a href="<?php echo $this->url('home/query', array('page' => $this->next,'query' => $query)); ?>">Next &gt;</a>
+                        <a class="module-search-pagination-link" href="<?php echo $this->url('gol-search/module-ajax', array( 'query'=>$query, 'page' => $this->next,/* 'limit'=> $limit, */)); ?>">Next &gt;</a>
                     </li>
 
                     <!-- Last page link -->
                     <li>
-                        <a href="<?php echo $this->url('home/query', array('page' => $this->last, 'query' => $query)); ?>">Last &gt;&gt;</a>
+                        <a class="module-search-pagination-link" href="<?php echo $this->url('gol-search/module-ajax', array('page' => $this->last, 'query' => $query, /* 'limit'=> $limit, */)); ?>">Last &gt;&gt;</a>
                     </li>
                     <?php endif; ?>
                 </ul>

@@ -9,17 +9,38 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class Comment {
     protected $hasParent;
-    protected $parentId;
-    protected $parentComments;
+    protected $parent;
     
-    protected $childComments;
+    protected $title;
+    protected $children;
     protected $id;
     protected $moduleId;
     protected $user;
     protected $comment;
     protected $createdAt;
     //protected $updatedAt;
-    
+    public function __construct() {
+        // $this->parent = new \ArrayObject;
+    }
+    public function getTitle(){
+        return $this->title;
+    }
+    public function getChildren(){
+        return $this->children;
+    }
+    public function setChildren($children){
+        $this->children = $children;
+        return $this;
+    }
+
+    public function setTitle($title){
+        $this->title = $title;
+        return $this;
+    }
+
+    public function getParent(){
+        return $this->parent;
+    }
     public function getChildComments(){
         return $this->childComments;
     }
@@ -42,14 +63,14 @@ class Comment {
        return $this->user; 
     }
     public function setUser($user){
-        $this->userid = $user;
+        $this->user = $user;
         return $this;
     }
     public function getComment(){
        return $this->comment;
     }
     public function setComment($comment){
-        $this->comment;
+        $this->comment=$comment;
         return $this;
     }
     public function getCreatedAt(){
@@ -58,6 +79,21 @@ class Comment {
     public function setCreatedAt($createdAt){
         $this->createdAt;
         return $this;
+    }
+    public function setParent($parent){
+        $this->parent=$parent;
+        return $this;
+    }
+    /**
+     * 
+     * @param int $hasParent
+     */
+    public function setHasParent($hasParent){
+        $this->hasParent = $hasParent;
+        return $this;
+    }
+    public function getHasParent(){
+        return $this->hasParent;
     }
     
 }

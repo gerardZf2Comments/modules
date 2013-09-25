@@ -5,12 +5,12 @@
                 <div class="span5 module-author">
                     <div class="row-fluid">
                         <div class="span2">
-                            <img src="<?=$module['photo_url']?>" alt="<?php echo $module['name']?>" />
+                            <img src="<?= $this->EscapeHtml($module['photo_url']) ?>" alt="<?= $this->EscapeHtml($module['name']) ?>" />
                         </div>
                         <div class="span10">
-                            <strong><?php echo $module['owner']?></strong>
+                            <strong><?= $this->EscapeHtml($module['owner'])?></strong>
                             <p>
-                                <span class="author-label">Github:</span>
+                                <span class="author-label"><?= $this->translate('Github') ?>:</span>
                                 <a href="<?php echo $module['url']?>"><?=$module['name']?></a><br />
                                 <!--
                                 <span class="author-label">Blog:</span> <a>placeholder</a><br />
@@ -21,10 +21,10 @@
                     </div>
                 </div>
                 <div class="span5">
-                    <strong><?php echo $module['name']?></strong>
+                    <strong><?= $this->EscapeHtml($module['name'])?></strong>
                     <p>
                         <!--<span class="author-label">Version:</span> 1.2.1<br />-->
-                        <span class="author-label">Created:</span>
+                        <span class="author-label"><?= $this->translate('Created') ?> :</span>
                         <?php
                         $date = new DateTime($module['created_at']);
                         echo $date->format('Y-m-d');
@@ -42,14 +42,14 @@
                     <?php if($button == 'submit') {
                     ?>
                     <form action="<?=$this->url('zf-module/add')?>" method="post">
-                        <input type="hidden" name="owner" value="<?=$module['owner']?>" />
-                        <input type="hidden" name="repo" value="<?=$module['name']?>" />
+                        <input type="hidden" name="owner" value="<?=$this->EscapeHtml($module['owner'])?>" />
+                        <input type="hidden" name="repo" value="<?=$this->EscapeHtml($module['name'])?>" />
                         <input type="submit" class="btn btn-success"/>
                     </form>
                     <?php } else { ?>
                     <form action="<?php echo $this->url('zf-module/remove')?>" method="post">
-                        <input type="hidden" name="owner" value="<?=$module['owner']?>" />
-                        <input type="hidden" name="repo" value="<?=$module['name']?>" />
+                        <input type="hidden" name="owner" value="<?=$this->EscapeHtml($module['owner'])?>" />
+                        <input type="hidden" name="repo" value="<?=$this->EscapeHtml($module['name'])?>" />
                         <input type="submit" value="Remove" class="btn btn-danger"/>
                     </form>
                     <?php }?>
@@ -61,7 +61,7 @@
             <div class="module-description">
                 <div class="span12">
                     <p>
-                        <?=$module['description']?>
+                        <?=$this->EscapeHtml($module['description'])    ?>
                     </p>
                 </div>
                 <div style="clear: both;"></div>
