@@ -38,7 +38,7 @@ class ModuleSearch extends EventProvider implements ServiceLocatorAwareInterface
     /**
      * 
      * @param \ZfModule\Options\ModuleOptions $options
-     * @return \ZfModule\Service\ModuleSearch
+     * @return \ZfModule\Service\Search\ModuleSearch
      */
     public function setOptions( \ZfModule\Options\ModuleOptions $options)
     {
@@ -142,7 +142,7 @@ class ModuleSearch extends EventProvider implements ServiceLocatorAwareInterface
      * 
      * @param array||null $cachable
      * @param string $query 
-     * @return \ZfModule\Service\ModuleSearch
+     * @return \ZfModule\Service\Search\ModuleSearch
      */
     public function cacheResults($cachable, $query)
     {
@@ -200,7 +200,7 @@ class ModuleSearch extends EventProvider implements ServiceLocatorAwareInterface
     /**
      * 
      * @param \Zend\ServiceManager\ServiceLocatorInterface $sm
-     * @return \ZfModule\Service\ModuleSearch
+     *  @return \ZfModule\Service\Search\ModuleSearch
      */
     public function setServiceLocator(ServiceLocatorInterface $sm) 
     {

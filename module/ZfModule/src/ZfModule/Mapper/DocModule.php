@@ -68,11 +68,11 @@ class DocModule extends Module
          // add where to retrict the search
         if ($query) {
             $where = $qb->expr()->orx(
-                                  $qb->expr()->like('m.name', ':query'), 
-                                  $qb->expr()->like('m.description', ':query')
+                                  $qb->expr()->like('m.name', '%:query%'), 
+                                  $qb->expr()->like('m.description', '%:query%')
                     );
             $qb->add('where',$where);
-            $qb->setParameter('query', $query.'%');
+            $qb->setParameter('query', $query);
         }
          
          /** @var q \Doctrine\ORM\Query */

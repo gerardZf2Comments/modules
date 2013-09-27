@@ -47,6 +47,9 @@ class CommentReply extends Form {
                 'id' => 'submitbutton',
             ),
         ));
+        //      this message would not be used if a validator had a message for 
+        //      the same element. can set messages later
+        //      $this->setMessages(array('comment' => array('error message')));
     }
 
     public function getInputFilter() {
@@ -67,17 +70,11 @@ class CommentReply extends Form {
                     array('name' => 'StringTrim'),
                 ),
                 'validators' => array(
-                    array(
-                        'name' => 'StringLength',
-                        'options' => array(
-                            'encoding' => 'UTF-8',
-                            'min' => 1,
-                            'max' => 10000,
-                        ),
-                       'messages' => array( 'error meassage'),
+                $this->getCommentStringLengthValidator(),
+                     
                     ),
-                    $this->getMessageValidator(),
-                ),
+                   
+               
             ));
             
             $this->inputFilter = $inputFilter;
@@ -88,6 +85,22 @@ class CommentReply extends Form {
        $mv = new Digits;
        $mv->setMessage('why why why ');
        return $mv;
+    }
+    /**
+     * 
+     * @return \Zend\Validator\StringLength
+     */
+    public function getCommentStringLengthValidator()
+    {
+        $validator = new \Zend\Validator\StringLength();
+        $validator->setEncoding('UTF-8');
+        $validator->setMin(1);
+        $validator->setMax(5000);
+        
+        $validator->setMessage('you must submit more a longer message');
+       
+        return $validator;
+       
     }
 
 }

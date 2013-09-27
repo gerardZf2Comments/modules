@@ -5,7 +5,7 @@ namespace ZfModule\Controller;
 use Exception;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use ZfModule\View\Model\Exception as Exception2;
+use ZfModule\View\Model\Exception;
 
 
 /**
@@ -108,7 +108,7 @@ class CommentController extends AbstractActionController
             ));
             $userId= 2;
             if(!$form->isValid()){
-               $form->setMessages(array('error message'));
+            
                 return $this->renderAddReplyValidationFailed($form);
             } 
             $userId =2;

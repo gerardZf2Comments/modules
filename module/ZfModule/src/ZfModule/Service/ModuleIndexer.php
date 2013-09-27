@@ -35,7 +35,7 @@ class ModuleIndexer extends EventProvider implements ServiceLocatorAwareInterfac
     /**
      * 
      * @param \ZfModule\Options\ModuleOptions $options
-     * @return \ZfModule\Service\ModuleSearch
+     * @return \ZfModule\Service\Search\ModuleIndexer
      */
     public function setOptions( \ZfModule\Options\ModuleOptions $options)
     {

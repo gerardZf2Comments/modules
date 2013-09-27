@@ -14,13 +14,13 @@ if ($paginator->count()) {
                         <div class="span6 module-author">
                             <div class="row-fluid">
                                 <div class="span2">
-                                    <img src="<?= $this->EscapeHtml( $module['photoUrl'] )?>" alt="<?= $this->EscapeHtml($module['owner']) ?>">
+                                    <img src="<?= $this->EscapeHtml($module->getPhotoUrl() )?>" alt="<?= $this->EscapeHtml($module->getOwner()) ?>">
                                 </div>
                                 <div class="span10">
-                                    <strong><<?= $this->EscapeHtml($module['owner'])?></strong>
+                                    <strong><?= $this->EscapeHtml($module->getOwner() )?></strong>
                                     <p>
                                         <span class="author-label"><?= $this->translate('Github') ?>:</span>
-                                        <a href="<?php echo $module['url']?>"><?= $this->EscapeHtml($module['name'])?></a>
+                                        <a href="<?= $this->EscapeHtml($module->getUrl())?>"><?= $this->EscapeHtml($module->getName() )?></a>
                                         <!--
                                   <span class="author-label">Blog:</span> <a>placeholder</a><br />
                                   <span class="author-label">Modules:</span> <a>5</a><br /><br />
@@ -30,17 +30,15 @@ if ($paginator->count()) {
                             </div>
                         </div>
                         <div class="span6">
-                            <strong><a href="<?php
-                                            echo
-                                            $this->url('view-module', array(
-                                                    'vendor' => $module['owner'],
-                                                    'module' =>  $module['name'],
-                                                )
-                                            );?>"><?= $this->EscapeHtml($module['name']) ?></a></strong>
+                            <strong><a href="<?= $this->url('view-module',
+                                                             array('vendor' => $module->getOwner(),
+                                                                   'module' =>  $module->getName(),
+                                                                  )
+                                            );?>"><?= $this->EscapeHtml($module->getName())?></a></strong>
                             <p>
                                 <!--<span class="author-label">Version:</span> 1.2.1<br />-->
                                  <span class="author-label"><?= $this->translate('Created') ?>:</span> <?php
-                                                            $date =  $module['createdAt']; 
+                                                            $date =  $module->getCreatedAt(); 
                                                             echo $date->format('Y-m-d');
                                                             ?><br>
                                 <!--<span class="author-label">Edited:</span> <a>15 days ago</a><br />
@@ -58,7 +56,7 @@ if ($paginator->count()) {
                     <div class="module-description">
                         <div class="span12">
                             <p>
-                               <?= $this->EscapeHtml( $module['description'])?>
+                                <?= $this->EscapeHtml($module->getDescription() )?>
                             </p>
                         </div>
                         <div style="clear: both;"></div>
@@ -66,7 +64,9 @@ if ($paginator->count()) {
                 </div>
             </div>
             
+        <!-- </div> - commented because the page rendering seems wrong -->
         </div>
-           
-      <?php } // end -foreach($this->modules as $module) { ?>
+        
+    
+            <?php } // end -foreach($this->modules as $module) { ?>
 <?php echo $this->paginationControl($this->paginator, 'Sliding', 'application/index/pagination', array('query' =>$query)); ?>

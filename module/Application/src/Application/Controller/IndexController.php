@@ -18,29 +18,21 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-        $query =  $this->params()->fromQuery('query','cunt');
+   
+        $query =  $this->params()->fromQuery('query', null);
 
-         $em = $this->getServiceLocator()->get('zfcuser_user_mapper');
-     $users = $em->findById(2);
         $page = (int) $this->params()->fromRoute('page', 1);
-        $modules= $this->getModules($query);
-        $modules = ($modules) ? $modules : array();
-        
-        $adapter = new \Zend\Paginator\Adapter\ArrayAdapter($modules);
-        $paginator = new \Zend\Paginator\Paginator($adapter);
-        $paginator->setCurrentPageNumber($page);
-        $paginator->setItemCountPerPage(15);
-        /*
         $sm = $this->getServiceLocator();
         $mapper = $this->getServiceLocator()->get('zfmodule_mapper_module');
 
-        $repositories = $mapper->pagination($page, 15, $query, 'createdAt', 'DESC');
-        $repositories = $this->getServiceLocator()->get('zfmodule_service_module');
-         */
+        $paginator = $mapper->pagination($page, 15, $query, 'createdAt', 'DESC');
+        $modules = $paginator->getCurrentItems();
         return array(
-            'repositories' => $paginator,
+            'paginator' =>  $paginator,
+            'modules' => $modules,
             'query' => $query,
         );
+    
     }
   /**
      * 

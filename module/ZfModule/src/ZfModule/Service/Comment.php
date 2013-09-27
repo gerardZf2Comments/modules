@@ -135,7 +135,7 @@ class Comment {
     /**
      * 
      * @param \Zend\ServiceManager\ServiceLocatorInterface $sm
-     * @return \ZfModule\Service\ModuleSearch
+     * @return \ZfModule\Service\Search\ModuleSearch
      */
     public function setServiceLocator(ServiceLocatorInterface $sm) 
     {
