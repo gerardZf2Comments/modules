@@ -64,10 +64,10 @@ class Comment extends \ZfModule\Entity\Comment implements \Doctrine\ORM\Proxy\Pr
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', 'hasParent', 'parentId', 'parentComments', 'childComments', 'id', 'moduleId', 'user', 'comment', 'createdAt');
+            return array('__isInitialized__', 'hasParent', 'parent', 'title', 'children', 'id', 'moduleId', 'user', 'comment', 'createdAt');
         }
 
-        return array('__isInitialized__', 'hasParent', 'parentId', 'parentComments', 'childComments', 'id', 'moduleId', 'user', 'comment', 'createdAt');
+        return array('__isInitialized__', 'hasParent', 'parent', 'title', 'children', 'id', 'moduleId', 'user', 'comment', 'createdAt');
     }
 
     /**
@@ -173,6 +173,61 @@ class Comment extends \ZfModule\Entity\Comment implements \Doctrine\ORM\Proxy\Pr
     }
 
     
+    /**
+     * {@inheritDoc}
+     */
+    public function getTitle()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTitle', array());
+
+        return parent::getTitle();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getChildren()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getChildren', array());
+
+        return parent::getChildren();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setChildren($children)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setChildren', array($children));
+
+        return parent::setChildren($children);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setTitle($title)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTitle', array($title));
+
+        return parent::setTitle($title);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getParent()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getParent', array());
+
+        return parent::getParent();
+    }
+
     /**
      * {@inheritDoc}
      */
@@ -292,6 +347,39 @@ class Comment extends \ZfModule\Entity\Comment implements \Doctrine\ORM\Proxy\Pr
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCreatedAt', array($createdAt));
 
         return parent::setCreatedAt($createdAt);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setParent($parent)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setParent', array($parent));
+
+        return parent::setParent($parent);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setHasParent($hasParent)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setHasParent', array($hasParent));
+
+        return parent::setHasParent($hasParent);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getHasParent()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getHasParent', array());
+
+        return parent::getHasParent();
     }
 
 }

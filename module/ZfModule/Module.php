@@ -69,7 +69,7 @@ class Module implements AutoloaderProviderInterface
                 },
                 'zfmodule_mapper_tag' => function ($sm) {
                     $options =   new \ZfModule\Options\ModuleOptions();
-                    $options->setTagEntityClass('ZfModule\Entity\Tag');
+                    $options->setTagEntityClassName('ZfModule\Entity\Tag');
                     return new \ZfModule\Mapper\Tag(                            
                         $sm->get('doctrine.entitymanager.orm_default'),
                      $options
@@ -95,12 +95,104 @@ class Module implements AutoloaderProviderInterface
                          */
                 'zfmodule_service_module' => function($sm) {
                     $service = new  Service\Module;
+                   
                     return $service;
                 },
-                 'zfmodule_service_comment' => function($sm) {
-                    $service = new Service\Comment();
-                    $service->setServiceLocator($sm);
-                    return $service;
+                  'zfmodule_service_module_search' => function($sm) {
+                      $service = new \ZfModule\Service\ModuleSearch();
+                      $options =   new \ZfModule\Options\ModuleOptions();
+                      $service->setOptions($options);
+                      $service->setServiceLocator($sm);
+                      return $service;
+                  },
+                  'zfmodule_view_model_exception' =>function($sm){
+                      $viewModel = new \ZfModule\View\Model\Exception();
+                      $options =   new \ZfModule\Options\ModuleOptions();
+                      // $template =  $options->getViewExceptionTemplateName();
+                      $template = 'zf-module/exception/base';
+                      $viewModel->setTemplate($template);
+                      
+                      return $viewModel;
+                      },
+                    'zfmodule_view_model_comment' =>function($sm)
+                    {
+                        $viewModel = new \ZfModule\View\Model\Comment\Comment();
+                        $options =   new \ZfModule\Options\ModuleOptions();
+                         // $template =  $options->getViewAddSuccessTemplateName();
+                        $template = 'zf-module/comment/comment';
+                        $viewModel->setTemplate($template);
+                        $replyFormView = $sm->get('zfmodule_view_model_comment_reply_form');
+                        $viewModel->addChild($replyFormView, 'replyForm');
+                      
+                        return $viewModel;
+                    },
+                    'zfmodule_view_model_comment_form' =>function($sm)
+                    {
+                     //   $viewModel = new \ZfModule\View\Model\Comment\CommentForm();
+                         $viewModel = new \Zend\View\Model\ViewModel;
+                        $options =   new \ZfModule\Options\ModuleOptions();
+                         // $template =  $options->getViewAddSuccessTemplateName();
+                        $template = 'zf-module/comment/comment-form';
+                        $viewModel->setTemplate($template);
+                        $viewModel->setVariable('commentForm', $sm->get('zfmodule_form_comment_form'));
+                        return $viewModel;
+                    },
+                    'zfmodule_view_model_comment_reply_form' =>function($sm)
+                    {
+                       // $viewModel = new \ZfModule\View\Model\Comment\ReplyForm();
+                         $viewModel = new \Zend\View\Model\ViewModel;
+                        $options =   new \ZfModule\Options\ModuleOptions();
+                         // $template =  $options->getViewAddSuccessTemplateName();
+                        $template = 'zf-module/comment/reply-form';
+                        $viewModel->setTemplate($template);
+                        $viewModel->setVariable('replyForm', $sm->get('zfmodule_form_comment_reply_form'));
+                        return $viewModel;
+                    },
+                    'zfmodule_form_comment_reply_form' => function($sm){
+                        $form = new \ZfModule\Form\CommentReply();
+                        
+                        return $form;
+                    },
+                    'zfmodule_form_comment_form' => function($sm){
+                        $form = new \ZfModule\Form\Comment();
+                        
+                        return $form;
+                    },
+                    'zfmodule_view_model_reply' =>function($sm)
+                    {
+                        $viewModel = new \ZfModule\View\Model\Comment\Reply();
+                        $options =   new \ZfModule\Options\ModuleOptions();
+                         // $template =  $options->getViewAddReplySuccessTemplateName();
+                        $template = 'zf-module/comment/child-comment';
+                        $viewModel->setTemplate($template);
+                      
+                        return $viewModel;
+                    },
+                    'zfmodule_service_search_module_search' => function($sm){
+                        $service = new \ZfModule\Service\ModuleSearch();
+                        $service->setServiceLocator($sm);
+                        /** @todo replace all these new Options with ->get('')
+                          $options = $sm->get('')
+                          */
+                        $options =   new \ZfModule\Options\ModuleOptions();
+                        $service->setOptions($options);
+                        return $service;
+                    },
+                    'zfmodule_service_search_module_indexer' => function($sm){
+                        $service = new \ZfModule\Service\ModuleIndexer;
+                        $service->setServiceLocator($sm);
+                        /** @todo replace all these new Options with ->get('')
+                          $options = $sm->get('')
+                          */
+                        $options =   new \ZfModule\Options\ModuleOptions();
+                        $service->setOptions($options);
+                        return $service;
+                    },
+                    'zfmodule_service_comment' => function($sm) {
+                        $service = new Service\Comment();
+                        $service->setServiceLocator($sm);
+                   
+                        return $service;
                 },
                 'zfmodule_service_repository' => function($sm) {
                     $service = new Service\Repository;

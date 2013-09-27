@@ -11,8 +11,9 @@ use Zend\Stdlib\Hydrator\ClassMethods;
 use ZfcBase\EventManager\EventProvider;
 
 /**
- * Description of ModuleIndexer
- *
+ * creates lucene indexes
+ * using module config and mappers
+ *@todo refactor location and test
  * @author gerard
  */
 class ModuleIndexer extends EventProvider implements ServiceLocatorAwareInterface 
@@ -21,13 +22,46 @@ class ModuleIndexer extends EventProvider implements ServiceLocatorAwareInterfac
     //works frm base of vendor or module directory of a 
     //normal sample app
     protected $indexPath;
+    /**
+     *
+     * @var \ZendSearch\Lucene\Index
+     */
+    protected $index;
+/**
+     * @var ZfModule\Options\ModuleOptions
+     */
+    protected $options;
     
-    protected $index = null;
+    /**
+     * 
+     * @param \ZfModule\Options\ModuleOptions $options
+     * @return \ZfModule\Service\ModuleSearch
+     */
+    public function setOptions( \ZfModule\Options\ModuleOptions $options)
+    {
+        $this->options = $options;
+        return $this;
+    }
+    /**
+     * 
+     * @return ZfModule\Options\ModuleOptions
+     */
+    public function getOptions()
+    {
+        return $this->options;
+    }
 
-    public function getIndexPath(){
-        $options = new \ZfModule\Options\ModuleOptions;
-         return $options->getModuleIndexPath();
-} 
+    /**
+     * get the module index path from options
+     * @return string
+     */
+    public function getIndexPath()
+    {        
+         return $this->getOptions()->getModuleIndexPath();
+    }
+    /**
+     * add all the module to the index
+     */
     public function addAll() 
     {
         $this->initIndex(true);
@@ -38,6 +72,8 @@ class ModuleIndexer extends EventProvider implements ServiceLocatorAwareInterfac
             $this->addToModuleIndex($entity);
         }
         $this->optimizeIndex();
+        
+        return $this;
     }
 
     /**
@@ -47,7 +83,7 @@ class ModuleIndexer extends EventProvider implements ServiceLocatorAwareInterfac
      */
     public function optimizeIndex() 
     {
-        $this->index->optimize();
+        return $this->index->optimize();
     }
     /**
      * return $this->getIndex($this->indexPath, $create);
@@ -74,6 +110,7 @@ class ModuleIndexer extends EventProvider implements ServiceLocatorAwareInterfac
      * @param string $path
      * @param bool $create
      * @return ZendSearch\Lucene\Index
+     * @todo move new Index to service manager
      */
     public function getIndex( $path = null, $create = false )
     {
@@ -89,8 +126,7 @@ class ModuleIndexer extends EventProvider implements ServiceLocatorAwareInterfac
      * @return string
      */
     public function getTags( ModuleInterface $entity ) 
-    {
-        
+    {        
         $tags = $entity->getTags();
         
         $finalTag = '';

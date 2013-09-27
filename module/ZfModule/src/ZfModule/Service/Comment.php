@@ -6,8 +6,8 @@ use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**
- * Description of Comment
- *
+ * manages comments coupled with a entity manager +more
+ *@todo test
  * @author gerard
  */
 class Comment {

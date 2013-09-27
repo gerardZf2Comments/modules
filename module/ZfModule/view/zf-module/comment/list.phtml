@@ -1,18 +1,1 @@
-<?php $comments = $this->comments ?>
-<?php if ($comments) { ?>
-    
-<div class="comment-wrapper">
-    
-        <?php foreach ($comments as $key => $comment) { ?>
-        
-        <div class="comment-container comment<?= $key ?>">
-        <!--  end comment-content -->  
-        <span class="comment" ><?= $comment->getComment() ?></span> 
-        <span class="user"><?= $comment->getUser()->getUserName() ?> </span>
-        
-        </div><!--  end comment-container -->     
 
-    <?php }  // end foreach ?>
-       
-    </div> <!--  end comment-wrapper -->
-<?php } // end if ?>

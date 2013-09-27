@@ -14,8 +14,13 @@ use ZfcBase\EventManager\EventProvider;
  * @author gerard
  * @todo find 2 level cache with same methods as files \Zend\Cache\Storage\Adapter\Filesystem
  * @todo find view/model caching module
+ * *@todo refactor location and test
  */
-class TagSearch extends EventProvider implements ServiceLocatorAwareInterface {
+class TagSearch extends EventProvider implements ServiceLocatorAwareInterface 
+{
+    /**
+     * @var ServiceLocator
+     */
     protected $serviceLocator;
     
     /**

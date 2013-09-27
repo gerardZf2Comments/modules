@@ -1,74 +1,35 @@
-<?php $comments = $this->comments; ?>
+<div class="comment-wrapper">
+    <div>
+        <span class="comment-discriptor-label"><?= $this->translate('Title') ?> : </span>
+        <span class="module-comments-title"><strong><?= $this->EscapeHtml($comment->getTitle()) ?></strong> </span>
+    </div>
+    <div> 
+        <span class="comment-discriptor-label"><?= $this->translate('Username') ?> : </span>
+        <span class="module-comments-username"><strong><?= $this->EscapeHtml($comment->getUser()->getUserName()) ?></strong> </span>
+    </div>
+    <div>
+        <span class="module-comments-comment"><?= $this->EscapeHtml($comment->getComment()) ?> </span>
+    </div> 
 
-<div id="module-comments-wrapper" class="block">
-    <div class="row">
-        <div class="span4">
-            <span class="module-comments-title"><?= $this->translate('Comments') ?></span>
-        </div><!-- end // class="span4" -->
-    </div><!-- end // class="row" -->
+    <div class="child-comments-wrapper" parent-id="<?= $comment->getId() ?>">
+    <div class="child-comments" >
+        <?php 
+        //loop the child comments 
+        foreach ($comment->getChildren() as $childComment) {
+            echo $this->partial('zf-module/comment/child-comment.phtml', array('comment' => $childComment));
+        }
+        ?>
+    </div><!-- end - class="child-comments"-->
 
-    <?php
-    if (count($comments)) {
-        //loop to display comments
-        foreach ($comments as $key => $comment) {
-            ?>
-
-            <div class="comment-wrapper">
-                <div>
-                    <h5 class="module-comments-title"><strong><?= $this->EscapeHtml($comment->getTitle()) ?></strong> </h5>
-                </div>
-                <div>
-                    <span class="module-comments-username"><strong><?=   $this->EscapeHtml($comment->getUser()->getUserName()) ?></strong> </span>
-                </div>
-                <div>
-                    <span class="module-comments-comment"><?= $this->EscapeHtml($comment->getComment()) ?> </span>
-                </div> 
-
-
-                <div class="child-comments">
-                    <?php
-                    //loop the child comments 
-
-
-                    foreach ($comment->getChildren() as $childComment) {
-                        echo $this->partial('zf-module/helper/child-comment.phtml', array('comment' => $childComment));
-                    }
-                    ?>
-                </div><!-- end - class="child-comments"-->
-
-                <span class="show-hide-child-comments-button"><?= $this->translate('Show Replies') ?></span>
-                <span> || </span>
-                <span class="reply-to-comment-button"><?= $this->translate('Reply') ?></span>
-                <?php if($this->zfcUserIdentity()) { ?>
-                <form action="/comment/add-reply" method="post"class="reply-to-comment-form">
-                    <input type="hidden" name="parent-comment-id"value="<?= $comment->getModuleId() ?>" />
-                    <textarea class="reply-to-comment-form-input"type="text" name="comment"></textarea>
-                    <input class="reply-to-comment-form-input" type="submit" value="post">
-                </form>
-                 <?php } else { ?>
+    <span class="show-hide-child-comments-button comment-button"><?= $this->translate('Show Replies') ?></span>
+    <span> || </span>
+    <span class="reply-to-comment-button comment-button"><?= $this->translate('Reply') ?></span>
+    <?php if ($this->zfcUserIdentity() || 1) { ?>
+    <?=  $this->renderChildModel('replyForm') ?>
+       
+    <?php } else { ?>
         <a><?= $this->translate('Login to reply') ?></a>
-         <?php } // end else ?>
-                <hr>
-            </div><!-- end - class="comment-wrapper" -->
-
-        <?php } // - foreach ($comments as $key => $comment) { ?>
-
-    <?php } else { // end - if (count($comments)){  ?> 
-        <span class="module-comments-no-comments"><?= $this->translate('Be the first') ?></span>
-
-<?php } // end else   ?>
-        <?php if($this->zfcUserIdentity()) { ?>
-        <span class="new-comment-button"><strong><?= $this->translate('New Comment') ?></strong></span>
-   
-        <form action="/comment/add" method="post" class="add-new-comment-form">
-        <label><?= $this->translate('Title') ?></label>
-        <input type="hidden" name="module-id" value="<?= $comment->getModuleId() ?>" >
-        <input type="text" name="title" >
-        <label><?= $this->translate('Comment') ?></label>
-        <textarea class="reply-to-comment-form-input"type="text" name="comment"></textarea>
-        <input class="reply-to-comment-form-input" type="submit" value="post">
-    </form>
-         <?php } else { ?>
-        <a><?= $this->translate('Login to add new comment') ?></a>
-         <?php } // end else ?>
-</div><!-- end - id="module-comments-wrapper" -->
+<?php } // end else  ?>
+    <hr>
+    </div><!-- end - class="child-comments-wrapper" -->
+</div><!-- end - class="comment-wrapper" -->

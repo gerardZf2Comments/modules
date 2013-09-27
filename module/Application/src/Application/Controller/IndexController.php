@@ -49,8 +49,7 @@ class IndexController extends AbstractActionController
      */
     public function getModules($query)
     {
-        $service = new \ZfModule\Service\ModuleSearch();
-        $service->setServiceLocator($this->getServiceLocator());
+        $service =$this->getServiceLocator()->get('zfmodule_service_module_search');
           
         return $service->search($query); 
     }

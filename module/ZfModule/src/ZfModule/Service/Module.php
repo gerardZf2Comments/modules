@@ -7,7 +7,9 @@ use Zend\ServiceManager\ServiceLocatorInterface;;
 use Zend\Stdlib\Hydrator\ClassMethods;
 use ZfcBase\EventManager\EventProvider;
 use ZfModule\Mapper\ModuleInterface as ModuleMapperInterface;
-
+/**
+ * @todo test
+ */
 class Module extends EventProvider implements ServiceLocatorAwareInterface
 {
 

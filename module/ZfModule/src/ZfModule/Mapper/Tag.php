@@ -8,7 +8,7 @@ use ZfModule\Options\ModuleOptions;
 use Zend\Stdlib\Hydrator\HydratorInterface;
 
 
-class Tag  //implements ModuleInterface
+class Tag  
 {
     
     /**
@@ -21,7 +21,7 @@ class Tag  //implements ModuleInterface
      */
     protected $options;
 
-    /**
+      /**
      * 
      * @param \Doctrine\ORM\EntityManager $em
      * @param \ZfModule\Options\ModuleOptions $options
@@ -30,6 +30,50 @@ class Tag  //implements ModuleInterface
     {
         $this->em = $em;
         $this->options = $options;
+    }
+    /**
+     * 
+     * @param object $entity
+     * @return object
+     */
+    public function insert($entity, $tableName = null, HydratorInterface $hydrator = null) {
+        return $this->persist($entity);
+    }
+     /**
+     * 
+     * @param object $entity
+     * @return object
+     */
+    public function update($entity, $where = null, $tableName = null, HydratorInterface $hydrator = null) {
+        return $this->persist($entity);
+    }
+     /**
+     * 
+     * @param object $entity
+     * @return object
+     */
+    protected function persist($entity) {
+        $this->em->persist($entity);
+        $this->em->flush();
+
+        return $entity;
+    }
+     /**
+     * Removes an entity instance.
+     *
+     * A removed entity will be removed from the database at or before transaction commit
+     * or as a result of the flush operation.
+     *
+     * @param object $entity The entity instance to remove.
+     *
+     * @return void
+     *
+     * @throws ORMInvalidArgumentException
+     */
+    public function delete($entity)
+    {
+       $this->em->remove($entity);
+       $this->em->flush();
     }
 
      /**
@@ -43,29 +87,15 @@ class Tag  //implements ModuleInterface
         return $qb->add('select', 'm')
                ->add('from', "ZfModule\Entity\Tag m $columns");
     }
-    public function pagination($page, $limit, $query = null, $orderBy = null, $sort = 'ASC')
+    /**
+     * 
+     * @param int $limit
+     * @param string $orderBy
+     * @param string $sort
+     * @return array
+     */
+    public function findAll($limit= null, $orderBy = null, $sort = 'ASC')
     {
-        $sql = $this->getSql();
-        $select = $sql->select()
-            ->from($this->tableName);
-
-        
-
-        
-        $adapter = new \Zend\Paginator\Adapter\DbSelect(
-            $select,
-            $this->getSql(),
-            new HydratingResultSet($this->getHydrator(), $this->getEntityPrototype())
-        );
-        $paginator = new \Zend\Paginator\Paginator($adapter);
-
-        $paginator->setCurrentPageNumber($page);
-        $paginator->setItemCountPerPage($limit);
-
-        return $paginator;
-    }
-public function findAll($limit= null, $orderBy = null, $sort = 'ASC')
-{
          /** @var qb Doctrine/ORM/QueryBuilder */
        $qb = $this->getBaseQueryBuilder();
       
@@ -79,20 +109,18 @@ public function findAll($limit= null, $orderBy = null, $sort = 'ASC')
         } 
         $result = $q->getResult();
         $this->postRead($result);
+        
         return $result;
     }
-    /*
-SELECT module_tags.tag AS tag, module_tags.id AS id, COUNT( module_tag.tag_id ) AS tagcount
-FROM  `module_tag` 
-INNER JOIN  `module_tags` ON  `module_tags`.`id` =  `module_tag`.`tag_id` 
-WHERE  `module_tags`.`tag` LIKE  'cu%'
-GROUP BY  `module_tag`.`tag_id` 
-ORDER BY tagcount DESC 
+  
+    /**
+     * preforms a like ':query%' search
+     * @param string $query
+     * @param type $limit
+     * @param string $orderBy
+     * @param string $sort
+     * @return array
      */
-/**
- * @todo this will be used by a service probably called by a controller with a ajax 
- * @todo request to suggest search terms
- */
     public function findByStarts($query, $limit = null, $orderBy = null, $sort = 'ASC')
     {
          /** @var qb Doctrine/ORM/QueryBuilder */
@@ -136,8 +164,11 @@ ORDER BY tagcount DESC
        
         return $result;
     }
-
-   
+    /**
+     * 
+     * @param int $id
+     * @return ZfModule\Entity\Tag
+     */
     public function findById($id)
     {
         $sql = $this->getSql();
@@ -147,31 +178,8 @@ ORDER BY tagcount DESC
 
         $entity = $this->select($select)->current();
         $this->getEventManager()->trigger('find', $this, array('entity' => $entity));
+        
         return $entity;
-    }
-
-    public function insert($entity, $tableName = null, HydratorInterface $hydrator = null)
-    {
-        $result = parent::insert($entity, $tableName, $hydrator);
-        $entity->setId($result->getGeneratedValue());
-        return $entity;
-    }
-
-    public function update($entity, $where = null, $tableName = null, HydratorInterface $hydrator = null)
-    {
-        if (!$where) {
-            $where = 'module_id = ' . $entity->getId();
-        }
-
-        return parent::update($entity, $where, $tableName, $hydrator);
-    }
-
-    public function delete($entity, $where = null, $tableName = null)
-    {
-        if (!$where) {
-            $where = 'module_id = ' . $entity->getId();
-        }
-         return parent::delete($where, $tableName);
     }
     public function postRead(){
         

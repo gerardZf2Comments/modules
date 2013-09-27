@@ -12,7 +12,8 @@ use Zend\Stdlib\Hydrator\HydratorInterface;
  *
  * @author gerard
  */
-class Comment {
+class Comment 
+{
     /**
      * @var \Doctrine\ORM\EntityManager
      */
@@ -62,15 +63,29 @@ class Comment {
 
         return $entity;
     }
+     /**
+     * Removes an entity instance.
+     *
+     * A removed entity will be removed from the database at or before transaction commit
+     * or as a result of the flush operation.
+     *
+     * @param object $entity The entity instance to remove.
+     *
+     * @return void
+     *
+     * @throws ORMInvalidArgumentException
+     */
     public function delete($entity)
     {
-        return $this->em->remove($entity);
+       $this->em->remove($entity);
+       $this->em->flush();
     }
 
     /**
      * 
      * @param object $entity
      * @return object
+     * @todo
      */
     protected function postRead($result){
       //  $this->getEventManager()->trigger('find', $this, array('entity' => $result));
@@ -110,6 +125,16 @@ class Comment {
         $this->postRead($result);
         return $result;
     }
+    
+    /**
+     * does a where with the main entity.$by = $id
+     * @param strin $by
+     * @param mixed $id
+     * @param int $limit
+     * @param string $orderBy
+     * @param string $sort
+     * @return type
+     */
     public function findBy($by, $id, $limit= null, $orderBy = null, $sort = 'ASC')
     {
          /** @var qb Doctrine/ORM/QueryBuilder */
@@ -131,7 +156,7 @@ class Comment {
         $this->postRead($result);
         return $result;
     }
-     public function findParentsBy($by, $id, $limit= null, $orderBy = null, $sort = 'ASC')
+    public function findParentsBy($by, $id, $limit= null, $orderBy = null, $sort = 'ASC')
     {
          /** @var qb Doctrine/ORM/QueryBuilder */
         $qb = $this->em->createQueryBuilder();
@@ -169,6 +194,10 @@ class Comment {
     public function getUserEntityClass(){
         return $this->options->getUserEntityClassName();
     }
+    /**
+     * 
+     * @return \Doctrine\ORM\EntityManager
+     */
     public function getEntityManager(){
         return $this->em;
     }

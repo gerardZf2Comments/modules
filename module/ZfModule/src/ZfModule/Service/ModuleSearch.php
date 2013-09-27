@@ -9,26 +9,50 @@ use ZfcBase\EventManager\EventProvider;
 use ZendSearch\Lucene\Index;
 /**
  * Description of ModuleSearch
- *
+ *@todo refactor location and test
  * @author gerard
  */
 class ModuleSearch extends EventProvider implements ServiceLocatorAwareInterface 
 {
 
+    /**
+     *
+     * @var ZendSearch\Lucene\Index
+     */
     protected $index;
+    /**
+     *
+     * @var int
+     */
     protected $sortType = SORT_NUMERIC;
-    protected $sortOrder = SORT_DESC;
-    //works frm base of vendor or module directory of a 
-    //normal sample app
-    protected $indexPath;
+    /**
+     *
+     * @var int
+     */
+    protected $sortOrder = SORT_DESC; 
+    /**
+     * @var ZfModule\Options\ModuleOptions
+     */
     protected $options;
     
-    public function setOptions($options){
+    /**
+     * 
+     * @param \ZfModule\Options\ModuleOptions $options
+     * @return \ZfModule\Service\ModuleSearch
+     */
+    public function setOptions( \ZfModule\Options\ModuleOptions $options)
+    {
         $this->options = $options;
+        
+        return $this;
     }
-     public function getOptions(){
-          return new \ZfModule\Options\ModuleOptions;
-        $this->options;
+    /**
+     * 
+     * @return ZfModule\Options\ModuleOptions
+     */
+    public function getOptions()
+    {
+        return $this->options;
     }
 
     /**
@@ -66,19 +90,29 @@ class ModuleSearch extends EventProvider implements ServiceLocatorAwareInterface
         
         return $results;
     }
+    /**
+     * do lucene search and then use mapper to get full results
+     * @param string $query
+     * @return array
+     */
     public function search($query)
     {
         $entities = $this->getCachedSearch($query);
         if(!$entities){
             $searchResults = $this->_search($query);
-            $entityResults = $this->entitiesFromResults($searchResults);
+            $entityResults = $this->fullArraysFromResults($searchResults);
             $this->cacheResults($entityResults, $query);
         }    
 
         return $entities;       
     }
-
-    private function entitiesFromResults($results)
+    /**
+     * takes results from lucene and uses mapper to create
+     * arrays not entitys
+     * @param array $results
+     * @return array
+     */
+    private function fullArraysFromResults($results)
     {
         $inArray = array();
         foreach($results as $queryHit){
@@ -102,7 +136,7 @@ class ModuleSearch extends EventProvider implements ServiceLocatorAwareInterface
         $cache = $this->getServiceLocator()->get('zfmodule_cache');
         $cacheKey = md5($this->getIndexPath().$query);        
         
-            return $cache->getItem($cacheKey);
+        return $cache->getItem($cacheKey);
     }
     /**
      * 
@@ -118,6 +152,7 @@ class ModuleSearch extends EventProvider implements ServiceLocatorAwareInterface
         $cacheKey = md5($this->getIndexPath().$query);
         $cache->setItem($cacheKey, $cachable);
         }
+       
         return $this;
     }
 
@@ -137,6 +172,7 @@ class ModuleSearch extends EventProvider implements ServiceLocatorAwareInterface
     public function setIndex( Index $index)
     {
         $this->index = $index;
+        
         return $this;
     }
     /**
@@ -150,6 +186,7 @@ class ModuleSearch extends EventProvider implements ServiceLocatorAwareInterface
         if( !$this->index && $path ){
             $this->index = new Index( $path );
         }
+        
         return $this->index;
     }
    /**
@@ -168,6 +205,7 @@ class ModuleSearch extends EventProvider implements ServiceLocatorAwareInterface
     public function setServiceLocator(ServiceLocatorInterface $sm) 
     {
         $this->serviceLocator = $sm;
+       
         return $this;
     }
 

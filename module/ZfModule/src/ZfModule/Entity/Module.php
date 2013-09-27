@@ -52,51 +52,90 @@ class Module implements ModuleInterface
     protected $photoUrl = null;
 
     protected $metaData;
-    public function __construct() {
+    /**
+     *  $this->tags = new ArrayCollection;
+        $this->comments = new ArrayCollection;
+     */
+    public function __construct()
+    {
         $this->tags = new ArrayCollection;
-        $this->comments = new ArrayCollection;;
+        $this->comments = new ArrayCollection;
     }
-
+    /**
+     * 
+     * @return Doctrine\Common\Collections\ArrayCollection
+     */
     public function getTags(){
         return $this->tags;
     }
-
+    /**
+     * 
+     * @return string
+     */
     public function getPhotoUrl()
     {
         return $this->photoUrl;
     }
-
+    /**
+     * 
+     * @param string $photoUrl
+     * @return \ZfModule\Entity\Module
+     */
     public function setPhotoUrl($photoUrl)
     {
         $this->photoUrl = $photoUrl;
         return $this;
     }
+    /**
+     * 
+     * @return string
+     */
     public function getOwner()
     {
         return $this->owner;
     }
-
+    /**
+     * 
+     * @param string $owner
+     * @return \ZfModule\Entity\Module
+     */
     public function setOwner($owner)
     {
         $this->owner = $owner;
         return $this;
     }
+    /**
+     * 
+     * @return \Datetime
+     */
     public function getUpdatedAt()
     {
         return $this->updatedAt;
     }
-
+    /**
+     * 
+     * @param \Datetime $updatedAt
+     * @return \ZfModule\Entity\Module
+     */
     public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = $updatedAt;
         return $this;
     }
+    /**
+     * 
+     * @return \Datetime
+     */
     public function getCreatedAt()
     {
         return $this->createdAt;
     }
 
-
+    /**
+     * 
+     * @param \Datetime $createdAt
+     * @return \ZfModule\Entity\Module
+     */
     public function setCreatedAt($createdAt)
     {
 
@@ -191,7 +230,12 @@ class Module implements ModuleInterface
         $this->name = $name;
         return $this;
     }
+    /**
+     * 
+     * @return Doctrine\Common\Collections\ArrayCollection
+     */
     public function getComments(){
         return $this->comments;
+        
     }
 }

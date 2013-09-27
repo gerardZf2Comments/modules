@@ -21,7 +21,7 @@ class SearchController extends AbstractActionController
      */
     public function tagAjaxAction()
     {
-          $s = new \ZfModule\Service\ModuleIndexer;
+          $s =$this->getServiceLocator()->get('zfmodule_service_search_module_indexer');
         $s->setServiceLocator($this->getServiceLocator());
     $s->addAll();
           //do search
@@ -132,7 +132,8 @@ class SearchController extends AbstractActionController
      */
     public function getModules($query)
     {
-        $service = new \ZfModule\Service\ModuleSearch();
+        $service = $this->getServiceLocator()->get('zfmodule_service_search_module_search');
+      
         $service->setServiceLocator($this->getServiceLocator());
           
         return $service->search($query); 

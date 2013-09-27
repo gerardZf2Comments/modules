@@ -3,8 +3,9 @@ namespace ZfModule\Options;
 use Zend\Stdlib\AbstractOptions;
 
 /**
- * Description of SearchOptions
- *
+ * Description of ModuleOptions
+ *@todo review posibility of mering with general config
+ *@todo pretty sure the abstract class uses classmethods to hydrate from array
  * @author gerard
  */
 class SearchOptions extends AbstractOptions
@@ -71,6 +72,7 @@ class SearchOptions extends AbstractOptions
     public function setPage($page)
     {
         $this->page = page;
+       
         return $this;
     }
     /**
@@ -89,6 +91,7 @@ class SearchOptions extends AbstractOptions
     public function setLimit($limit)
     {
         $this->limit = $limit; 
+        
         return $this;
     }
     /**
@@ -107,6 +110,7 @@ class SearchOptions extends AbstractOptions
     public function setQuery($query)
     {
         $this->query = $query; 
+        
         return $this;
     }
    /**
@@ -125,6 +129,7 @@ class SearchOptions extends AbstractOptions
     public function setOrderBy($orderBy)
     {
         $this->orderBy = $orderBy; 
+        
         return $this;
     }
     /**
@@ -143,6 +148,7 @@ class SearchOptions extends AbstractOptions
     public function setSort($sort)
     {
         $this->sort = $sort;
+        
         return $this;
     }
 }

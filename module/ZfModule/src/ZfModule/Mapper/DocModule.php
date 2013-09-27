@@ -286,7 +286,8 @@ class DocModule extends Module
      * @param object $entity
      * @return object
      */
-    public function insert($entity, $tableName = null, HydratorInterface $hydrator = null) {
+    public function insert($entity, $tableName = null, HydratorInterface $hydrator = null) 
+    {
         return $this->persist($entity);
     }
      /**
@@ -294,7 +295,8 @@ class DocModule extends Module
      * @param object $entity
      * @return object
      */
-    public function update($entity, $where = null, $tableName = null, HydratorInterface $hydrator = null) {
+    public function update($entity, $where = null, $tableName = null, HydratorInterface $hydrator = null) 
+    {
         return $this->persist($entity);
     }
      /**
@@ -302,11 +304,29 @@ class DocModule extends Module
      * @param object $entity
      * @return object
      */
-    protected function persist($entity) {
+    protected function persist($entity)
+    {
         $this->em->persist($entity);
         $this->em->flush();
 
         return $entity;
+    }
+     /**
+     * Removes an entity instance.
+     *
+     * A removed entity will be removed from the database at or before transaction commit
+     * or as a result of the flush operation.
+     *
+     * @param object $entity The entity instance to remove.
+     *
+     * @return void
+     *
+     * @throws ORMInvalidArgumentException
+     */
+    public function delete($entity, $where = NULL, $tableName = NULL)
+    {
+       $this->em->remove($entity);
+       $this->em->flush();
     }
      /**
      * 

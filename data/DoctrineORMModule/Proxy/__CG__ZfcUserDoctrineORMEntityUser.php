@@ -64,10 +64,10 @@ class User extends \ZfcUserDoctrineORM\Entity\User implements \Doctrine\ORM\Prox
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', 'photoUrl', 'createdAt', 'state', 'id', 'username', 'email', 'displayName', 'password');
+            return array('__isInitialized__', 'userComments', 'photoUrl', 'createdAt', 'state', 'id', 'username', 'email', 'displayName', 'password');
         }
 
-        return array('__isInitialized__', 'photoUrl', 'createdAt', 'state', 'id', 'username', 'email', 'displayName', 'password');
+        return array('__isInitialized__', 'userComments', 'photoUrl', 'createdAt', 'state', 'id', 'username', 'email', 'displayName', 'password');
     }
 
     /**
@@ -173,6 +173,28 @@ class User extends \ZfcUserDoctrineORM\Entity\User implements \Doctrine\ORM\Prox
     }
 
     
+    /**
+     * {@inheritDoc}
+     */
+    public function getUserComments()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUserComments', array());
+
+        return parent::getUserComments();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setUserComments($uc)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUserComments', array($uc));
+
+        return parent::setUserComments($uc);
+    }
+
     /**
      * {@inheritDoc}
      */

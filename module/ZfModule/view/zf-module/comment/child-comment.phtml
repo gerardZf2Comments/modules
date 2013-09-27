@@ -1,6 +1,8 @@
+<?php /** @todo rm this - is mvd to ../comments  */ ?>
 <div class="module-child-comment-wrapper">
     <div>
         <span class="module-comments-username">
+            <span class="comment-discriptor-label"><?= $this->translate('Username') ?> : </span>
             <strong><?= $this->EscapeHtml($comment->getUser()->getUserName()) ?> </strong>
         </span>
     </div>

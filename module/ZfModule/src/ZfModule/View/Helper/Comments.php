@@ -9,7 +9,7 @@ use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 /**
  * Description of Comments
- *
+ *@todo refactor methods
  * @author gerard
  */
 class Comments extends AbstractHelper implements ServiceLocatorAwareInterface
@@ -37,10 +37,15 @@ class Comments extends AbstractHelper implements ServiceLocatorAwareInterface
         $comments = $service->commentsByModuleId($moduleId, $limit, $sort, $order);
          $vm = new ViewModel(array(
             'comments' => $comments,
+             'moduleId' => $moduleId,
         ));
-        $vm->setTemplate('zf-module/helper/comments.phtml');
-
-
+        $vm->setTemplate('zf-module/comment/comments.phtml');
+        
+        $commentForm = $this->getServiceLocator()->getServiceLocator()->get('zfmodule_view_model_comment_form');
+        $replyForm = $this->getServiceLocator()->getServiceLocator()->get('zfmodule_view_model_comment_reply_form');
+        $commentForm->setVariable('moduleId', $moduleId);
+        $vm->addChild($commentForm, 'commentForm');
+        $vm->addChild($replyForm, 'replyForm');
         return $this->getView()->render($vm);
         
     }
