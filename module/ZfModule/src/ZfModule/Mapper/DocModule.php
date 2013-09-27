@@ -156,12 +156,12 @@ class DocModule extends Module
      * @param array $array
      * @return array
      */
-    public function findByInAsArray(array $array)
+    public function findByInAsArray(array $array, $sort)
     {   
         if(count($array)){
         $qb = $this->getBaseQueryBuilder();
         $qb->add('where', $qb->expr()->in('m.id', $array));
-       
+        $qb->add('orderBy' , 'm.watched DESC');
         return $qb->getQuery()->getArrayResult();
         } else {
             return $array;

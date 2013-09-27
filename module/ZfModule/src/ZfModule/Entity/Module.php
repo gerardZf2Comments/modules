@@ -5,9 +5,14 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 class Module implements ModuleInterface
 {
+    /**
+     *
+     * @var int
+     */
+    protected $watched;
     protected $comments;
     /**
-     * @var ZfModule\Entity\tag
+     * @var  // ZfModule\Entity\tag
      */
     protected $tags;
     /**
@@ -65,9 +70,24 @@ class Module implements ModuleInterface
      * 
      * @return Doctrine\Common\Collections\ArrayCollection
      */
-    public function getTags(){
+    public function getTags()
+    {
         return $this->tags;
     }
+    /**
+     * @return int the git repo id
+     */
+    public function getWatched()
+    {
+        return $this->watched;
+    }
+    public function setWatched($watched)
+    {
+        $this->watched = $watched;
+        
+        return $this;
+    }
+
     /**
      * 
      * @return string

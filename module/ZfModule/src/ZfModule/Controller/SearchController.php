@@ -50,6 +50,7 @@ class SearchController extends AbstractActionController
      */
     public function moduleAjaxAction()
     {  
+        $this->index();
          //do search
         $query =  $this->params()->fromRoute('query', '');
         $modules = $this->getModules($query); 
@@ -66,6 +67,7 @@ class SearchController extends AbstractActionController
      */
     public function moduleAction()
     { 
+       
          //do search
         $query =  $this->params()->fromRoute('query', '');
         $modules = $this->getModules($query);
@@ -168,6 +170,8 @@ class SearchController extends AbstractActionController
     
     public function index(){
         $service = new \ZfModule\Service\ModuleIndexer();
+        $options = new \ZfModule\Options\ModuleOptions;
+        $service->setOptions($options);
         $service->setServiceLocator($this->getServiceLocator());
         $service->addAll();
     }

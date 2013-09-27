@@ -121,8 +121,8 @@ class ModuleSearch extends EventProvider implements ServiceLocatorAwareInterface
         }
         
         $moduleMapper = $this->getServiceLocator()->get('zfmodule_mapper_module');
-        
-        return $moduleMapper->findByInAsArray($inArray);
+        $sort =true;
+        return $moduleMapper->findByInAsArray($inArray, $sort);
     }
 
     /**

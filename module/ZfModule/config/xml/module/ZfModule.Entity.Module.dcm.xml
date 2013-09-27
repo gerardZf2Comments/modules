@@ -11,7 +11,7 @@
         	
          <field name="name" column="name" type="string" length="255" nullable="false"  />
          <field name="description" column="description" type="string"  nullable="false"  />
-
+         <field name="watched" column="watched" type="integer"  nullable="true"  />
          <field name="url" column="url" type="string" length="500" nullable="false"  />
          <field name="metaData" column="meta_data" type="string" length="255" nullable="true"  />
          <field name="createdAt" column="created_at" type="datetime"   />

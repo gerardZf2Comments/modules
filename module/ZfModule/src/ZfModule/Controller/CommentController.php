@@ -5,7 +5,7 @@ namespace ZfModule\Controller;
 use Exception;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use ZfModule\View\Model\Exception;
+// use ZfModule\View\Model\Exception;
 
 
 /**

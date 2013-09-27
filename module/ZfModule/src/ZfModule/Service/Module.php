@@ -43,6 +43,7 @@ class Module extends EventProvider implements ServiceLocatorAwareInterface
         $module->setName($data->name);
         $module->setDescription($data->description);
         $module->setUrl($data->html_url);
+        $module->setRepoId($data->id);
         $owner = $data->owner;
         $module->setOwner($owner->login);
         $module->setPhotoUrl($owner->avatar_url);

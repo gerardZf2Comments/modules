@@ -1,4 +1,4 @@
-<?php
+
 
 namespace ZfModule\Service;
 
@@ -95,7 +95,7 @@ class ModuleSearch extends EventProvider implements ServiceLocatorAwareInterface
      * @param string $query
      * @return array
      */
-    public function search($query)
+    public function search($query, $sortByWatch)
     {
         $entities = $this->getCachedSearch($query);
         if(!$entities){
@@ -110,9 +110,10 @@ class ModuleSearch extends EventProvider implements ServiceLocatorAwareInterface
      * takes results from lucene and uses mapper to create
      * arrays not entitys
      * @param array $results
+     * @param bool $name we only sort by watched or search engine rating
      * @return array
      */
-    private function fullArraysFromResults($results)
+    private function fullArraysFromResults($results, $sort)
     {
         $inArray = array();
         foreach($results as $queryHit){
@@ -121,8 +122,8 @@ class ModuleSearch extends EventProvider implements ServiceLocatorAwareInterface
         }
         
         $moduleMapper = $this->getServiceLocator()->get('zfmodule_mapper_module');
-        
-        return $moduleMapper->findByInAsArray($inArray);
+        $sort=true;
+        return $moduleMapper->findByInAsArray($inArray, $sort);
     }
 
     /**

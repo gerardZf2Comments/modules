@@ -1,3 +1,4 @@
 /vendor/symfony/
 /vendor/doctrine/
 /nbproject/private/
+/data
