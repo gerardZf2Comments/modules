@@ -34,7 +34,8 @@ return array(
         'invokables' => array(
             'ZfModule\Controller\Index' => 'ZfModule\Controller\IndexController',
             'ZfModule\Controller\Repo' => 'ZfModule\Controller\RepoController',
-            'ZfModule\Controller\Comment' => 'ZfModule\Controller\CommentController'
+            'ZfModule\Controller\Comment' => 'ZfModule\Controller\CommentController',
+            'ZfModule\Controller\Search' => 'ZfModule\Controller\SearchController'
         ),
     ),
     'router' => array(
@@ -49,7 +50,65 @@ return array(
                     ),
                 ),
             ),
-            // comment route 
+            //search routes
+                    'gol-search' => array(
+                'type' => 'Literal',
+                
+                'options' => array(       
+                    'route' => '/search',
+                    'defaults' => array(
+                        'controller' => 'ZfModule\Controller\Search',
+                        'action' => 'module',
+                    ),
+                ),
+                'priority' => 1,
+                'may_terminate' => true,
+                'child_routes' => array(
+                    'tag' => array(
+                         'type' =>  'Segment',
+                       'options' => array( 
+                       
+                        'route' => '/tag[/:query][/:page][/:limit]',
+                        'defaults' => array(
+                            'controller' => 'ZfModule\Controller\Search',
+                            'action' => 'tag',
+                        ),
+                    ),
+                        ),
+                    'tag-ajax' => array(
+                        'type' =>  'segment',
+                        'options' => array(
+                        'route' => '/tag-ajax[/:query][/:page][/:limit]',
+                        'defaults' => array(
+                            'controller' => 'ZfModule\Controller\Search',
+                            'action' => 'tagAjax',
+                        ),
+                    ),
+                        ),
+                    'module' => array(
+                        'type' =>  'segment',
+                        'options' => array(
+                        'route' => '/module[/:query][/:page][/:limit]',
+                        'defaults' => array(
+                            'controller' => 'ZfModule\Controller\Search',
+                            'action' => 'module',
+                        ),
+                            ),
+                    ),
+                    'module-ajax' => array(
+                        'type' =>  'segment',
+                        'options' => array(
+                        'route' => '/module-ajax[/:query][/:page][/:limit]',
+                        'defaults' => array(
+                            'controller' => 'ZfModule\Controller\Search',
+                            'action' => 'moduleAjax',
+                        ),
+                    ),
+                        ),
+                ),
+            ),
+             // end search routes
+            // comment routes 
             'comment' => array(
                 'type' => 'Segment',
                 'options' => array (
@@ -104,6 +163,7 @@ return array(
                     ),
                   ),
                 ),
+            // end comment routes 
                     
                     //zf-module route 
             'zf-module' => array(
@@ -149,6 +209,7 @@ return array(
                     ),
                 ),
             ),
+            // end zf-module route 
         ),
     ),
     'view_manager' => array(

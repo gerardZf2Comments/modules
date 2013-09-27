@@ -1,12 +1,7 @@
 <?php
-$paginator = $this->paginator;
-if ($paginator->count()) { 
-?>
-
-
-
-<?php } // end - if ($paginator->count) { ?>
- <?php foreach($this->modules as $module) { ?>
+    $paginator = $this->paginator;
+    if ($paginator->count()) { 
+    foreach($this->modules as $module) { ?>
         <div class="row-fluid module-row">
             <div class="span12">
                 <div class="row-fluid">
@@ -67,7 +62,9 @@ if ($paginator->count()) {
             </div>
             
         </div>
-           
-        <?php echo $this->paginationControl($this->repositories, 'Sliding', 'application/index/pagination', array('query' =>$query)); ?>
+           <?php } //end - foreach($this->modules as $module) { ?>
+        <?php echo $this->paginationControl($this->paginator, 'Sliding', 'application/index/pagination', array('query' =>$query)); ?>
     
-            <?php } ?>
+            <?php } else { // end - if ($paginator->count) {?>
+   <span>No Results - Try again</span>
+            <?php } // end -  else { // end - if ($paginator->count) ?>

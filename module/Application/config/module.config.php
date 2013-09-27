@@ -10,7 +10,8 @@
 return array(
     'router' => array(
         'routes' => array(
-          
+           // routes 'gol-search'
+            /*
              'gol-search' => array(
                 'type' => 'Literal',
                 
@@ -67,6 +68,8 @@ return array(
                         ),
                 ),
             ),
+            */
+            // end routes 'gol-search'
             'home' => array(
                 'type' => 'Segment',
                 'options' => array(

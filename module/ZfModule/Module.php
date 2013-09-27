@@ -99,7 +99,7 @@ class Module implements AutoloaderProviderInterface
                     return $service;
                 },
                   'zfmodule_service_module_search' => function($sm) {
-                      $service = new \ZfModule\Service\ModuleSearch();
+                      $service = new \ZfModule\Service\Search\ModuleSearch();
                       $options =   new \ZfModule\Options\ModuleOptions();
                       $service->setOptions($options);
                       $service->setServiceLocator($sm);
@@ -169,7 +169,7 @@ class Module implements AutoloaderProviderInterface
                         return $viewModel;
                     },
                     'zfmodule_service_search_module_search' => function($sm){
-                        $service = new \ZfModule\Service\ModuleSearch();
+                        $service = new \ZfModule\Service\Search\ModuleSearch();
                         $service->setServiceLocator($sm);
                         /** @todo replace all these new Options with ->get('')
                           $options = $sm->get('')
