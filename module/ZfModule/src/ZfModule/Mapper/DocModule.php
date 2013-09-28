@@ -288,7 +288,9 @@ class DocModule extends Module
      */
     public function insert($entity, $tableName = null, HydratorInterface $hydrator = null) 
     {
-        return $this->persist($entity);
+         $this->persist($entity);
+         $this->postInsert($entity);
+         return $this;
     }
      /**
      * 
@@ -336,6 +338,15 @@ class DocModule extends Module
     protected function postRead($result)
     {
         $this->getEventManager()->trigger('find', $this, array('entity' => $result));
+    }
+      /**
+     * 
+     * @param object $entity
+     * @return object
+     */
+    protected function postInsert($result)
+    {
+        $this->getEventManager()->trigger('post-insert', $this, array('entity' => $result));
     }
 
 }

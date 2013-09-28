@@ -132,12 +132,15 @@ class ModuleSearch extends EventProvider implements ServiceLocatorAwareInterface
      */
     public function getCachedSearch($query)
     {
-        /* @var $cache StorageInterface */
-        $cache = $this->getServiceLocator()->get('zfmodule_cache');
-        $cacheKey = md5($this->getIndexPath().$query);        
-        
-        return $cache->getItem($cacheKey);
+        $cache = $this->getCache();    
+           
+        return  $cache->get($query);
     }
+    public function getCache()
+    {
+        return $this->getServiceLocator()->get('zfmodule_service_search_module_cache');
+    }
+
     /**
      * 
      * @param array||null $cachable
@@ -147,10 +150,8 @@ class ModuleSearch extends EventProvider implements ServiceLocatorAwareInterface
     public function cacheResults($cachable, $query)
     {
         if ($cachable){
-        /* @var $cache StorageInterface */
-        $cache = $this->getServiceLocator()->get('zfmodule_cache');
-        $cacheKey = md5($this->getIndexPath().$query);
-        $cache->setItem($cacheKey, $cachable);
+            $this->getCache()->set($cachable, $query);
+      
         }
        
         return $this;
@@ -207,6 +208,20 @@ class ModuleSearch extends EventProvider implements ServiceLocatorAwareInterface
         $this->serviceLocator = $sm;
        
         return $this;
+    }
+    public function clearCache()
+    {
+        /* @var $cache StorageInterface */
+        $cache = $this->getServiceLocator()->get('zfmodule_cache');
+        $cache->clearByTags($this->getCacheTags());
+    }
+    /**
+     * array(md5($this->getIndexPath()));
+     * @return array
+     */
+    public function getCacheTags()
+    {
+        return array(md5($this->getIndexPath()));
     }
 
 }

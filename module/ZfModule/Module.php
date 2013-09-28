@@ -40,8 +40,15 @@ class Module implements AutoloaderProviderInterface
         // You may not need to do this if you're doing it elsewhere in your
         // application
         $eventManager        = $e->getApplication()->getEventManager();
+        $sm = $e->getApplication()->getServiceManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
+        $em =  $e->getApplication()->getEventManager()->getSharedManager();
+        $em->attach('ZfModule\Controller\SearchController','insert.post',function($e) use ($sm) {
+            $indexer = $sm->get('zfmodule_service_search_module_indexer');
+            $indexer->addExtraModule();
+            });
+         
     }
 
     public function getServiceConfig()
@@ -54,6 +61,13 @@ class Module implements AutoloaderProviderInterface
 
                     return $storage;
                 },
+                'zfmodule_service_search_module_cache' => function($sm){                   
+                     $cache = $sm->get('zfmodule_cache');                 
+                     $options =   new \ZfModule\Options\ModuleOptions();                   
+                     $moduleCache = new \ZfModule\Service\Search\ModuleCache($cache, $options, $sm);
+                     
+                     return $moduleCache;
+                } ,
                'zfmodule_mapper_module' => function ($sm) {
                     $options =   new \ZfModule\Options\ModuleOptions();
                     $options->setModuleEntityClass('ZfModule\Entity\Module');
@@ -179,7 +193,7 @@ class Module implements AutoloaderProviderInterface
                         return $service;
                     },
                     'zfmodule_service_search_module_indexer' => function($sm){
-                        $service = new \ZfModule\Service\ModuleIndexer;
+                        $service = new \ZfModule\Service\Search\ModuleIndexer;
                         $service->setServiceLocator($sm);
                         /** @todo replace all these new Options with ->get('')
                           $options = $sm->get('')
