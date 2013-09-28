@@ -32,3 +32,6 @@
 	path = vendor/LfjErrorLayout
 	url = https://github.com/lorenzoferrarajr/LfjErrorLayout.git
 
+[submodule "ZendDeveloperTools"]
+	path = ZendDeveloperTools
+	url = https://github.com/zendframework/ZendDeveloperTools
