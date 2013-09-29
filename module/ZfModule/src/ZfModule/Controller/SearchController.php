@@ -15,16 +15,28 @@ use Zend\View\Model\ViewModel;
  */
 class SearchController extends AbstractActionController
 {
-     /**
+    public function __construct() {
+        die('controller construct');
+    }
+
+    /**
      * 
      *ajax rendering of tag search
      * @todo limit search
      */
     public function tagAjaxAction()
     {
-          $s =$this->getServiceLocator()->get('zfmodule_service_search_module_indexer');
-        $s->setServiceLocator($this->getServiceLocator());
-    $s->addAll();
+        $m = $this->getServiceLocator()->get('Zfmodule\Mapper\Module');
+        $ent = $m->findAll();
+        foreach ($ent as $e) {
+            $i =$this->getServiceLocator()->get('zfmodule_service_search_module_indexer');
+            $i->addExtraModule($e);
+        }
+        
+        $starService = new \ZfModule\Service\ModuleStar;
+        $starService->setServiceLocator($this->getServiceLocator());
+        $starService->updateStars();
+        
           //do search
         $query =  $this->params()->fromRoute('query', '');
         $tags = $this->getTags($query);
@@ -50,6 +62,7 @@ class SearchController extends AbstractActionController
      */
     public function moduleAjaxAction()
     {  
+        die('in test');
         $this->getEventManager()->trigger('insert.post', $this);
       //  $em->trigger('someExpensiveCall.pre', $this);
         $this->index();

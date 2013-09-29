@@ -26,7 +26,7 @@
                         <!--<span class="author-label">Version:</span> 1.2.1<br />-->
                         <span class="author-label"><?= $this->translate('Created') ?> :</span>
                         <?php
-                        $date = new DateTime($module['created_at']);
+                        $date = $module['created_at'];// new DateTime($module['created_at']);
                         echo $date->format('Y-m-d');
                         ?><br />
                         <!--<span class="author-label">Edited:</span> <a>15 days ago</a><br />

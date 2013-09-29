@@ -11,6 +11,10 @@ use EdpGithub\Http\Client;
  */
 class ModuleStar 
 {
+    public function getModuleMapper(){
+        return  $mapper = $this->getServiceLocator()->get('zfmodule_mapper_module');;
+    }
+
     public function updateStars()
     {
         $entityCollection = $this->getModuleMapper()->findAll();
@@ -26,8 +30,8 @@ class ModuleStar
     }
     public function updateModuleStar($module)
     {
-        $repo = $module->getOwner();
-        $name = $module->getName();
+        $owner = $module->getOwner();
+        $repo = $module->getName();
         $sm = $this->getServiceLocator();
         $repository = $sm->get('EdpGithub\Client')->api('repos')->show($owner, $repo);
         $repository = json_decode($repository);
@@ -38,9 +42,16 @@ class ModuleStar
                     500
                 );
             }
-        $module->setWatched($repository->watched);
+            $tagUrl = $repository->tags_url;
+            $tagsUri = stristr($tagUrl, 'repos/');
+           $tag = $this->getResponse($tagsUri);
+        $module->setWatched($repository->watchers);
         $this->persist($module);
         
+    }
+    public function getResponse($uri){
+        $sm = $this->getServiceLocator();
+        return $sm->get('EdpGithub\Client')->getHttpClient()->get($uri);
     }
     /*
      * save module using $em

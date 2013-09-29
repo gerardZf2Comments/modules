@@ -46,7 +46,7 @@ class Module implements AutoloaderProviderInterface
         $em =  $e->getApplication()->getEventManager()->getSharedManager();
         $em->attach('ZfModule\Controller\SearchController','insert.post',function($e) use ($sm) {
             $indexer = $sm->get('zfmodule_service_search_module_indexer');
-            $indexer->addExtraModule();
+         //   $indexer->addExtraModule();
             });
          
     }

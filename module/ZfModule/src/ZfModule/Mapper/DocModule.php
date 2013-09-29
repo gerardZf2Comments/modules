@@ -235,8 +235,13 @@ class DocModule extends Module
           // why we are here
         $qb->where('m.name = :name');
         $qb->setParameter('name',$name);
+        try {
+            $result = $qb->getQuery()->getSingleResult();
+        } catch ( \Doctrine\ORM\NoResultException $exc) {
+           return 0;
+        }
+
         
-        $result = $qb->getQuery()->getSingleResult();
         $this->postRead($result);
         
         return $result;
@@ -256,7 +261,12 @@ class DocModule extends Module
         $qb->where('m.url = :url');
         $qb->setParameter('url',$url);
        
-        $result = $qb->getQuery()->getSingleResult();
+        try {
+            $result = $qb->getQuery()->getSingleResult();
+        } catch ( \Doctrine\ORM\NoResultException $exc) {
+           return 0;
+        }
+
         $this->postRead($result);
        
         return $result;
@@ -275,8 +285,12 @@ class DocModule extends Module
          // why we are here
         $qb->where('m.id = :id');
         $qb->setParameter('id',$id);
-        
-        $result = $qb->getQuery()->getSingleResult();
+        try {
+            $result = $qb->getQuery()->getSingleResult();
+        } catch ( \Doctrine\ORM\NoResultException $exc) {
+           return 0;
+        }
+
         $this->postRead($result);
         
         return $result;        

@@ -6,6 +6,10 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Module implements ModuleInterface
 {
     /**
+     * @var int
+     */
+    protected $repoId;
+    /**
      *
      * @var int
      */
@@ -142,6 +146,14 @@ class Module implements ModuleInterface
         $this->updatedAt = $updatedAt;
         return $this;
     }
+    public function getRepoId(){
+        return $this->repoId;
+    }
+    public function setRepoId($repoId){
+        $this->repoId = $repoId;
+        return $this;
+    }
+
     /**
      * 
      * @return \Datetime

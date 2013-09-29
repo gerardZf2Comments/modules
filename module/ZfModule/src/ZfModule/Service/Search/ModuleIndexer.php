@@ -195,13 +195,13 @@ class ModuleIndexer extends EventProvider implements ServiceLocatorAwareInterfac
         
         return $this;
     }
-    public function addExtraModule($module = 1)
+    public function addExtraModule($module)
     {     
-        $index =  $this->initIndex(true);
-        $mapper = $this->getServiceLocator()->get('zfmodule_mapper_module');
+        $index =  $this->initIndex();
+      //  $mapper = $this->getServiceLocator()->get('zfmodule_mapper_module');
 
-        $entity = $mapper->findbyId($module);
-        $this->addToModuleIndex($entity);
+       // $entity = $mapper->findbyId($module);
+        $this->addToModuleIndex($module);
         $this->optimizeIndex();
     }
 

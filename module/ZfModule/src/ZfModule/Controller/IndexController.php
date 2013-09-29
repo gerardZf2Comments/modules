@@ -29,7 +29,7 @@ class IndexController extends AbstractActionController
         /* @var $cache StorageInterface */
         $cache = $sl->get('zfmodule_cache');
 
-        $cacheKey = 'module-view-' . $vendor . '-' . $module;
+        $cacheKey = md5('module-view-' . $vendor . '-' . $module);
 
         $repository = json_decode($client->api('repos')->show($vendor, $module));
         $httpClient = $client->getHttpClient();

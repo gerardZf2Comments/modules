@@ -97,7 +97,7 @@ class ModuleSearch extends EventProvider implements ServiceLocatorAwareInterface
      */
     public function search($query)
     {
-        $entities = $this->getCachedSearch($query);
+        $entities; //= $this->getCachedSearch($query);
         if(!$entities){
             $searchResults = $this->_search($query);
             $entityResults = $this->fullArraysFromResults($searchResults);
