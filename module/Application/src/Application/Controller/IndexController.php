@@ -18,7 +18,7 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-   
+        // i've removed the query part of the route
         $query =  $this->params()->fromQuery('query', null);
 
         $page = (int) $this->params()->fromRoute('page', 1);

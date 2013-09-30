@@ -65,14 +65,15 @@ class DocModule extends Module
         if($orderBy) {
             $qb->orderBy('m.'.$orderBy, 'ASC');
         }
+        $expression = $qb->expr()->literal('%'.$query.'%');
          // add where to retrict the search
         if ($query) {
             $where = $qb->expr()->orx(
-                                  $qb->expr()->like('m.name', '%:query%'), 
-                                  $qb->expr()->like('m.description', '%:query%')
+                                  $qb->expr()->like('m.name', $expression), 
+                                  $qb->expr()->like('m.description', $expression)
                     );
             $qb->add('where',$where);
-            $qb->setParameter('query', $query);
+           
         }
          
          /** @var q \Doctrine\ORM\Query */
