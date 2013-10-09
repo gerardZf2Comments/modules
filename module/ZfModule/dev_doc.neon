@@ -1,0 +1,11 @@
+
+
+source :  "/home/gerard/sites/modules.w.doctrine/modules.zendframework.com/module/ZfModule"
+destination : "/home/gerard/sitesinfo/moduleswdoctrine/apigen/dev"
+report : "/home/gerard/sitesinfo/moduleswdoctrine/apigen/testreport"
+
+accessLevels : "public,protected,private"
+
+deprecated : true
+debug : true
+todo : true

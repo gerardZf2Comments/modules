@@ -18,6 +18,8 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
+               
+        //throw new \Exception('bla');
         // i've removed the query part of the route
         $query =  $this->params()->fromQuery('query', null);
 

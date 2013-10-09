@@ -1,0 +1,7 @@
+<div id="tag-container">   
+    <?php 
+       foreach ($tags as $tag) {
+           $this->partial('zf-module/tag/tag/' , array('tag' => $tag));           
+       } 
+    ?>  
+</div><!-- end  id="tag-container" -->

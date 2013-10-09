@@ -1,0 +1,32 @@
+<div id="form-container">
+    <?php
+if(!$this->replacementForm){
+    $form = $this->form;
+} else {
+     $form = $this->replacementForm;
+}
+$tag = $this->tag;
+
+$form->setAttribute('action', $this->url("tag/add"));
+$form->setAttribute('method', 'post');
+
+$form->prepare();
+?>
+<form action="/tag/add" method="post" class="add-tag-form">
+    
+    <div class="element-wrapper">
+        <input type="hidden" name="module-id" value="<?php $moduleId ?>" >
+    </div><!-- end - class="input-wrapper"-->
+    <?php ?>
+  
+   
+    <div class="element-wrapper">
+        <?= $this->formRow($form->get('tag')); ?>
+    </div><!-- end - class="input-wrapper"-->
+    
+    <div class="element-wrapper">
+         <?= $this->formSubmit($form->get('submit')); ?>
+    </div><!-- end - class="input-wrapper"-->
+
+</form>
+</div><!-- end  id="form-container" -->

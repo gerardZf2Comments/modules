@@ -1,0 +1,12 @@
+
+
+source : "/home/gerard/sites/modules.w.doctrine/modules.zendframework.com/module/ZfModule"
+destination : "/home/gerard/sitesinfo/moduleswdoctrine/apigen/pub"
+report : "/home/gerard/sitesinfo/moduleswdoctrine/apigen/testreport"
+#googleAnalytics : value
+accessLevels : "public,protected,private"
+
+download : true
+debug : true
+
+
