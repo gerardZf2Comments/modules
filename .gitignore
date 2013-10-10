@@ -3,5 +3,5 @@
 /nbproject/private/
 /data
 /module/ZfModule/test/clover
-!/data/sql
+!/data/sql/.*
 
