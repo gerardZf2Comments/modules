@@ -29,12 +29,12 @@ class IndexController extends AbstractActionController
 
         $paginator = $mapper->pagination($page, 15, $query, 'createdAt', 'DESC');
         $modules = $paginator->getCurrentItems();
+       
         return array(
             'paginator' =>  $paginator,
             'modules' => $modules,
             'query' => $query,
-        );
-    
+        );    
     }
   /**
      * 

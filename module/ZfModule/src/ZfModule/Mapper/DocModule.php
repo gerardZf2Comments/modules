@@ -7,24 +7,26 @@ use ZfModule\Mapper\Module as Module;
 use ZfModule\Options\ModuleOptions;
 use Zend\Stdlib\Hydrator\HydratorInterface;
 /**
- * @entity Docmodule
- * @table (name="module")
+ * a doctrine based mapper for modules
+ * @todo consider an abstract class & see if using doctrine events is wiser
  */
 class DocModule extends Module 
 {
 
     /**
+     * em
      * @var \Doctrine\ORM\EntityManager
      */
     protected $em;
 
     /**
+     * options used for class names and such
      * @var \ZfcUserDoctrineORM\Options\ModuleOptions
      */
     protected $options;
 
     /**
-     * 
+     * give me an entity manager and some options
      * @param \Doctrine\ORM\EntityManager $em
      * @param \ZfModule\Options\ModuleOptions $options
      */
@@ -35,7 +37,7 @@ class DocModule extends Module
     }
 
     /**
-     * 
+     * do a paginated search and return the paginator with data
      * @param int $page
      * @param int $limit
      * @param string $query
@@ -50,7 +52,7 @@ class DocModule extends Module
         return $this->_paginate($data, $page, $limit);      
     }
      /**
-     * 
+     * do a 'LIKE' type search
      * @param int $page
      * @param int $limit
      * @param string $query
@@ -86,7 +88,7 @@ class DocModule extends Module
                
     }
     /**
-     * 
+     * do logic for max results and offset
      * @param \Doctrine\ORM\QueryBuilder $qb
      * @param int $page
      * @param int $limit
@@ -104,7 +106,6 @@ class DocModule extends Module
         return $q;
     }
     /**
-     * 
      * calculate the offset and upper limit // return array($maxResults, $offset);
      * @param int $page
      * @param int $limit
@@ -120,20 +121,22 @@ class DocModule extends Module
         
         return array($maxResults, $offset);
     }
-
     /**
-     * @var string $columns
+     * get qb with select set up
+     * @param string $columns
      * @return Doctrine/ORM/QueryBuilder 
      */
     public function getBaseQueryBuilder($columns = '')
     {
         $qb = $this->em->createQueryBuilder();
        
-        return $qb->add('select', 'm')
-                  ->add('from', "ZfModule\Entity\Module m $columns");
+        $qb->add('select', 'm')
+          ->add('from', "ZfModule\Entity\Module m $columns");
+        
+        return $qb;
     }
     /**
-     * 
+     * paginator gets instanciated here but it seems a bit dirty
      * @param array $data
      * @param int $page
      * @param int $limit
@@ -153,7 +156,7 @@ class DocModule extends Module
         return $paginator;
     }
     /**
-     * 
+     * do a IN type query with array of ids return optimesed  array result set
      * @param array $array
      * @return array
      */
@@ -163,14 +166,14 @@ class DocModule extends Module
         $qb = $this->getBaseQueryBuilder();
         $qb->add('where', $qb->expr()->in('m.id', $array));
         $qb->add('orderBy' , 'm.watched DESC');
+        
         return $qb->getQuery()->getArrayResult();
-        } else {
-            return $array;
-        }
+        } 
+                   
+        return $array;        
     }
-
     /**
-     * 
+     * collection of entities
      * @param int $limit
      * @param string $orderBy
      * @param string $sort
@@ -189,21 +192,27 @@ class DocModule extends Module
         if($limit) {          
             $q->setMaxResults($limit);
         } 
+        
         $result = $q->getResult();
         $this->postRead($result);
+        
         return $result;
     }
     /**
-     * 
+     * find entity owner
      * @param string $owner
+     * @param int $limit
+     * @param string $orderBy
+     * @param string $sort
      * @return array
+     * @todo fix inconsitency with findbyname()
      */
     public function findByOwner($owner, $limit= null, $orderBy = null, $sort = 'ASC') 
     {
          /** @var qb Doctrine/ORM/QueryBuilder */
         $qb = $this->getBaseQueryBuilder();
         
-         // why we are here
+        
         $qb->where('m.owner = :owner');
         $qb->setParameter('owner',$owner);
         
@@ -222,12 +231,12 @@ class DocModule extends Module
        
         return $result;
     }
-
     /**
-     * 
+     * this return single result
      * @param string $name
      * @return \ZfModule\Entity\Module
-     * @throws Exception @todo
+     * @throws Exception 
+     * @todo fix inconsitency with findbyowner()
      */
     public function findByName($name) {
          /** @var qb Doctrine/ORM/QueryBuilder */
@@ -241,14 +250,13 @@ class DocModule extends Module
         } catch ( \Doctrine\ORM\NoResultException $exc) {
            return 0;
         }
-
         
         $this->postRead($result);
         
         return $result;
     }
       /**
-     * 
+     * single result
      * @param string $url
      * @return \ZfModule\Entity\Module
      * @throws Exception @todo
@@ -273,7 +281,7 @@ class DocModule extends Module
         return $result;
     }
     /**
-     * 
+     * single result
      * @param string $id
      * @return \ZfModule\Entity\Module
      * @throws Exception @todo
@@ -283,7 +291,6 @@ class DocModule extends Module
          /** @var qb Doctrine/ORM/QueryBuilder */
         $qb = $this->getBaseQueryBuilder();
         
-         // why we are here
         $qb->where('m.id = :id');
         $qb->setParameter('id',$id);
         try {
@@ -297,29 +304,36 @@ class DocModule extends Module
         return $result;        
     }
     /**
-     * 
-     * @param object $entity
-     * @return object
+     * insert flush and fire events
+     * @param \ZfModule\Entity\Module $entity
+     * @param null $tableName
+     * @param null$hydrator
+     * @return  \ZfModule\Entity\Module
      */
     public function insert($entity, $tableName = null, HydratorInterface $hydrator = null) 
     {
          $this->persist($entity);
          $this->postInsert($entity);
+         
          return $this;
     }
      /**
-     * 
-     * @param object $entity
-     * @return object
+     * update object
+     * @todo needs evnts added
+     * @param \ZfModule\Entity\Module $entity
+     * @return \ZfModule\Entity\Module
      */
     public function update($entity, $where = null, $tableName = null, HydratorInterface $hydrator = null) 
     {
-        return $this->persist($entity);
+        $this->persist($entity);
+        $this->postInsert($entity);
+        
+        return $this;
     }
      /**
-     * 
-     * @param object $entity
-     * @return object
+     * persist and flush
+     * @param \ZfModule\Entity\Module $entity
+     * @return \ZfModule\Entity\Module
      */
     protected function persist($entity)
     {
@@ -328,17 +342,11 @@ class DocModule extends Module
 
         return $entity;
     }
-     /**
-     * Removes an entity instance.
-     *
-     * A removed entity will be removed from the database at or before transaction commit
-     * or as a result of the flush operation.
-     *
-     * @param object $entity The entity instance to remove.
-     *
-     * @return void
-     *
-     * @throws ORMInvalidArgumentException
+    /**
+     * where and tablename exist for reasons of inheritance
+     * @param \ZfModule\Entity\Module $entity
+     * @param null $where
+     * @param null $tableName
      */
     public function delete($entity, $where = NULL, $tableName = NULL)
     {
@@ -346,18 +354,16 @@ class DocModule extends Module
        $this->em->flush();
     }
      /**
-     * 
-     * @param object $entity
-     * @return object
+     * fire find event
+     * @param mixed $result
      */
     protected function postRead($result)
     {
         $this->getEventManager()->trigger('find', $this, array('entity' => $result));
     }
-      /**
-     * 
-     * @param object $entity
-     * @return object
+     /**
+     * fire post-insert
+     * \ZfModule\Entity\Module $entity
      */
     protected function postInsert($result)
     {

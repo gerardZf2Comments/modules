@@ -7,3 +7,9 @@ finish comment ui html
    -- add form form add new 
    -- add form form edit probably the same as add new
    -- check translation and escaping is correct - so far so good
+
+find the correct zf2 test library
+set up qunit
+create tag view helpers, controllers, js - validator should be fine
+
+ 

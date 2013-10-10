@@ -31,6 +31,10 @@ class Comment {
         $commentEntity = $this->getCommentEntity();
        // $parent = $this->getCommentEntity();
         $userId = $user->getId();
+        $userComments =$user->getUserComments();
+        foreach ($userComments as $userComment) {
+           
+        }
         $commentEntity->setUser($user);
         
         $user->getUserComments()->add($commentEntity);
@@ -53,7 +57,7 @@ class Comment {
         $parentComment = $em->find( $commentMapper->getCommentEntityClass(), 
                                   $parentCommentId);
         $moduleId = $parentComment->getModuleId();
-        $user = $em->find('ZfcUserDoctrineORM\Entity\User', $userId);
+        $user = $em->find('User\Entity\User', $userId);
         /** @var \ZfModule\Entity\Comment */
         $commentEntity = $this->getCommentEntity();
         $userId = $user->getId();
@@ -121,7 +125,7 @@ class Comment {
     */
     public function commentsByModuleId($moduleId, $limit = 15, $sort = null, $order= null)
     {
-        return $this->getCommentMapper()->findParentsBy('moduleId',$moduleId, $limit,  $sort, $order);
+        return $this->getCommentMapper()->findParentsWhere('moduleId',$moduleId, $limit,  $sort, $order);
     }
 
     /**

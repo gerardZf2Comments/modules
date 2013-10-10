@@ -8,18 +8,18 @@ use Zend\Stdlib\Hydrator\ClassMethods;
 use ZfcBase\EventManager\EventProvider;
 
 /**
-/**
  * Description of TagIndexer
  *
  * @author gerard
  * @todo find 2 level cache with same methods as files \Zend\Cache\Storage\Adapter\Filesystem
  * @todo find view/model caching module
- * *@todo refactor location and test
+ * @todo refactor location and test
  */
 class TagSearch extends EventProvider implements ServiceLocatorAwareInterface 
 {
     /**
-     * @var ServiceLocator
+     * service locator
+     * @var \Zend\ServiceManager\ServiceLocator
      */
     protected $serviceLocator;
     
@@ -35,23 +35,23 @@ class TagSearch extends EventProvider implements ServiceLocatorAwareInterface
       return  $tagMapper->findByStarts($query, 15);                    
      }    
     /**
-     * 
+     *  Zend\ServiceManager\ServiceLocator
      * @return \Zend\ServiceManager\ServiceLocatorInterface
      */
-    public function getServiceLocator() {
+    public function getServiceLocator() 
+    {
         return $this->serviceLocator;
     }
     
     /**
-     * 
+     *  Zend\ServiceManager\ServiceLocator
      * @param \Zend\ServiceManager\ServiceLocatorInterface $sm
      * @return \ZfModule\Service\TagSearch
      */
-    public function setServiceLocator(ServiceLocatorInterface $sm) {
+    public function setServiceLocator(ServiceLocatorInterface $sm)
+    {
         $this->serviceLocator = $sm;
         return $this;
     }
 
 }
-
-?>

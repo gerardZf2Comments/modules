@@ -79,4 +79,4 @@ class Comments extends AbstractHelper implements ServiceLocatorAwareInterface
     }
 }
 
-?>
+

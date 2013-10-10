@@ -32,6 +32,7 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
+           ' ZfModule\Controller\Tag' =>' ZfModule\Controller\TagController', 
             'ZfModule\Controller\Index' => 'ZfModule\Controller\IndexController',
             'ZfModule\Controller\Repo' => 'ZfModule\Controller\RepoController',
             'ZfModule\Controller\Comment' => 'ZfModule\Controller\CommentController',
@@ -164,6 +165,53 @@ return array(
                   ),
                 ),
             // end comment routes 
+             // tag routes 
+            'tag' => array(
+                'type' => 'Segment',
+                'options' => array (
+                    'route' => '/tag',
+                    'defaults' => array(
+                        'controller' => 'ZfModule\Controller\Tag',
+                        'action' => 'list',
+                    ),
+                ),
+                'may_terminate' => true,
+                'priority' => 1000,
+                'child_routes' => array(
+                    'add' => array(
+                        'type' => 'Literal',
+                        'options' => array(
+                            'route' => '/add',
+                            
+                            'defaults' => array(
+                                'action' => 'add',
+                            ),
+                        ),
+                    ),
+                   
+                    'remove' => array(
+                        'type' => 'Literal',
+                        'options' => array(
+                            'route' => '/remove',
+                            
+                            'defaults' => array(
+                                'action' => 'remove',
+                            ),
+                        ),
+                    ),
+                    'edit' => array(
+                        'type' => 'Literal',
+                        'options' => array(
+                            'route' => '/edit',
+                            
+                            'defaults' => array(
+                                'action' => 'edit',
+                            ),
+                        ),
+                    ),
+                  ),
+                ),
+            // end tag routes 
                     
                     //zf-module route 
             'zf-module' => array(

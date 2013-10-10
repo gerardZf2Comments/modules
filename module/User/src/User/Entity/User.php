@@ -2,16 +2,25 @@
 
 namespace User\Entity;
 
-use ZfcUser\Entity\User as ZfcUser;
+use ZfcUserDoctrineORM\Entity\User as ZfcUser;
 
 class User extends ZfcUser
 {
+    public function __construct($initializer = null, $cloner = null) {
+        $this->userComments = new \ArrayObject();
+    }
+
+    protected $userComments;
     /**
      * @var string
      */
     protected $photoUrl;
 
     protected $createdAt;
+
+    public function getUserComments() {
+        return $this->userComments;
+    }
 
     public function getCreatedAt()
     {

@@ -1,9 +1,10 @@
 <?php
 namespace ZfModule\Options;
+
 use Zend\Stdlib\AbstractOptions;
 
 /**
- * Description of ModuleOptions
+ * options object for search configurations
  *@todo review posibility of mering with general config
  *@todo pretty sure the abstract class uses classmethods to hydrate from array
  * @author gerard
@@ -11,32 +12,32 @@ use Zend\Stdlib\AbstractOptions;
 class SearchOptions extends AbstractOptions
 {
     /**
-     *
+     *the page number
      * @var int
      */
     protected $page;
     /**
-     *
+     *items per page
      * @var int
      */
     protected $limit;
     /**
-     *
+     *search query
      * @var string
      */
     protected $query =null;
     /**
-     *
+     *order
      * @var string
      */
     protected $orderBy = null;
     /**
-     *
+     *sort
      * @var string
      */
     protected $sort = 'ASC';
     /**
-     * 
+     * set the options for search
      * @param int $page
      * @param int $limit
      * @param string $query
@@ -56,7 +57,7 @@ class SearchOptions extends AbstractOptions
     }
 
     /**
-     * 
+     * current page
      * @return int
      */
     public function getPage()
@@ -65,7 +66,7 @@ class SearchOptions extends AbstractOptions
     }
    
     /**
-     * 
+     * cureent page
      * @param int $page
      * @return \SearchOptions
      */
@@ -76,7 +77,7 @@ class SearchOptions extends AbstractOptions
         return $this;
     }
     /**
-     * 
+     * limit
      * @return int||null
      */
     public function getLimit()
@@ -84,9 +85,9 @@ class SearchOptions extends AbstractOptions
         return $this->limit;
     }
     /**
-     * 
+     * limit
      * @param int $limit
-     * @return \SearchOptions
+     * @return \ZfModule\Options\SearchOptions
      */
     public function setLimit($limit)
     {
@@ -95,7 +96,7 @@ class SearchOptions extends AbstractOptions
         return $this;
     }
     /**
-     * 
+     * the query
      * @return string||null
      */
     public function getQuery()
@@ -103,7 +104,7 @@ class SearchOptions extends AbstractOptions
         return $this->query;
     }
     /**
-     * 
+     * query
      * @param string $query
      * @return \SearchOptions
      */
@@ -114,7 +115,7 @@ class SearchOptions extends AbstractOptions
         return $this;
     }
    /**
-    * 
+    * orderby
     * @return string||null
     */
     public function getOrderBy()
@@ -122,7 +123,7 @@ class SearchOptions extends AbstractOptions
         return $this->orderBy;
     }
     /**
-     * 
+     * order by
      * @param string $orderBy
      * @return \SearchOptions
      */
@@ -133,7 +134,7 @@ class SearchOptions extends AbstractOptions
         return $this;
     }
     /**
-     * 
+     * sort
      * @return string
      */
     public function getSort()
@@ -141,7 +142,7 @@ class SearchOptions extends AbstractOptions
         return $this->sort;
     }
     /**
-     * 
+     * sort
      * @param string $sort
      * @return \SearchOptions
      */

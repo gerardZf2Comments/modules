@@ -19,21 +19,23 @@ use ZfcBase\EventManager\EventProvider;
 class ModuleIndexer extends EventProvider implements ServiceLocatorAwareInterface 
 {
 
-    //works frm base of vendor or module directory of a 
-    //normal sample app
+    /**
+     * index path
+     * @var string
+     */
     protected $indexPath;
     /**
-     *
+     *the index object
      * @var \ZendSearch\Lucene\Index
      */
     protected $index;
-/**
+   /**
+     * options object
      * @var ZfModule\Options\ModuleOptions
      */
-    protected $options;
-    
+    protected $options;    
     /**
-     * 
+     * set options
      * @param \ZfModule\Options\ModuleOptions $options
      * @return \ZfModule\Service\Search\ModuleSearch
      */
@@ -43,7 +45,7 @@ class ModuleIndexer extends EventProvider implements ServiceLocatorAwareInterfac
         return $this;
     }
     /**
-     * 
+     * get options
      * @return ZfModule\Options\ModuleOptions
      */
     public function getOptions()
@@ -61,6 +63,7 @@ class ModuleIndexer extends EventProvider implements ServiceLocatorAwareInterfac
     }
     /**
      * add all the module to the index
+     * @return \ZfModule\Service\Search\ModuleIndexer
      */
     public function addAll() 
     {
@@ -68,6 +71,7 @@ class ModuleIndexer extends EventProvider implements ServiceLocatorAwareInterfac
         $mapper = $this->getServiceLocator()->get('zfmodule_mapper_module');
 
         $results = $mapper->findAll();
+       
         foreach ($results as $entity) {
             $this->addToModuleIndex($entity);
         }
@@ -75,15 +79,14 @@ class ModuleIndexer extends EventProvider implements ServiceLocatorAwareInterfac
         
         return $this;
     }
-
     /**
-     * $this->index->optimize();
-     * @todo find out exactly when to call this. i think it might be called internaly or something so 
-     * @todo only calling after index creation might be ok
+     * optime index
+     * @return \ZfModule\Service\Search\ModuleIndexer
      */
     public function optimizeIndex() 
     {
-        return $this->index->optimize();
+        $this->index->optimize();
+        return $this;
     }
     /**
      * return $this->getIndex($this->indexPath, $create);
@@ -96,7 +99,7 @@ class ModuleIndexer extends EventProvider implements ServiceLocatorAwareInterfac
         return $this->getIndex($this->getIndexPath(), $create);        
     }
     /**
-     * 
+     * set index object
      * @param \ZendSearch\Lucene\Index $index
      * @return \ZfModule\Service\ModuleIndexer
      */
@@ -106,7 +109,7 @@ class ModuleIndexer extends EventProvider implements ServiceLocatorAwareInterfac
          return $this;
     }
     /**
-     * 
+     * get an index
      * @param string $path
      * @param bool $create
      * @return ZendSearch\Lucene\Index
@@ -119,7 +122,6 @@ class ModuleIndexer extends EventProvider implements ServiceLocatorAwareInterfac
         }
         return $this->index;
     }
-
     /**
      * uses mapper to find all Module's ModuleTag entities. returns concat of the tag field
      * @param \ZfModule\Entity\ModuleInterface $entity
@@ -137,9 +139,10 @@ class ModuleIndexer extends EventProvider implements ServiceLocatorAwareInterfac
         return $finalTag;
     }
    /**
-     * @param \ZfModule\Entity\ModuleInterface $entity
-     * @return \ZfModule\Service\ModuleIndexer
-     */
+    * creates fields and adds the to the entity
+    * @param \ZfModule\Entity\ModuleInterface $entity
+    * @return \ZfModule\Service\ModuleIndexer
+    */
     private function addToModuleIndex( ModuleInterface $entity ) 
     {
         $tags = $this->getTags( $entity );
@@ -163,7 +166,7 @@ class ModuleIndexer extends EventProvider implements ServiceLocatorAwareInterfac
         return $this;
     }
     /**
-     * 
+     * loops doc adding fiels
      * @param \ZendSearch\Lucene\Document $doc
      * @param array $fields
      * @return \ZendSearch\Lucene\Document
@@ -177,6 +180,7 @@ class ModuleIndexer extends EventProvider implements ServiceLocatorAwareInterfac
         return $doc;
     }
     /**
+     * get Service Locator
      * @return \ZfModule\Service\ModuleIndexer
      */
     public function getServiceLocator() 
@@ -185,7 +189,7 @@ class ModuleIndexer extends EventProvider implements ServiceLocatorAwareInterfac
     }
 
     /**
-     * 
+     * set Service Locator
      * @param \Zend\ServiceManager\ServiceLocatorInterface $sm
      * @return \ZfModule\Service\ModuleIndexer
      */
@@ -195,6 +199,10 @@ class ModuleIndexer extends EventProvider implements ServiceLocatorAwareInterfac
         
         return $this;
     }
+    /**
+     * add module & optimize
+     * @param ZfModule\Entity\Module $module
+     */
     public function addExtraModule($module)
     {     
         $index =  $this->initIndex();
@@ -204,5 +212,4 @@ class ModuleIndexer extends EventProvider implements ServiceLocatorAwareInterfac
         $this->addToModuleIndex($module);
         $this->optimizeIndex();
     }
-
 }

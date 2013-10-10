@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                  http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+                  
+    <entity name="User\Entity\User" table="users">
+        <field name="createdAt" type="datetime" column="created_at" nullable="true" />
+        <field name="photoUrl" type="string" column="photo_url" length="255" />
+        <one-to-many field="userComments" target-entity="ZfModule\Entity\Comment" mapped-by="user">
+            
+        </one-to-many>
+    </entity>
+
+</doctrine-mapping>
+

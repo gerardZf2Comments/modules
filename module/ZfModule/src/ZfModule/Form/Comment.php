@@ -6,15 +6,20 @@ use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
 
 /**
- * @todo test and tidy
+ * form can display errors and valiadte comment input
+ * @todo check if controllers want more elements for validation 
  */
 class Comment extends Form {
 
      /**
-     * 
-     * @param Zend\InputFilter\InputFilter
+     * the input filter object
+     * @var Zend\InputFilter\InputFilter
      */
     protected $inputFilter;
+    /**
+      * set name and instanciate elements and input filter
+     * @param string $name
+     */
     public function __construct($name = null)
      {
 
@@ -56,12 +61,15 @@ class Comment extends Form {
             ),
         ));
     }
-
+    /**
+     * instanciate, assign then return the filter 
+     * @return Zend\InputFilter\InputFilter
+     */
     public function getInputFilter() {
         if (!$this->inputFilter) {
             $inputFilter = new InputFilter();
             $inputFilter->add(array(
-                'name' => 'module-id',
+               'name' => 'module-id',
                 'required' => true,
                 'filters' => array(
                     array('name' => 'Int'),
@@ -87,7 +95,7 @@ class Comment extends Form {
             ));
             $inputFilter->add(array(
                 'name' => 'title',
-                'required' => true,
+                'required' => false,
                 ' filters' => array(
                     array('name' => 'StripTags'),
                     array('name’ => ’StringTrim'),

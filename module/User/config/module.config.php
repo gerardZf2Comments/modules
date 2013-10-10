@@ -1,5 +1,19 @@
 <?php
 return array(
+     'doctrine' => array(
+        'driver' => array(
+            'user_entity_user' => array(
+                'class' => 'Doctrine\ORM\Mapping\Driver\XmlDriver',
+                'paths' => __DIR__ . '/xml/user'
+            ),
+
+            'orm_default' => array(
+                'drivers' => array(
+                    'User\Entity\User'  => 'user_entity_user'
+                )
+            )
+        )
+    ),
     'view_manager' => array(
         'template_map' => array(
             'helper/module'                 =>  __DIR__ . '/../view/helper/module.phtml',

@@ -6,20 +6,24 @@ use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
 use Zend\Validator\Digits;
 /**
- * @todo test and tidy
+ * form can display errors and valiadte comment input
+ * @todo 
  */
-class CommentReply extends Form {
-
+class CommentReply extends Form 
+{
     /**
-     * 
-     * @param Zend\InputFilter\InputFilter
+     * input filter
+     * @var Zend\InputFilter\InputFilter
      */
     protected $inputFilter;
+     /**
+     * set name and instanciate elements and input filter
+     * @param string $name
+     */
     public function __construct($name = null)
      {
-
-
         parent::__construct('comment-reply');
+        
         $this->setInputFilter($this->getInputFilter()); 
         
         $this->add(array(
@@ -37,8 +41,8 @@ class CommentReply extends Form {
             'options' => array(
                 'label' => 'Comment',
             ),
-            'messages' => array( 'error meassage'),
         ));
+        
         $this->add(array(
             'name' => 'submit',
             'type' => 'Zend\Form\Element\Submit',
@@ -47,12 +51,13 @@ class CommentReply extends Form {
                 'id' => 'submitbutton',
             ),
         ));
-        //      this message would not be used if a validator had a message for 
-        //      the same element. can set messages later
-        //      $this->setMessages(array('comment' => array('error message')));
     }
-
-    public function getInputFilter() {
+    /**
+     * instanciate, assign then return the filter 
+     * @return Zend\InputFilter\InputFilter
+     */
+    public function getInputFilter() 
+    {
         if (!$this->inputFilter) {
             $inputFilter = new InputFilter();
             $inputFilter->add(array(
@@ -72,22 +77,16 @@ class CommentReply extends Form {
                 'validators' => array(
                 $this->getCommentStringLengthValidator(),
                      
-                    ),
-                   
-               
+                    ),                   
             ));
             
             $this->inputFilter = $inputFilter;
         }
+        
         return $this->inputFilter;
-    }
-    public function getMessageValidator () {
-       $mv = new Digits;
-       $mv->setMessage('why why why ');
-       return $mv;
-    }
+    }   
     /**
-     * 
+     * instanciate and set max and min
      * @return \Zend\Validator\StringLength
      */
     public function getCommentStringLengthValidator()
@@ -97,11 +96,7 @@ class CommentReply extends Form {
         $validator->setMin(1);
         $validator->setMax(5000);
         
-        $validator->setMessage('you must submit more a longer message');
-       
-        return $validator;
-       
+        return $validator;       
     }
-
 }
 

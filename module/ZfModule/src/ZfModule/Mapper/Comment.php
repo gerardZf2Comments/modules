@@ -8,26 +8,26 @@ use ZfModule\Options\ModuleOptions;
 use Zend\Stdlib\Hydrator\HydratorInterface;
 
 /**
- * Description of Comment
- *
+ * comment mapper uses doctrine
  * @author gerard
  */
 class Comment 
 {
     /**
+     * to be set in factory
      * @var \Doctrine\ORM\EntityManager
-     */
-    
+     */    
     protected $em;
     
     
     /**
+     * to be set in factory
      * @var \ZfcUserDoctrineORM\Options\ModuleOptions
      */
     protected $options;
 
     /**
-     * 
+     * some params required
      * @param \Doctrine\ORM\EntityManager $em
      * @param \ZfModule\Options\ModuleOptions $options
      */
@@ -37,25 +37,26 @@ class Comment
         $this->options = $options;
     }
     /**
-     * 
-     * @param object $entity
-     * @return object
+     * write to db here 
+     * @param \ZfModule\Entity\Comment $entity
+     * @return \ZfModule\Entity\Comment
      */
-    public function insert($entity, $tableName = null, HydratorInterface $hydrator = null) {
+    public function insert($entity) 
+    {
         return $this->persist($entity);
     }
      /**
-     * 
-     * @param object $entity
-     * @return object
+     * write to db here 
+     * @param \ZfModule\Entity\Comment $entity
+     * @return \ZfModule\Entity\Comment
      */
-    public function update($entity, $where = null, $tableName = null, HydratorInterface $hydrator = null) {
+    public function update($entity) {
         return $this->persist($entity);
     }
      /**
-     * 
-     * @param object $entity
-     * @return object
+     * write to db here 
+     * @param \ZfModule\Entity\Comment $entity
+     * @return \ZfModule\Entity\Comment
      */
     protected function persist($entity) {
         $this->em->persist($entity);
@@ -64,15 +65,8 @@ class Comment
         return $entity;
     }
      /**
-     * Removes an entity instance.
-     *
-     * A removed entity will be removed from the database at or before transaction commit
-     * or as a result of the flush operation.
-     *
-     * @param object $entity The entity instance to remove.
-     *
-     * @return void
-     *
+     * Removes an entity
+     * @param \ZfModule\Entity\Comment $entity
      * @throws ORMInvalidArgumentException
      */
     public function delete($entity)
@@ -82,27 +76,30 @@ class Comment
     }
 
     /**
-     * 
-     * @param object $entity
-     * @return object
-     * @todo
+     * fire events for listeners
+     * @param  \ZfModule\Entity\Comment $entity
+     * @todo implement this
      */
-    protected function postRead($result){
+    protected function postRead($result)
+    {
       //  $this->getEventManager()->trigger('find', $this, array('entity' => $result));
     }
-        /**
-     * @var string $columns
+     /**
+     * gotta format colums properly eg. "c.xgy, c.xxx"
+     * @param string $columns
      * @return Doctrine/ORM/QueryBuilder 
      */
     public function getBaseQueryBuilder($columns = '')
     {
         $qb = $this->em->createQueryBuilder();
        
-        return $qb->add('select', 'c')
-                  ->add('from', "ZfModule\Entity\Comment c $columns");
+        $qb->add('select', 'c')
+           ->add('from', "ZfModule\Entity\Comment c $columns");
+        
+        return $qb;
     }
     /**
-     * 
+     * find all fires a not implemented event
      * @param int $limit
      * @param string $orderBy
      * @param string $sort
@@ -123,6 +120,7 @@ class Comment
         } 
         $result = $q->getResult();
         $this->postRead($result);
+        
         return $result;
     }
     
@@ -133,7 +131,7 @@ class Comment
      * @param int $limit
      * @param string $orderBy
      * @param string $sort
-     * @return type
+     * @return array
      */
     public function findBy($by, $id, $limit= null, $orderBy = null, $sort = 'ASC')
     {
@@ -154,9 +152,19 @@ class Comment
         } 
         $result = $q->getResult();
         $this->postRead($result);
+        
         return $result;
     }
-    public function findParentsBy($by, $id, $limit= null, $orderBy = null, $sort = 'ASC')
+    /**
+     * finds only elements that are parents with a user specified where clause
+     * @param string $where
+     * @param mixed $id
+     * @param int $limit
+     * @param string $orderBy
+     * @param string $sort
+     * @return array
+     */
+    public function findParentsWhere($where, $id, $limit= null, $orderBy = null, $sort = 'ASC')
     {
          /** @var qb Doctrine/ORM/QueryBuilder */
         $qb = $this->em->createQueryBuilder();
@@ -173,12 +181,12 @@ class Comment
         $qb->where('c.hasParent = 0');
        
         $where = $qb->expr()->andX(
-                $qb->expr()->eq('c.'.$by , ':id'),
+                $qb->expr()->eq('c.'.$where , ':id'),
                 $qb->expr()->eq('c.hasParent', 0)
                 );
         $qb->add('where', $where);
         $qb->setParameter('id', $id);
-       // $qb->join('c.childComments', 'comment');
+       
         /** @var q \Doctrine\ORM\Query */
         $q = $qb->getQuery();
         if($limit) {          
@@ -186,21 +194,31 @@ class Comment
         } 
         $result = $q->getResult();
         $this->postRead($result);
+       
         return $result;
     }
-    public function getCommentEntityClass(){
+    /**
+     * uses options
+     * @return string
+     */
+    public function getCommentEntityClass()
+    {
         return $this->options->getCommentEntityClassName();
     }
-    public function getUserEntityClass(){
+    /**
+     * uses options
+     * @return string
+     */
+    public function getUserEntityClass()
+    {
         return $this->options->getUserEntityClassName();
     }
     /**
-     * 
+     * get the em set in contructor
      * @return \Doctrine\ORM\EntityManager
      */
-    public function getEntityManager(){
+    public function getEntityManager()
+    {
         return $this->em;
     }
 }
-
-?>

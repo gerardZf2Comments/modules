@@ -1,63 +1,57 @@
 <?php
 
 namespace ZfModule\Entity;
-
-class Tag // implements ModuleInterface
+/**
+ * tag entity class
+ */
+class Tag
 {
-     /**
-     * @var id
-     */
-    protected $tagId = null;
-   
     /**
-     * @var tag
+    * tag id
+    * @var int
+    */
+    protected $tagId = null;   
+    /**
+     * tag value
+     * @var string
      */
     protected $tag = null;
-
     /**
      * Get id.
-     *
      * @return int
      */
     public function getTagId()
     {
         return $this->tagId;
     }
-
     /**
      * Set id.
-     *
      * @param int $id
-     * @return ModuleInterface
+     * @return \ZfModule\Entity\Tag
      */
     public function setTagId($id)
     {
         $this->tagId = (int) $id;
+       
         return $this;
     }
-
     /**
      * Get Url
-     *
      * @return string
      */
     public function getTag()
     {
         return $this->tag;
     }
-
     /**
      * Set Url
-     *
-     * @param string $url
-     * @return ModuleInterface
+     * @param string $tag
+     * @return \ZfModule\Entity\Tag
      */
     public function setTag($tag)
     {
         $this->tag = $tag;
+        
         return $this;
-    }
-
-    
-   
+    }  
 }

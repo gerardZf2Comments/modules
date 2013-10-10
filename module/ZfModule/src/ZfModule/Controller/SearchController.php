@@ -2,59 +2,27 @@
 
 namespace ZfModule\Controller;
 
-use Exception;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-// use ZfModule\View\Model\Exception;
-
 
 /**
- * Description of CommentController
+ * controller to search tags and modules
  *@todo validate input, throw and catch exceptions, test
  * @author gerard
  */
 class SearchController extends AbstractActionController
 {
-    public function __construct() {
-        die('controller construct');
-    }
-
     /**
-     * 
-     *ajax rendering of tag search
-     * @todo limit search
+     * tag search
+     * @todo limit & order search
+     * @return Zend\View\Model\ViewModel 
      */
     public function tagAjaxAction()
-    {
-        $m = $this->getServiceLocator()->get('Zfmodule\Mapper\Module');
-        $ent = $m->findAll();
-        foreach ($ent as $e) {
-            $i =$this->getServiceLocator()->get('zfmodule_service_search_module_indexer');
-            $i->addExtraModule($e);
-        }
-        
-        $starService = new \ZfModule\Service\ModuleStar;
-        $starService->setServiceLocator($this->getServiceLocator());
-        $starService->updateStars();
-        
-          //do search
+    {        
         $query =  $this->params()->fromRoute('query', '');
         $tags = $this->getTags($query);
-          
+        
         return $this->renderTagLayout($tags, true);       
-    }
-    /**
-     * 
-     * tag search
-     * @todo limit search
-     */
-    public function tagAction()
-    {
-        
-        $query =  $this->params()->fromRoute('query', '');
-        $tags = $this->getTags($query);
-        
-        return $this->renderTagLayout($tags);       
     }
     /**
      * search module indexs render for ajax or full layout
@@ -62,10 +30,6 @@ class SearchController extends AbstractActionController
      */
     public function moduleAjaxAction()
     {  
-        die('in test');
-        $this->getEventManager()->trigger('insert.post', $this);
-      //  $em->trigger('someExpensiveCall.pre', $this);
-        $this->index();
          //do search
         $query =  $this->params()->fromRoute('query', '');
         $modules = $this->getModules($query); 
@@ -77,12 +41,11 @@ class SearchController extends AbstractActionController
         return $this->renderModuleLayout($currentModules, $paginator, $query, true);
     }
     /**
-     * 
      * module search
+     * @return Zend\View\Model Description
      */
     public function moduleAction()
-    { 
-       
+    {        
          //do search
         $query =  $this->params()->fromRoute('query', '');
         $modules = $this->getModules($query);
@@ -107,6 +70,7 @@ class SearchController extends AbstractActionController
         $paginator = new \Zend\Paginator\Paginator($adapter);
         $paginator->setCurrentPageNumber($currentPage);
         $paginator->setItemCountPerPage($itemCountPerPage);
+        
         return $paginator;
     }
 
@@ -145,7 +109,7 @@ class SearchController extends AbstractActionController
         return $viewModel;
     }
     /**
-     * 
+     * uses service to get array of modules
      * @param string $query
      * @return array
      */
@@ -158,7 +122,7 @@ class SearchController extends AbstractActionController
         return $service->search($query); 
     }
     /**
-     * 
+     * uses \ZfModule\Service\TagSearch to get a array of tags
      * @param string $query
      * @return array
      * @todo write service facory for  new \ZfModule\Service\TagSearch();
@@ -182,7 +146,10 @@ class SearchController extends AbstractActionController
     
     
     
-    
+    /**
+     * this function is a development utility to be removed
+     * @deprecated since version 1
+     */
     public function index()
     {
         $service = new \ZfModule\Service\Search\ModuleIndexer();

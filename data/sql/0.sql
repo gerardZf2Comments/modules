@@ -21,6 +21,8 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `module`;
 CREATE TABLE `module` (
   `module_id` int(11) NOT NULL AUTO_INCREMENT,
+ `watched` int(11) NOT NULL ,
+  `repo_id` varchar(255)  NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `url` varchar(500) NOT NULL,
@@ -53,6 +55,20 @@ CREATE TABLE `module_admin` (
 -- Records of module_admin
 -- ----------------------------
 
+--
+-- Table structure for table `module_comment`
+--
+
+CREATE TABLE IF NOT EXISTS `module_comment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `module_id` int(11) NOT NULL,
+  `comment` text NOT NULL,
+  `has_parent` int(1) NOT NULL,
+  `parent_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
 -- ----------------------------
 -- Table structure for `user`
 -- ----------------------------
@@ -76,6 +92,30 @@ CREATE TABLE `user` (
 -- INSERT INTO `user` VALUES ('1', null, 'kat@binarykitten.com', null, '$2y$14$mWNsDZFn9PPiKiTGmPkEau4PnXYFz8CO6WstglAp6f3SRPjx/dpQi');
 
 -- ----------------------------
+-- Table structure for `users`
+-- ----------------------------
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+
+  `username` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `display_name` varchar(50) DEFAULT NULL,
+  `password` varchar(128) NOT NULL,
+  `photo_url` varchar(255) DEFAULT NULL,
+  `state` varchar(128) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of users
+-- ----------------------------
+-- INSERT INTO `users` VALUES ('1', null, 'kat@binarykitten.com', null, '$2y$14$mWNsDZFn9PPiKiTGmPkEau4PnXYFz8CO6WstglAp6f3SRPjx/dpQi');
+
+-- ----------------------------
 -- Table structure for `user_provider`
 -- ----------------------------
 DROP TABLE IF EXISTS `user_provider`;
@@ -85,7 +125,7 @@ CREATE TABLE `user_provider` (
   `provider` varchar(255) NOT NULL,
   PRIMARY KEY (`user_id`,`provider_id`),
   UNIQUE KEY `provider_id` (`provider_id`,`provider`),
-  CONSTRAINT `user_provider_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
+  CONSTRAINT `user_provider_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------

@@ -17,6 +17,7 @@ return array(
   //  'Zend\\EventManager\\' => array($vendorDir . '/zendframework/zend-eventmanager'),
   //  'Zend\\Cache\\' => array($vendorDir . '/zendframework/zend-cache'),
   //  'Zend\\Authentication\\' => array($vendorDir . '/zendframework/zend-authentication'),
+   
     'Symfony\\Component\\Console\\' => array($vendorDir . '/symfony/console'),
     'Doctrine\\ORM\\' => array($vendorDir . '/doctrine/orm/lib'),
     'Doctrine\\DBAL\\' => array($vendorDir . '/doctrine/dbal/lib'),

@@ -5,6 +5,7 @@ namespace User;
 use ZfcBase\Module\AbstractModule;
 use Zend\ModuleManager\ModuleManager;
 use Zend\Mvc\ApplicationInterface;
+use Doctrine\ORM\Mapping\Driver\XmlDriver;
 
 class Module extends AbstractModule
 {
@@ -13,6 +14,8 @@ class Module extends AbstractModule
         $em = $app->getEventManager()->getSharedManager();
         $sm = $app->getServiceManager();
 
+        $chain = $sm->get('doctrine.driver.orm_default');
+        $chain->addDriver(new XmlDriver(__DIR__ . '/config/xml/user'), 'User\Entity\User');
         $em->attach('ScnSocialAuth\Authentication\Adapter\HybridAuth','githubToLocalUser', function($e) {
             $localUser = $e->getTarget();
             $userProfile = $e->getParam('userProfile');
