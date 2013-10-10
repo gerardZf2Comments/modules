@@ -2,4 +2,6 @@
 /vendor/doctrine/
 /nbproject/private/
 /data
-#/module/ZfModule/test/clover
+/module/ZfModule/test/clover
+!/data/sql
+
