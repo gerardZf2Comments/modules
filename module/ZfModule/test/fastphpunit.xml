@@ -1,0 +1,15 @@
+
+ 
+<phpunit bootstrap="Bootstrap.php">
+    <testsuites>
+        <testsuite name="Example Controller Tests">
+            <directory>./ControllerTest</directory>
+        </testsuite>
+        <testsuite name="Example Model Tests">
+            <directory>./ModelTest</directory>
+        </testsuite>
+    </testsuites>
+     <logging>
+      
+    </logging>
+</phpunit>
