@@ -11,7 +11,7 @@ use Zend\View\Model\ViewModel;
  * @author gerard
  */
 class TagController extends AbstractActionController
-{ 
+{
     /**
      * add comment, user must be logged in
      * @todo remove hardcoded userId
@@ -28,36 +28,39 @@ class TagController extends AbstractActionController
         $service = $this->getServiceLocator()->get('zfmodule_service_tag');
         
         $form = new \ZfModule\Form\Tag();
-        $form->setData(array(
+        $form->setData(
+            array(
             /** @todo add module validator to chain */
             'module-id' => $moduleId,
             'tag'=> $tag,    
-        ));
+            )
+        );
            
-        if(!$form->isValid()){
+        if (!$form->isValid()) {
              
             return $this->renderValidationFailed($form);
         }           
             
         $success = $service->add($userId, $moduleId, $tag);
        
-        if(is_array($success) && isset($success[0])){
+        if (is_array($success) && isset($success[0])) {
             $success = $success[0];
             
             return $this->renderTag($success, true); 
         }
-        
-        throw new \ZfModule\Controller\Exception\DomainException('Something went wrong there');         
+        $domainExcMessage = 'Something went wrong there';
+        throw new Exception\DomainException($domainExcMessage);         
     }
 
     /**
-     * gets info frm params and auth // return array($userId, $moduleId, $comment, $title);
+     * gets info frm params and auth 
+     * return array($userId, $moduleId, $comment, $title);
      * @return array
      */
     public function requestInfo()
     {
         $userId = $this->zfcUserAuthentication()->getIdentity();
-        $moduleId = $this->params()->fromPost('module-id','');
+        $moduleId = $this->params()->fromPost('module-id', '');
         $tag = $this->params()->fromPost('tag', ''); 
         $tagId = $this->params()->fromPost('tag-id', ''); 
         
@@ -67,10 +70,11 @@ class TagController extends AbstractActionController
     * edit module tag, user must be logged in
     * @return mixed either a view or redirect
     * @throws \ZfModule\Controller\Exception\DomainException
-    * @todo consider changing this logic at some point i'm going to need to write something 
+    * @todo consider changing this logic at some 
+    * @todo point i'm going to need to write something 
     * @todo that doesn't include $moduleId 
-    * @todo write tag form so valiadtion of none required elements can be done here
-    * 
+    * @todo write tag form so valiadtion of none 
+    * @todo required elements can be done here
     */
     public function editAction()
     {
@@ -80,26 +84,28 @@ class TagController extends AbstractActionController
        
         list($userId, $moduleId, $tag, $tagId) = $this->requestInfo();
         $form = new \ZfModule\Form\Tag();
-        $form->setData(array(
+        $form->setData(
+            array(
             /** @todo add module validator to chain */
             'module-id' => $moduleId,
             'tag'=> $tag,
             'tag-id'=>$tagId,
-        ));
+            )
+        );
            
-        if(!$form->isValid()){
+        if (!$form->isValid()) {
              
             return $this->renderValidationFailed($form);
         }          
         $service = $this->getServiceLocator()->get('zfmodule_tag_service');
        
         $success = $service->add($userId, $moduleId, $tagId, $tag);
-        if($success){
+        if ($success) {
             
             return $this->renderTag($success);
         }
         
-        throw new \ZfModule\Controller\Exception\DomainException('Something went wrong there');         
+        throw new Exception\DomainException('Something went wrong there');   
     }   
     /**
      * remove comment, user must be logged in
@@ -115,24 +121,26 @@ class TagController extends AbstractActionController
        
         list($userId, $moduleId, $tag) = $this->requestInfo();
         $form = new \ZfModule\Form\Tag();
-        $form->setData(array(
+        $form->setData(
+            array(
             /** @todo add module validator to chain */
             'module-id' => $moduleId,
             'tag-id'=>$tagId,
-        ));
-        if(!$form->isValid()){
+            )
+        );
+        if (!$form->isValid()) {
              
             return $this->renderValidationFailed($form);
         }  
         $service = $this->getServiceLocator()->get('zfmodule_tag_service');
        
         $success = $service->remove($userId, $moduleId, $tag);
-        if($success){
+        if ($success) {
            
             return $this->renderRemoveSuccess(); 
         }
-       
-        throw new \ZfModule\Controller\Exception\DomainException('Something went wrong there');
+        
+        throw new Exception\DomainException('Something went wrong there');
     }
     /**
      * send remove success response

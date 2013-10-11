@@ -10,10 +10,19 @@
  *
  * @author gerard
  */
-class ControllerTest extends PHPUnit_Framework_Testcase 
+class ControllerTest extends PHPUnit_Framework_Testcase
 {
     public function testtest()
     {
+        $y=1;
+        $t=2;
+        $t="";
+        if ($t){
+            
+        }
+        foreach ( $array as $key => $value) {
+            
+        }
         $this->assertTrue(true);
     }
 }

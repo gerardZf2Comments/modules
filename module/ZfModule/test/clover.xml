@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1381441456">
-  <project timestamp="1381441456">
+<coverage generated="1381502241">
+  <project timestamp="1381502241">
     <package name="ZfModule">
       <file name="/home/gerard/sites/modules.w.doctrine/modules.zendframework.com/module/ZfModule/Module.php">
         <class name="Module" namespace="ZfModule">

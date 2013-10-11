@@ -16,7 +16,7 @@
         <directory>./module/Application/test/ApplicationTest</directory>
         <directory>./module/User/test/UserTest</directory>
     </testsuite>
-    <filter>
+    <filter>    
         <whitelist addUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./module/Application/src</directory>
             <directory suffix=".php">./module/User/src</directory>
