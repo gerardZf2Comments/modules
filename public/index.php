@@ -9,11 +9,6 @@ ini_set('display_errors', 1);
 chdir(dirname(__DIR__));
 // Setup autoloading
 include 'init_autoloader.php';
-try {
+
 // Run the application!
 Zend\Mvc\Application::init(include 'config/application.config.php')->run();
-} catch ( \Exception $exc){
-    echo '<pre>';
-    var_dump($exc);
-    echo '<pre>';
-}

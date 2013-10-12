@@ -15,6 +15,11 @@ use Zend\Mvc\Controller\AbstractActionController,
  */
 class CommentController extends AbstractActionController
 {
+   public function __construct()
+    {
+       $brk=1;
+    }
+
     /**
      * add comment, user must be logged in
      * @return view model
@@ -109,7 +114,8 @@ class CommentController extends AbstractActionController
     */
     public function addReplyAction()
     {
-            if (!$this->zfcUserAuthentication()->hasIdentity()) {
+       
+        if (!$this->zfcUserAuthentication()->hasIdentity()) {
             //return $this->redirect()->toRoute('zfcuser/login');
         }
         list($userId, $parentCommentId, $comment) = $this->getReplyFormParams();
@@ -117,7 +123,7 @@ class CommentController extends AbstractActionController
         $form = new \ZfModule\Form\CommentReply();
         $formIsValid = $this->validateReplyForm($form, $parentCommentId, $comment);
        
-        if(!$formIsValid){
+        if (!$formIsValid) {
             
            return $this->renderAddReplyValidationFailed($form);
         } 
