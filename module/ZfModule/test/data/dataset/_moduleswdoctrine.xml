@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <dataset>
+        <!-- Table mesa -->
+        <mesa>
+            <column name="id">1</column>
+            <column name="content">Hello buddy!</column>
+        </mesa>
+        <mesa>
+            <column name="id">2</column>
+            <column name="content">I like it!</column>
+        </mesa>
+        <user_provider />
+        <!-- Table mesa -->
+        <users>
+            <column name="user_id">2</column>
+            <column name="username">bla</column>
+            <column name="email">gera@yuu.com</column>
+            <column name="display_name">blas</column>
+            <column name="password">bfhkab</column>
+            <column name="photo_url">NULL</column>
+            <column name="created_at">2013-10-09 16:14:54</column>
+        </users>
+        <!-- Table users -->
+        <users>
+            <column name="id">1</column>
+            <column name="username">bla</column>
+            <column name="email">gera@yuu.com</column>
+            <column name="display_name">blas</column>
+            <column name="password">bfhkab</column>
+            <column name="photo_url">NULL</column>
+            <column name="state"></column>
+            <column name="created_at">2013-10-09 14:14:54</column>
+            <column name="user_id">1</column>
+        </users>
+      
+    
+    </dataset>
+    
+

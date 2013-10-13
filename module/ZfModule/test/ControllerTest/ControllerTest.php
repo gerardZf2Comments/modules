@@ -13,13 +13,13 @@ class CommentControllerTest extends AbstractControllerTestCase {
      * include config
      * @todo este y eso
      */
-    public function setUp() {
+    public function setUp()
+    {
         $this->setApplicationConfig(
                 include '/home/gerard/sites/modules.w.doctrine/modules.zendframework.com/config/application.config.php'
         );
         parent::setUp();
     }
-
     /**
      * return a view model with terminal set to true
      * @return \Zend\View\Model\ViewModel
@@ -32,25 +32,22 @@ class CommentControllerTest extends AbstractControllerTestCase {
         return $viewModel;
     }
     /**
-     * array of bad uri's
+     * array of good uri's
      * @return array
      */
-    public function addReplyBadData()
+    public function addReplyGoodData()
     {
-        if($r){
-            
-        }
         return array(
             array(
-               '/comment/add-reply/',              
+               '/comment/add-reply',              
             ),
         );
     }
 
     /**
-     * @dataProvider addReplyBadData
+     * @dataProvider addReplyGoodData
      */
-    public function testAddReplyUri($uri) {
+    public function testAddReplyUriGoodData($uri) {
 
         $_SERVER = $this->serverArray();
         $_SERVER['REQUEST_URI'] = $uri; 
@@ -67,6 +64,33 @@ class CommentControllerTest extends AbstractControllerTestCase {
         $this->assertControllerClass('CommentController');
 
         $this->assertTrue(true);
+    }
+     /**
+     * array of bad uri's
+     * @return array
+     */
+    public function addReplyBadData()
+    {
+        return array(
+            array(
+               '/comment/add-reply/',              
+            ),
+        );
+    }
+
+    /**
+     * @dataProvider addReplyBadData
+     */
+    public function testAddReplyUriBadData($uri)
+    {
+        //var_dump(headers_sent());die();
+        $this->reset();
+        $_SERVER = $this->serverArray();
+        $_SERVER['REQUEST_URI'] = $uri; 
+        Zend\Console\Console::overrideIsConsole(false);
+        $this->getApplication()->run();
+        $this->dispatch($uri);
+        $this->assertResponseStatusCode(404);      
     }
 
     public function serverArray() {

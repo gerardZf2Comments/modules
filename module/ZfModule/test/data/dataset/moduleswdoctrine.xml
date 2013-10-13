@@ -1,0 +1,372 @@
+<?xml version="1.0"?>
+<mysqldump xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<database name="moduleswdoctrine">
+	<table_data name="mesa">
+	</table_data>
+	<table_data name="module">
+	<row>
+		<field name="module_id">1</field>
+		<field name="watched">34</field>
+		<field name="repo_id">4545</field>
+		<field name="name">module</field>
+		<field name="description">mod des</field>
+		<field name="url">http://add.com</field>
+		<field name="meta_data" xsi:nil="true" />
+		<field name="created_at">2013-10-09 14:03:12</field>
+		<field name="updated_at">0000-00-00 00:00:00</field>
+		<field name="photo_url" xsi:nil="true" />
+		<field name="owner">bla</field>
+	</row>
+	</table_data>
+	<table_data name="module_admin">
+	</table_data>
+	<table_data name="module_comment">
+	<row>
+		<field name="id">1</field>
+		<field name="module_id">1</field>
+		<field name="comment">ahgergerh</field>
+		<field name="has_parent">0</field>
+		<field name="parent_id" xsi:nil="true" />
+		<field name="user_id">1</field>
+		<field name="title">shdhgsh</field>
+		<field name="created_at">2013-10-10 00:00:00</field>
+	</row>
+	<row>
+		<field name="id">2</field>
+		<field name="module_id">1</field>
+		<field name="comment">REPLY</field>
+		<field name="has_parent">1</field>
+		<field name="parent_id">1</field>
+		<field name="user_id">1</field>
+		<field name="title" xsi:nil="true" />
+		<field name="created_at" xsi:nil="true" />
+	</row>
+	<row>
+		<field name="id">3</field>
+		<field name="module_id">1</field>
+		<field name="comment">REPLY</field>
+		<field name="has_parent">1</field>
+		<field name="parent_id">1</field>
+		<field name="user_id">1</field>
+		<field name="title" xsi:nil="true" />
+		<field name="created_at" xsi:nil="true" />
+	</row>
+	<row>
+		<field name="id">4</field>
+		<field name="module_id">1</field>
+		<field name="comment">REPLY</field>
+		<field name="has_parent">1</field>
+		<field name="parent_id">1</field>
+		<field name="user_id">1</field>
+		<field name="title" xsi:nil="true" />
+		<field name="created_at" xsi:nil="true" />
+	</row>
+	<row>
+		<field name="id">5</field>
+		<field name="module_id">1</field>
+		<field name="comment">REPLY</field>
+		<field name="has_parent">1</field>
+		<field name="parent_id">1</field>
+		<field name="user_id">1</field>
+		<field name="title" xsi:nil="true" />
+		<field name="created_at" xsi:nil="true" />
+	</row>
+	<row>
+		<field name="id">6</field>
+		<field name="module_id">1</field>
+		<field name="comment">REPLY</field>
+		<field name="has_parent">1</field>
+		<field name="parent_id">1</field>
+		<field name="user_id">1</field>
+		<field name="title" xsi:nil="true" />
+		<field name="created_at" xsi:nil="true" />
+	</row>
+	<row>
+		<field name="id">7</field>
+		<field name="module_id">1</field>
+		<field name="comment">reply</field>
+		<field name="has_parent">1</field>
+		<field name="parent_id">1</field>
+		<field name="user_id">1</field>
+		<field name="title" xsi:nil="true" />
+		<field name="created_at" xsi:nil="true" />
+	</row>
+	<row>
+		<field name="id">8</field>
+		<field name="module_id">1</field>
+		<field name="comment">reply</field>
+		<field name="has_parent">1</field>
+		<field name="parent_id">1</field>
+		<field name="user_id">1</field>
+		<field name="title" xsi:nil="true" />
+		<field name="created_at" xsi:nil="true" />
+	</row>
+	<row>
+		<field name="id">9</field>
+		<field name="module_id">1</field>
+		<field name="comment">vb</field>
+		<field name="has_parent">0</field>
+		<field name="parent_id" xsi:nil="true" />
+		<field name="user_id">1</field>
+		<field name="title">b</field>
+		<field name="created_at" xsi:nil="true" />
+	</row>
+	<row>
+		<field name="id">10</field>
+		<field name="module_id">1</field>
+		<field name="comment">vb</field>
+		<field name="has_parent">0</field>
+		<field name="parent_id" xsi:nil="true" />
+		<field name="user_id">1</field>
+		<field name="title">b</field>
+		<field name="created_at" xsi:nil="true" />
+	</row>
+	<row>
+		<field name="id">11</field>
+		<field name="module_id">1</field>
+		<field name="comment">by</field>
+		<field name="has_parent">1</field>
+		<field name="parent_id">1</field>
+		<field name="user_id">1</field>
+		<field name="title" xsi:nil="true" />
+		<field name="created_at" xsi:nil="true" />
+	</row>
+	<row>
+		<field name="id">12</field>
+		<field name="module_id">1</field>
+		<field name="comment">comment</field>
+		<field name="has_parent">0</field>
+		<field name="parent_id" xsi:nil="true" />
+		<field name="user_id">1</field>
+		<field name="title">next</field>
+		<field name="created_at" xsi:nil="true" />
+	</row>
+	<row>
+		<field name="id">13</field>
+		<field name="module_id">1</field>
+		<field name="comment">a reply</field>
+		<field name="has_parent">1</field>
+		<field name="parent_id">12</field>
+		<field name="user_id">1</field>
+		<field name="title" xsi:nil="true" />
+		<field name="created_at" xsi:nil="true" />
+	</row>
+	<row>
+		<field name="id">14</field>
+		<field name="module_id">1</field>
+		<field name="comment">a reply</field>
+		<field name="has_parent">1</field>
+		<field name="parent_id">12</field>
+		<field name="user_id">1</field>
+		<field name="title" xsi:nil="true" />
+		<field name="created_at" xsi:nil="true" />
+	</row>
+	<row>
+		<field name="id">15</field>
+		<field name="module_id">1</field>
+		<field name="comment">a reply</field>
+		<field name="has_parent">1</field>
+		<field name="parent_id">12</field>
+		<field name="user_id">1</field>
+		<field name="title" xsi:nil="true" />
+		<field name="created_at" xsi:nil="true" />
+	</row>
+	<row>
+		<field name="id">16</field>
+		<field name="module_id">1</field>
+		<field name="comment">yy</field>
+		<field name="has_parent">0</field>
+		<field name="parent_id" xsi:nil="true" />
+		<field name="user_id">1</field>
+		<field name="title">yy</field>
+		<field name="created_at" xsi:nil="true" />
+	</row>
+	<row>
+		<field name="id">17</field>
+		<field name="module_id">1</field>
+		<field name="comment">com</field>
+		<field name="has_parent">1</field>
+		<field name="parent_id">16</field>
+		<field name="user_id">1</field>
+		<field name="title" xsi:nil="true" />
+		<field name="created_at" xsi:nil="true" />
+	</row>
+	<row>
+		<field name="id">18</field>
+		<field name="module_id">1</field>
+		<field name="comment">yy</field>
+		<field name="has_parent">0</field>
+		<field name="parent_id" xsi:nil="true" />
+		<field name="user_id">1</field>
+		<field name="title">yy</field>
+		<field name="created_at" xsi:nil="true" />
+	</row>
+	<row>
+		<field name="id">19</field>
+		<field name="module_id">1</field>
+		<field name="comment">v</field>
+		<field name="has_parent">1</field>
+		<field name="parent_id">18</field>
+		<field name="user_id">1</field>
+		<field name="title" xsi:nil="true" />
+		<field name="created_at" xsi:nil="true" />
+	</row>
+	<row>
+		<field name="id">20</field>
+		<field name="module_id">1</field>
+		<field name="comment">ff</field>
+		<field name="has_parent">0</field>
+		<field name="parent_id" xsi:nil="true" />
+		<field name="user_id">1</field>
+		<field name="title">gg</field>
+		<field name="created_at" xsi:nil="true" />
+	</row>
+	<row>
+		<field name="id">21</field>
+		<field name="module_id">1</field>
+		<field name="comment">r</field>
+		<field name="has_parent">1</field>
+		<field name="parent_id">20</field>
+		<field name="user_id">1</field>
+		<field name="title" xsi:nil="true" />
+		<field name="created_at" xsi:nil="true" />
+	</row>
+	<row>
+		<field name="id">22</field>
+		<field name="module_id">1</field>
+		<field name="comment">r</field>
+		<field name="has_parent">1</field>
+		<field name="parent_id">20</field>
+		<field name="user_id">1</field>
+		<field name="title" xsi:nil="true" />
+		<field name="created_at" xsi:nil="true" />
+	</row>
+	<row>
+		<field name="id">23</field>
+		<field name="module_id">1</field>
+		<field name="comment">f</field>
+		<field name="has_parent">0</field>
+		<field name="parent_id" xsi:nil="true" />
+		<field name="user_id">1</field>
+		<field name="title">g</field>
+		<field name="created_at" xsi:nil="true" />
+	</row>
+	<row>
+		<field name="id">24</field>
+		<field name="module_id">1</field>
+		<field name="comment">as</field>
+		<field name="has_parent">1</field>
+		<field name="parent_id">23</field>
+		<field name="user_id">1</field>
+		<field name="title" xsi:nil="true" />
+		<field name="created_at" xsi:nil="true" />
+	</row>
+	<row>
+		<field name="id">25</field>
+		<field name="module_id">1</field>
+		<field name="comment">ju</field>
+		<field name="has_parent">0</field>
+		<field name="parent_id" xsi:nil="true" />
+		<field name="user_id">1</field>
+		<field name="title">h</field>
+		<field name="created_at" xsi:nil="true" />
+	</row>
+	<row>
+		<field name="id">26</field>
+		<field name="module_id">1</field>
+		<field name="comment">reply</field>
+		<field name="has_parent">1</field>
+		<field name="parent_id">25</field>
+		<field name="user_id">1</field>
+		<field name="title" xsi:nil="true" />
+		<field name="created_at" xsi:nil="true" />
+	</row>
+	<row>
+		<field name="id">27</field>
+		<field name="module_id">1</field>
+		<field name="comment">a reply</field>
+		<field name="has_parent">1</field>
+		<field name="parent_id">12</field>
+		<field name="user_id">1</field>
+		<field name="title" xsi:nil="true" />
+		<field name="created_at" xsi:nil="true" />
+	</row>
+	<row>
+		<field name="id">28</field>
+		<field name="module_id">1</field>
+		<field name="comment">reply</field>
+		<field name="has_parent">1</field>
+		<field name="parent_id">1</field>
+		<field name="user_id">1</field>
+		<field name="title" xsi:nil="true" />
+		<field name="created_at" xsi:nil="true" />
+	</row>
+	<row>
+		<field name="id">29</field>
+		<field name="module_id">1</field>
+		<field name="comment">reply</field>
+		<field name="has_parent">1</field>
+		<field name="parent_id">16</field>
+		<field name="user_id">1</field>
+		<field name="title" xsi:nil="true" />
+		<field name="created_at" xsi:nil="true" />
+	</row>
+	<row>
+		<field name="id">30</field>
+		<field name="module_id">1</field>
+		<field name="comment">rr</field>
+		<field name="has_parent">1</field>
+		<field name="parent_id">25</field>
+		<field name="user_id">1</field>
+		<field name="title" xsi:nil="true" />
+		<field name="created_at" xsi:nil="true" />
+	</row>
+	</table_data>
+	<table_data name="module_tag">
+	<row>
+		<field name="module_id">1</field>
+		<field name="tag_id">1</field>
+	</row>
+	</table_data>
+	<table_data name="tag">
+	<row>
+		<field name="tag_id">1</field>
+		<field name="tag">module</field>
+	</row>
+	<row>
+		<field name="tag_id">2</field>
+		<field name="tag">real</field>
+	</row>
+	<row>
+		<field name="tag_id">3</field>
+		<field name="tag">coke</field>
+	</row>
+	</table_data>
+	<table_data name="user">
+	<row>
+		<field name="user_id">2</field>
+		<field name="username">bla</field>
+		<field name="email">gera@yuu.com</field>
+		<field name="display_name">blas</field>
+		<field name="password">bfhkab</field>
+		<field name="photo_url" xsi:nil="true" />
+		<field name="created_at">2013-10-09 14:14:54</field>
+	</row>
+	</table_data>
+	<table_data name="user_provider">
+	</table_data>
+	<table_data name="users">
+	<row>
+		<field name="id">1</field>
+		<field name="username">bla</field>
+		<field name="email">gera@yuu.com</field>
+		<field name="display_name">blas</field>
+		<field name="password">bfhkab</field>
+		<field name="photo_url" xsi:nil="true" />
+		<field name="state"></field>
+		<field name="created_at">2013-10-09 12:14:54</field>
+		<field name="user_id">1</field>
+	</row>
+	</table_data>
+</database>
+</mysqldump>
