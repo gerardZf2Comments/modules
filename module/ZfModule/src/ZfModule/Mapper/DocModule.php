@@ -184,12 +184,12 @@ class DocModule extends Module
          /** @var qb Doctrine/ORM/QueryBuilder */
        $qb = $this->getBaseQueryBuilder();
       
-        if($orderBy) {
-            $qb->orderBy('m.'.$orderBy , $sort);
+        if ($orderBy) {
+            $qb->orderBy('m.'.$orderBy, $sort);
         }
          /** @var q \Doctrine\ORM\Query */
         $q = $qb->getQuery();
-        if($limit) {          
+        if ($limit) {          
             $q->setMaxResults($limit);
         } 
         
@@ -214,15 +214,15 @@ class DocModule extends Module
         
         
         $qb->where('m.owner = :owner');
-        $qb->setParameter('owner',$owner);
+        $qb->setParameter('owner', $owner);
         
-        if($orderBy) {
+        if ($orderBy) {
             $qb->orderBy($orderBy . ' ' . $sort);
         }
          /** @var q \Doctrine\ORM\Query */
         $q = $qb->getQuery();
         
-        if($limit) {          
+        if ($limit) {          
             $q->setMaxResults($limit);
         } 
         
@@ -238,13 +238,14 @@ class DocModule extends Module
      * @throws Exception 
      * @todo fix inconsitency with findbyowner()
      */
-    public function findByName($name) {
+    public function findByName($name)
+    {
          /** @var qb Doctrine/ORM/QueryBuilder */
         $qb = $this->getBaseQueryBuilder();
         
           // why we are here
         $qb->where('m.name = :name');
-        $qb->setParameter('name',$name);
+        $qb->setParameter('name', $name);
         try {
             $result = $qb->getQuery()->getSingleResult();
         } catch ( \Doctrine\ORM\NoResultException $exc) {
@@ -268,7 +269,7 @@ class DocModule extends Module
          
           // why we are here
         $qb->where('m.url = :url');
-        $qb->setParameter('url',$url);
+        $qb->setParameter('url', $url);
        
         try {
             $result = $qb->getQuery()->getSingleResult();
@@ -292,7 +293,7 @@ class DocModule extends Module
         $qb = $this->getBaseQueryBuilder();
         
         $qb->where('m.id = :id');
-        $qb->setParameter('id',$id);
+        $qb->setParameter('id', $id);
         try {
             $result = $qb->getQuery()->getSingleResult();
         } catch ( \Doctrine\ORM\NoResultException $exc) {
@@ -367,7 +368,12 @@ class DocModule extends Module
      */
     protected function postInsert($result)
     {
-        $this->getEventManager()->trigger('post-insert', $this, array('entity' => $result));
+        $this->getEventManager()
+             ->trigger(
+                 'post-insert',
+                 $this, 
+                 array('entity' => $result)
+             );
     }
 
 }

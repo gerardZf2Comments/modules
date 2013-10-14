@@ -2,11 +2,11 @@
  
 <phpunit bootstrap="Bootstrap.php">
     <testsuites>
-        <testsuite name="Example Controller Tests">
-            <directory>./ControllerTest</directory>
-        </testsuite>
+      <!--  <testsuite name="Example Controller Tests">
+            <directory>./IntegrationTest</directory>
+        </testsuite> -->
         <testsuite name="Example Model Tests">
-            <directory>./ModelTest</directory>
+            <directory>./UnitTest</directory>
         </testsuite>
     </testsuites>
      <logging>

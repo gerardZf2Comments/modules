@@ -14,6 +14,12 @@ use Doctrine\ORM\Mapping\Driver;
  */
 class ExampleTest extends Database\TestCase
 {
+    /**
+     * 
+     * @param string $name
+     * @param array $data
+     * @param string $dataName
+     */
     public function __construct($name = NULL, array $data = array(), $dataName = '') 
     {
         $this->_baseDir = '/home/gerard/sites/modules.w.doctrine/modules.zendframework.com';

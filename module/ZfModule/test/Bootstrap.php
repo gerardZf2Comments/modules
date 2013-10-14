@@ -75,9 +75,15 @@ class Bootstrap
                 'autoregister_zf' => true,
                 'namespaces' => array(
                     __NAMESPACE__ => __DIR__ . '/' . __NAMESPACE__,
+                    'User' => $zf2Path .'/../../../module/User/src/User',
+                    'ZfcUserDoctrineORM' => $zf2Path .'/../../../vendor/ZfcUserDoctrineORM/src/ZfcUserDoctrineORM',
+                    'ZfcUser' => $zf2Path .'/../../../vendor/ZfcUser/src/ZfcUser',
+                    'ZfcBase' => $zf2Path .'/../../../vendor/ZfcBase/src/ZfcBase',
+               
                 ),
-            ),
+            ),  
         ));
+        
     }
 
     protected static function findParentPath($path)

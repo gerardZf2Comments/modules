@@ -17,6 +17,19 @@
 		<field name="photo_url" xsi:nil="true" />
 		<field name="owner">bla</field>
 	</row>
+        <row>
+		<field name="module_id">2</field>
+		<field name="watched">34</field>
+		<field name="repo_id">45345</field>
+		<field name="name">modules</field>
+		<field name="description">mod des</field>
+		<field name="url">http://add2.com</field>
+		<field name="meta_data" xsi:nil="true" />
+		<field name="created_at">2013-10-09 14:03:12</field>
+		<field name="updated_at">0000-00-00 00:00:00</field>
+		<field name="photo_url" xsi:nil="true" />
+		<field name="owner">blaa</field>
+	</row>
 	</table_data>
 	<table_data name="module_admin">
 	</table_data>
@@ -357,7 +370,7 @@
 	</table_data>
 	<table_data name="users">
 	<row>
-		<field name="id">1</field>
+		
 		<field name="username">bla</field>
 		<field name="email">gera@yuu.com</field>
 		<field name="display_name">blas</field>
@@ -366,6 +379,61 @@
 		<field name="state"></field>
 		<field name="created_at">2013-10-09 12:14:54</field>
 		<field name="user_id">1</field>
+	</row>
+        <row>
+		
+		<field name="username">bla2</field>
+		<field name="email">gera@yuu2.com</field>
+		<field name="display_name">blas</field>
+		<field name="password">bfhkab</field>
+		<field name="photo_url" xsi:nil="true" />
+		<field name="state"></field>
+		<field name="created_at">2013-10-09 12:14:54</field>
+		<field name="user_id">2</field>
+	</row>
+        <row>
+		
+		<field name="username">bla3</field>
+		<field name="email">gera3@yuu.com</field>
+		<field name="display_name">blas</field>
+		<field name="password">bfhkab</field>
+		<field name="photo_url" xsi:nil="true" />
+		<field name="state"></field>
+		<field name="created_at">2013-10-09 12:14:54</field>
+		<field name="user_id">3</field>
+	</row>
+        <row>
+		
+		<field name="username">bla4</field>
+		<field name="email">gera@yuu4.com</field>
+		<field name="display_name">blas</field>
+		<field name="password">bfhkab</field>
+		<field name="photo_url" xsi:nil="true" />
+		<field name="state"></field>
+		<field name="created_at">2013-10-09 12:14:54</field>
+		<field name="user_id">4</field>
+	</row>
+        <row>
+		
+		<field name="username">bla5</field>
+		<field name="email">gera@yuu5.com</field>
+		<field name="display_name">blas</field>
+		<field name="password">bfhkab</field>
+		<field name="photo_url" xsi:nil="true" />
+		<field name="state"></field>
+		<field name="created_at">2013-10-09 12:14:54</field>
+		<field name="user_id">5</field>
+	</row>
+         <row>
+		
+		<field name="username">bla6</field>
+		<field name="email">gera@yuu6.com</field>
+		<field name="display_name">blas</field>
+		<field name="password">bfhkab</field>
+		<field name="photo_url" xsi:nil="true" />
+		<field name="state"></field>
+		<field name="created_at">2013-10-09 12:14:54</field>
+		<field name="user_id">6</field>
 	</row>
 	</table_data>
 </database>
