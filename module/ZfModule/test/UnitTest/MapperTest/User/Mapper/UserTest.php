@@ -43,7 +43,7 @@ class UnitTestUserTest extends PHPUnit_Framework_TestCase
      */
     public function getMockQueryBuilder()
     {
-         $mockB =  $this->getMockBuilder('Mock_Doctrine_Query_Builder');
+         $mockB =  $this->getMockBuilder('Doctrine\ORM\QueryBuilder');
          $mockB->disableOriginalConstructor();
          
          return $mockB->getMock();

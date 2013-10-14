@@ -1,18 +1,12 @@
 <?php
-class Mock_Doctrine_Query_Builder
+class Mock_Doctrine_Query_Builder extends \Doctrine\ORM\QueryBuilder
 {
+   
     public function testIsRequired()
     {
         
     }
-    public function add()
-    {
-        
-    }
-    public function getQuery()
-    {
-        
-    }
+   
 
 }
 class Mock_Doctrine_Query
