@@ -113,7 +113,8 @@ class CommentController extends AbstractActionController
     * @todo remove hardcoded userId
     */
     public function addReplyAction()
-    {       
+    {    
+
         if (!$this->zfcUserAuthentication()->hasIdentity()) {
             //return $this->redirect()->toRoute('zfcuser/login');
         }

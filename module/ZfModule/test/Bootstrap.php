@@ -79,7 +79,8 @@ class Bootstrap
                     'ZfcUserDoctrineORM' => $zf2Path .'/../../../vendor/ZfcUserDoctrineORM/src/ZfcUserDoctrineORM',
                     'ZfcUser' => $zf2Path .'/../../../vendor/ZfcUser/src/ZfcUser',
                     'ZfcBase' => $zf2Path .'/../../../vendor/ZfcBase/src/ZfcBase',
-               
+                    'GolTest' => $zf2Path .'/../../../module/GolTest/src/GolTest',
+              
                 ),
             ),  
         ));

@@ -1,12 +1,21 @@
 
  
-<phpunit bootstrap="Bootstrap.php">
+<phpunit bootstrap="Bootstrap.php"
+   colors="true"
+        convertErrorsToExceptions="true"
+        convertNoticesToExceptions="true"
+        convertWarningsToExceptions="true"
+        verbose="true"
+        stopOnFailure="false"
+        processIsolation="false"
+        backupGlobals="false"
+        syntaxCheck="true">
     <testsuites>
         <testsuite name="Example Controller Tests">
-            <directory>./ControllerTest</directory>
+            <directory>./IntegrationTest</directory>
         </testsuite>
         <testsuite name="Example Model Tests">
-            <directory>./ModelTest</directory>
+            <directory>./UnitTest</directory>
         </testsuite>
     </testsuites>
        <php>
@@ -18,7 +27,7 @@
      <logging>
         <log
             type="coverage-clover"
-            target="./clover.xml"
-        /> <log type="coverage-html" target="./clover"/>
+            target="clover.xml"
+        /> <log type="coverage-html" target="clover-html"/>
     </logging>
 </phpunit>

@@ -17,9 +17,26 @@ class User extends ZfcUser
     protected $photoUrl;
 
     protected $createdAt;
+    public function setState($state)
+    {
+        $this->state = $state;
+        
+        return $this;
+    }
+    public function getState()
+    {
+        return $this->state;
+    }
 
-    public function getUserComments() {
+    public function getUserComments()
+    {
         return $this->userComments;
+    }
+    public function setUserComments($uc)
+    {
+        $this->userComments= $uc;
+        return $this;
+        
     }
 
     public function getCreatedAt()

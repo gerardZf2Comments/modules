@@ -1,6 +1,6 @@
 <?php
 
-use Zend\Test\PHPUnit\Database;
+use GolTest\PHPUnit\Database\DoctrineTestCase;
 use Zend\Mvc\Application;
 use Zend\Mvc\MvcEvent;
 use Doctrine\ORM\Mapping\Driver;
@@ -10,33 +10,27 @@ use Doctrine\ORM\Mapping\Driver;
  *
  * @author gerard
  */
-class UserTest extends \Zend\Test\PHPUnit\Database\TestCase
-{
+class UserTest extends DoctrineTestCase
+{    
     /**
-     * 
-     * @param string $name
-     * @param array $data
-     * @param string $dataname
+     * set the doctrine.configuration.orm_default
+     * @todo unset mysql fk checks before parent::setUp
+     * @todo then reset them
      */
-    public function __construct($name = '', array $data = array(), $dataName = '') 
-    {
-        $this->_baseDir = '/home/gerard/sites/modules.w.doctrine/modules.zendframework.com';
-        $this->_testDir = $this->_baseDir . '/module/ZfModule/test';
-        $this->_configPath = $this->_baseDir . '/config/application.config.php';
-        parent::__construct($name, $data, $dataName);
+    public function getApplicationConfig()
+    {           
+         $baseDir = '/home/gerard/sites/modules.w.doctrine/modules.zendframework.com';
+         
+         return include $baseDir . '/config/application.config.php';
     }
-
-        /**
-     * this belongs in a abstract class
-     * @return \PHPUnit_Extensions_Database_DataSet_ReplacementDataSet
+    /**
+     * this will used in getDataSet
+     * createMySQLXMLDataSet
+     * @return string
      */
-    public function getDataSet()
+    public function getDataSetPath()
     {
-        $ds = $this->createMySQLXMLDataSet($this->_testDir. '/data/dataset/moduleswdoctrine.xml');
-        $rds = new \PHPUnit_Extensions_Database_DataSet_ReplacementDataSet($ds);
-        $rds->addFullReplacement('##NULL##', null);
-       
-        return $rds;
+        return '/home/gerard/sites/modules.w.doctrine/modules.zendframework.com/module/ZfModule/test/data/dataset/moduleswdoctrine.xml';
     }
     /**
      * this is a working test 
@@ -58,8 +52,13 @@ class UserTest extends \Zend\Test\PHPUnit\Database\TestCase
         $entity = $this->findBy('gera@yuu.com');
         $this->assertEquals($entity->getId(), 1, 'id not 1');
         $this->assertEquals($entity->getEmail(), 'gera@yuu.com', 'email error');
+        $this->assertEntityType($entity);
     }
-    
+    public function assertEntityType($entity)
+    {
+        $this->assertInstanceOf('User\Entity\User', $entity, 'entity not of type User\Entity\User');
+    }
+
     public function testFindByEmailFailure()
     {       
         $entity = $this->findBy('gerad@yuu.com');

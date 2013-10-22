@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1381709205">
-  <project timestamp="1381709205">
+<coverage generated="1381541478">
+  <project timestamp="1381541478">
     <file name="/home/gerard/sites/modules.w.doctrine/modules.zendframework.com/config/application.config.php">
       <line num="2" type="stmt" count="7"/>
       <line num="3" type="stmt" count="7"/>
@@ -22,32 +22,33 @@
       <line num="22" type="stmt" count="7"/>
       <line num="23" type="stmt" count="7"/>
       <line num="24" type="stmt" count="7"/>
-      <line num="27" type="stmt" count="7"/>
+      <line num="25" type="stmt" count="7"/>
       <line num="28" type="stmt" count="7"/>
-      <line num="30" type="stmt" count="7"/>
+      <line num="29" type="stmt" count="7"/>
       <line num="31" type="stmt" count="7"/>
       <line num="32" type="stmt" count="7"/>
       <line num="33" type="stmt" count="7"/>
-      <line num="38" type="stmt" count="7"/>
+      <line num="34" type="stmt" count="7"/>
       <line num="39" type="stmt" count="7"/>
-      <line num="41" type="stmt" count="7"/>
-      <line num="43" type="stmt" count="7"/>
+      <line num="40" type="stmt" count="7"/>
+      <line num="42" type="stmt" count="7"/>
       <line num="44" type="stmt" count="7"/>
-      <line num="52" type="stmt" count="7"/>
+      <line num="45" type="stmt" count="7"/>
       <line num="53" type="stmt" count="7"/>
       <line num="54" type="stmt" count="7"/>
       <line num="55" type="stmt" count="7"/>
-      <line num="60" type="stmt" count="7"/>
-      <line num="62" type="stmt" count="7"/>
+      <line num="56" type="stmt" count="7"/>
+      <line num="61" type="stmt" count="7"/>
       <line num="63" type="stmt" count="7"/>
       <line num="64" type="stmt" count="7"/>
       <line num="65" type="stmt" count="7"/>
       <line num="66" type="stmt" count="7"/>
-      <line num="68" type="stmt" count="7"/>
+      <line num="67" type="stmt" count="7"/>
       <line num="69" type="stmt" count="7"/>
       <line num="70" type="stmt" count="7"/>
       <line num="71" type="stmt" count="7"/>
-      <metrics loc="71" ncloc="59" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="45" coveredstatements="45" elements="45" coveredelements="45"/>
+      <line num="72" type="stmt" count="7"/>
+      <metrics loc="72" ncloc="60" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="46" coveredstatements="46" elements="46" coveredelements="46"/>
     </file>
     <file name="/home/gerard/sites/modules.w.doctrine/modules.zendframework.com/config/autoload/database.local.php">
       <line num="5" type="stmt" count="7"/>
@@ -325,6 +326,20 @@
       <line num="132" type="stmt" count="1"/>
       <metrics loc="131" ncloc="128" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="16" elements="19" coveredelements="16"/>
     </file>
+    <package name="GolTest">
+      <file name="/home/gerard/sites/modules.w.doctrine/modules.zendframework.com/module/GolTest/Module.php">
+        <class name="Module" namespace="GolTest">
+          <metrics methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
+        </class>
+        <line num="11" type="method" name="getAutoloaderConfig" crap="1" count="7"/>
+        <line num="17" type="stmt" count="7"/>
+        <line num="18" type="stmt" count="7"/>
+        <line num="19" type="stmt" count="7"/>
+        <line num="20" type="stmt" count="7"/>
+        <line num="23" type="stmt" count="1"/>
+        <metrics loc="22" ncloc="17" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
+      </file>
+    </package>
     <package name="User">
       <file name="/home/gerard/sites/modules.w.doctrine/modules.zendframework.com/module/User/Module.php">
         <class name="Module" namespace="User">
@@ -409,25 +424,42 @@
     <package name="User\Entity">
       <file name="/home/gerard/sites/modules.w.doctrine/modules.zendframework.com/module/User/src/User/Entity/User.php">
         <class name="User" namespace="User\Entity">
-          <metrics methods="6" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="0" elements="15" coveredelements="0"/>
+          <metrics methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="0" elements="23" coveredelements="0"/>
         </class>
         <line num="9" type="method" name="__construct" crap="2" count="0"/>
         <line num="10" type="stmt" count="0"/>
         <line num="11" type="stmt" count="0"/>
-        <line num="21" type="method" name="getUserComments" crap="2" count="0"/>
+        <line num="20" type="method" name="setState" crap="2" count="0"/>
         <line num="22" type="stmt" count="0"/>
-        <line num="25" type="method" name="getCreatedAt" crap="2" count="0"/>
-        <line num="27" type="stmt" count="0"/>
-        <line num="30" type="method" name="setCreatedAt" crap="2" count="0"/>
-        <line num="32" type="stmt" count="0"/>
+        <line num="24" type="stmt" count="0"/>
+        <line num="26" type="method" name="getState" crap="2" count="0"/>
+        <line num="28" type="stmt" count="0"/>
+        <line num="31" type="method" name="getUserComments" crap="2" count="0"/>
         <line num="33" type="stmt" count="0"/>
-        <line num="39" type="method" name="getPhotoUrl" crap="2" count="0"/>
-        <line num="41" type="stmt" count="0"/>
-        <line num="49" type="method" name="setPhotoUrl" crap="2" count="0"/>
-        <line num="51" type="stmt" count="0"/>
-        <line num="52" type="stmt" count="0"/>
-        <line num="55" type="stmt" count="1"/>
-        <metrics loc="54" ncloc="42" classes="1" methods="6" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="0" elements="15" coveredelements="0"/>
+        <line num="35" type="method" name="setUserComments" crap="2" count="0"/>
+        <line num="37" type="stmt" count="0"/>
+        <line num="38" type="stmt" count="0"/>
+        <line num="42" type="method" name="getCreatedAt" crap="2" count="0"/>
+        <line num="44" type="stmt" count="0"/>
+        <line num="47" type="method" name="setCreatedAt" crap="2" count="0"/>
+        <line num="49" type="stmt" count="0"/>
+        <line num="50" type="stmt" count="0"/>
+        <line num="56" type="method" name="getPhotoUrl" crap="2" count="0"/>
+        <line num="58" type="stmt" count="0"/>
+        <line num="66" type="method" name="setPhotoUrl" crap="2" count="0"/>
+        <line num="68" type="stmt" count="0"/>
+        <line num="69" type="stmt" count="0"/>
+        <line num="72" type="stmt" count="1"/>
+        <metrics loc="71" ncloc="59" classes="1" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="0" elements="23" coveredelements="0"/>
+      </file>
+    </package>
+    <package name="User\Mapper">
+      <file name="/home/gerard/sites/modules.w.doctrine/modules.zendframework.com/module/User/src/User/Mapper/User.php">
+        <class name="User" namespace="User\Mapper">
+          <metrics methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        </class>
+        <line num="28" type="stmt" count="1"/>
+        <metrics loc="27" ncloc="-9" classes="1" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
     <package name="ZendDeveloperTools">
@@ -966,58 +998,57 @@
         <line num="104" type="stmt" count="0"/>
         <line num="106" type="stmt" count="0"/>
         <line num="115" type="method" name="addReplyAction" crap="6.00" count="1"/>
-        <line num="117" type="stmt" count="1"/>
-        <line num="119" type="stmt" count="1"/>
+        <line num="118" type="stmt" count="1"/>
         <line num="120" type="stmt" count="1"/>
-        <line num="122" type="stmt" count="1"/>
+        <line num="121" type="stmt" count="1"/>
         <line num="123" type="stmt" count="1"/>
-        <line num="125" type="stmt" count="1"/>
-        <line num="127" type="stmt" count="1"/>
-        <line num="129" type="stmt" count="0"/>
+        <line num="124" type="stmt" count="1"/>
+        <line num="126" type="stmt" count="1"/>
+        <line num="128" type="stmt" count="1"/>
         <line num="130" type="stmt" count="0"/>
         <line num="131" type="stmt" count="0"/>
         <line num="132" type="stmt" count="0"/>
-        <line num="134" type="stmt" count="0"/>
-        <line num="137" type="stmt" count="0"/>
-        <line num="139" type="stmt" count="0"/>
-        <line num="145" type="method" name="getReplyFormParams" crap="1" count="1"/>
-        <line num="147" type="stmt" count="1"/>
+        <line num="133" type="stmt" count="0"/>
+        <line num="135" type="stmt" count="0"/>
+        <line num="138" type="stmt" count="0"/>
+        <line num="140" type="stmt" count="0"/>
+        <line num="146" type="method" name="getReplyFormParams" crap="1" count="1"/>
         <line num="148" type="stmt" count="1"/>
         <line num="149" type="stmt" count="1"/>
-        <line num="151" type="stmt" count="1"/>
-        <line num="161" type="method" name="validateReplyForm" crap="1" count="1"/>
-        <line num="163" type="stmt" count="1"/>
+        <line num="150" type="stmt" count="1"/>
+        <line num="152" type="stmt" count="1"/>
+        <line num="162" type="method" name="validateReplyForm" crap="1" count="1"/>
         <line num="164" type="stmt" count="1"/>
         <line num="165" type="stmt" count="1"/>
         <line num="166" type="stmt" count="1"/>
-        <line num="168" type="stmt" count="1"/>
-        <line num="175" type="method" name="requestInfo" crap="2" count="0"/>
-        <line num="177" type="stmt" count="0"/>
+        <line num="167" type="stmt" count="1"/>
+        <line num="169" type="stmt" count="1"/>
+        <line num="176" type="method" name="requestInfo" crap="2" count="0"/>
         <line num="178" type="stmt" count="0"/>
         <line num="179" type="stmt" count="0"/>
         <line num="180" type="stmt" count="0"/>
-        <line num="182" type="stmt" count="0"/>
-        <line num="189" type="method" name="editAction" crap="12" count="0"/>
-        <line num="191" type="stmt" count="0"/>
+        <line num="181" type="stmt" count="0"/>
+        <line num="183" type="stmt" count="0"/>
+        <line num="190" type="method" name="editAction" crap="12" count="0"/>
         <line num="192" type="stmt" count="0"/>
-        <line num="195" type="stmt" count="0"/>
-        <line num="197" type="stmt" count="0"/>
-        <line num="199" type="stmt" count="0"/>
+        <line num="193" type="stmt" count="0"/>
+        <line num="196" type="stmt" count="0"/>
+        <line num="198" type="stmt" count="0"/>
         <line num="200" type="stmt" count="0"/>
-        <line num="202" type="stmt" count="0"/>
-        <line num="205" type="stmt" count="0"/>
-        <line num="212" type="method" name="removeAction" crap="12" count="0"/>
-        <line num="214" type="stmt" count="0"/>
-        <line num="216" type="stmt" count="0"/>
-        <line num="219" type="stmt" count="0"/>
-        <line num="221" type="stmt" count="0"/>
-        <line num="223" type="stmt" count="0"/>
-        <line num="225" type="stmt" count="0"/>
+        <line num="201" type="stmt" count="0"/>
+        <line num="203" type="stmt" count="0"/>
+        <line num="206" type="stmt" count="0"/>
+        <line num="213" type="method" name="removeAction" crap="12" count="0"/>
+        <line num="215" type="stmt" count="0"/>
+        <line num="217" type="stmt" count="0"/>
+        <line num="220" type="stmt" count="0"/>
+        <line num="222" type="stmt" count="0"/>
+        <line num="224" type="stmt" count="0"/>
         <line num="226" type="stmt" count="0"/>
-        <line num="228" type="stmt" count="0"/>
-        <line num="231" type="stmt" count="0"/>
-        <line num="241" type="method" name="validateRemoveParams" crap="20" count="0"/>
-        <line num="243" type="stmt" count="0"/>
+        <line num="227" type="stmt" count="0"/>
+        <line num="229" type="stmt" count="0"/>
+        <line num="232" type="stmt" count="0"/>
+        <line num="242" type="method" name="validateRemoveParams" crap="20" count="0"/>
         <line num="244" type="stmt" count="0"/>
         <line num="245" type="stmt" count="0"/>
         <line num="246" type="stmt" count="0"/>
@@ -1026,29 +1057,30 @@
         <line num="249" type="stmt" count="0"/>
         <line num="250" type="stmt" count="0"/>
         <line num="251" type="stmt" count="0"/>
-        <line num="253" type="stmt" count="0"/>
-        <line num="255" type="stmt" count="0"/>
-        <line num="263" type="method" name="renderEditSuccess" crap="6" count="0"/>
-        <line num="265" type="stmt" count="0"/>
+        <line num="252" type="stmt" count="0"/>
+        <line num="254" type="stmt" count="0"/>
+        <line num="256" type="stmt" count="0"/>
+        <line num="264" type="method" name="renderEditSuccess" crap="6" count="0"/>
         <line num="266" type="stmt" count="0"/>
-        <line num="268" type="stmt" count="0"/>
-        <line num="271" type="stmt" count="0"/>
-        <line num="279" type="method" name="renderRemoveSuccess" crap="2" count="0"/>
-        <line num="282" type="stmt" count="0"/>
-        <line num="289" type="method" name="renderComment" crap="2" count="0"/>
-        <line num="291" type="stmt" count="0"/>
+        <line num="267" type="stmt" count="0"/>
+        <line num="269" type="stmt" count="0"/>
+        <line num="272" type="stmt" count="0"/>
+        <line num="280" type="method" name="renderRemoveSuccess" crap="2" count="0"/>
+        <line num="283" type="stmt" count="0"/>
+        <line num="290" type="method" name="renderComment" crap="2" count="0"/>
         <line num="292" type="stmt" count="0"/>
         <line num="293" type="stmt" count="0"/>
         <line num="294" type="stmt" count="0"/>
-        <line num="296" type="stmt" count="0"/>
-        <line num="304" type="method" name="renderReply" crap="2" count="0"/>
-        <line num="306" type="stmt" count="0"/>
+        <line num="295" type="stmt" count="0"/>
+        <line num="297" type="stmt" count="0"/>
+        <line num="305" type="method" name="renderReply" crap="2" count="0"/>
         <line num="307" type="stmt" count="0"/>
         <line num="308" type="stmt" count="0"/>
         <line num="309" type="stmt" count="0"/>
-        <line num="311" type="stmt" count="0"/>
-        <line num="316" type="stmt" count="1"/>
-        <metrics loc="315" ncloc="213" classes="1" methods="16" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="104" coveredstatements="23" elements="120" coveredelements="27"/>
+        <line num="310" type="stmt" count="0"/>
+        <line num="312" type="stmt" count="0"/>
+        <line num="317" type="stmt" count="1"/>
+        <metrics loc="316" ncloc="214" classes="1" methods="16" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="104" coveredstatements="23" elements="120" coveredelements="27"/>
       </file>
     </package>
     <package name="ZfModule\Entity">
@@ -1171,7 +1203,7 @@
     <package name="ApplicationTest">
       <file name="/home/gerard/sites/modules.w.doctrine/modules.zendframework.com/module/ZfModule/test/Bootstrap.php">
         <class name="Bootstrap" namespace="ApplicationTest">
-          <metrics methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="48" coveredstatements="0" elements="52" coveredelements="0"/>
+          <metrics methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="53" coveredstatements="0" elements="57" coveredelements="0"/>
         </class>
         <line num="20" type="method" name="init" crap="12" count="0"/>
         <line num="22" type="stmt" count="0"/>
@@ -1216,18 +1248,40 @@
         <line num="79" type="stmt" count="0"/>
         <line num="80" type="stmt" count="0"/>
         <line num="81" type="stmt" count="0"/>
-        <line num="83" type="method" name="findParentPath" crap="12" count="0"/>
+        <line num="82" type="stmt" count="0"/>
+        <line num="84" type="stmt" count="0"/>
         <line num="85" type="stmt" count="0"/>
         <line num="86" type="stmt" count="0"/>
-        <line num="87" type="stmt" count="0"/>
         <line num="88" type="stmt" count="0"/>
-        <line num="89" type="stmt" count="0"/>
-        <line num="90" type="stmt" count="0"/>
-        <line num="91" type="stmt" count="0"/>
+        <line num="90" type="method" name="findParentPath" crap="12" count="0"/>
         <line num="92" type="stmt" count="0"/>
-        <metrics loc="95" ncloc="90" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="48" coveredstatements="0" elements="52" coveredelements="0"/>
+        <line num="93" type="stmt" count="0"/>
+        <line num="94" type="stmt" count="0"/>
+        <line num="95" type="stmt" count="0"/>
+        <line num="96" type="stmt" count="0"/>
+        <line num="97" type="stmt" count="0"/>
+        <line num="98" type="stmt" count="0"/>
+        <line num="99" type="stmt" count="0"/>
+        <metrics loc="102" ncloc="97" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="53" coveredstatements="0" elements="57" coveredelements="0"/>
       </file>
     </package>
+    <file name="/home/gerard/sites/modules.w.doctrine/modules.zendframework.com/module/ZfModule/test/UnitTest/MapperTest/Mock.php">
+      <class name="Mock_Doctrine_Query" namespace="global" fullPackage="Mock.Doctrine">
+        <metrics methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="6" coveredelements="0"/>
+      </class>
+      <class name="Mock_Doctrine_ORM_EntityRepository" namespace="global" fullPackage="Mock.Doctrine.ORM">
+        <metrics methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="2" coveredelements="0"/>
+      </class>
+      <line num="4" type="method" name="testIsRequired" crap="2" count="0"/>
+      <line num="7" type="stmt" count="0"/>
+      <line num="8" type="method" name="setMaxResults" crap="2" count="0"/>
+      <line num="11" type="stmt" count="0"/>
+      <line num="12" type="method" name="getResult" crap="2" count="0"/>
+      <line num="15" type="stmt" count="0"/>
+      <line num="19" type="method" name="findOneBy" crap="2" count="0"/>
+      <line num="22" type="stmt" count="0"/>
+      <metrics loc="22" ncloc="22" classes="2" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="0" elements="8" coveredelements="0"/>
+    </file>
     <file name="/home/gerard/sites/modules.w.doctrine/modules.zendframework.com/module/ZfModule/view/zf-module/comment/reply-form.phtml">
       <line num="2" type="stmt" count="1"/>
       <line num="3" type="stmt" count="0"/>
@@ -6832,7 +6886,7 @@
       </file>
       <file name="/home/gerard/sites/modules.w.doctrine/modules.zendframework.com/vendor/ZF2/library/Zend/Http/Headers.php">
         <class name="Headers" namespace="Zend\Http" fullPackage="Zend_Http" category="Zend" package="Zend_Http">
-          <metrics methods="21" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="158" coveredstatements="45" elements="179" coveredelements="54"/>
+          <metrics methods="21" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="158" coveredstatements="44" elements="179" coveredelements="53"/>
         </class>
         <line num="0" type="stmt" count="1"/>
         <line num="56" type="method" name="fromString" crap="56" count="0"/>
@@ -6875,7 +6929,7 @@
         <line num="135" type="stmt" count="0"/>
         <line num="136" type="stmt" count="0"/>
         <line num="139" type="stmt" count="7"/>
-        <line num="140" type="stmt" count="2"/>
+        <line num="140" type="stmt" count="7"/>
         <line num="141" type="stmt" count="0"/>
         <line num="142" type="stmt" count="0"/>
         <line num="143" type="stmt" count="0"/>
@@ -6885,29 +6939,29 @@
         <line num="147" type="stmt" count="0"/>
         <line num="148" type="stmt" count="0"/>
         <line num="149" type="stmt" count="0"/>
-        <line num="150" type="stmt" count="2"/>
-        <line num="151" type="stmt" count="2"/>
-        <line num="152" type="stmt" count="2"/>
+        <line num="150" type="stmt" count="7"/>
+        <line num="151" type="stmt" count="7"/>
+        <line num="152" type="stmt" count="7"/>
         <line num="154" type="stmt" count="7"/>
         <line num="156" type="stmt" count="7"/>
-        <line num="170" type="method" name="addHeaderLine" crap="6.10" count="2"/>
-        <line num="172" type="stmt" count="2"/>
-        <line num="173" type="stmt" count="2"/>
-        <line num="174" type="stmt" count="2"/>
+        <line num="170" type="method" name="addHeaderLine" crap="6.10" count="7"/>
+        <line num="172" type="stmt" count="7"/>
+        <line num="173" type="stmt" count="7"/>
+        <line num="174" type="stmt" count="7"/>
         <line num="176" type="stmt" count="0"/>
         <line num="177" type="stmt" count="0"/>
         <line num="178" type="stmt" count="0"/>
-        <line num="179" type="stmt" count="2"/>
+        <line num="179" type="stmt" count="7"/>
         <line num="180" type="stmt" count="0"/>
-        <line num="182" type="stmt" count="2"/>
-        <line num="183" type="stmt" count="2"/>
-        <line num="184" type="stmt" count="2"/>
+        <line num="182" type="stmt" count="7"/>
+        <line num="183" type="stmt" count="7"/>
+        <line num="184" type="stmt" count="7"/>
         <line num="185" type="stmt" count="0"/>
         <line num="186" type="stmt" count="0"/>
-        <line num="187" type="stmt" count="2"/>
-        <line num="190" type="stmt" count="2"/>
-        <line num="191" type="stmt" count="2"/>
-        <line num="193" type="stmt" count="2"/>
+        <line num="187" type="stmt" count="7"/>
+        <line num="190" type="stmt" count="7"/>
+        <line num="191" type="stmt" count="7"/>
+        <line num="193" type="stmt" count="7"/>
         <line num="202" type="method" name="addHeader" crap="2" count="0"/>
         <line num="204" type="stmt" count="0"/>
         <line num="205" type="stmt" count="0"/>
@@ -6922,10 +6976,10 @@
         <line num="235" type="method" name="clearHeaders" crap="2" count="0"/>
         <line num="237" type="stmt" count="0"/>
         <line num="238" type="stmt" count="0"/>
-        <line num="247" type="method" name="get" crap="20.64" count="7"/>
-        <line num="249" type="stmt" count="7"/>
-        <line num="250" type="stmt" count="7"/>
-        <line num="251" type="stmt" count="5"/>
+        <line num="247" type="method" name="get" crap="24.11" count="2"/>
+        <line num="249" type="stmt" count="2"/>
+        <line num="250" type="stmt" count="2"/>
+        <line num="251" type="stmt" count="0"/>
         <line num="254" type="stmt" count="2"/>
         <line num="256" type="stmt" count="2"/>
         <line num="257" type="stmt" count="0"/>
@@ -7015,7 +7069,7 @@
         <line num="456" type="method" name="createKey" crap="1" count="7"/>
         <line num="458" type="stmt" count="7"/>
         <line num="461" type="stmt" count="1"/>
-        <metrics loc="460" ncloc="280" classes="1" methods="21" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="158" coveredstatements="45" elements="179" coveredelements="50"/>
+        <metrics loc="460" ncloc="280" classes="1" methods="21" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="158" coveredstatements="44" elements="179" coveredelements="49"/>
       </file>
       <file name="/home/gerard/sites/modules.w.doctrine/modules.zendframework.com/vendor/ZF2/library/Zend/Http/Request.php">
         <class name="Request" namespace="Zend\Http" fullPackage="Zend_Http" category="Zend" package="Zend_Http">
@@ -7060,12 +7114,12 @@
         <line num="126" type="stmt" count="0"/>
         <line num="127" type="stmt" count="0"/>
         <line num="129" type="stmt" count="0"/>
-        <line num="139" type="method" name="setMethod" crap="2.03" count="2"/>
-        <line num="141" type="stmt" count="2"/>
-        <line num="142" type="stmt" count="2"/>
+        <line num="139" type="method" name="setMethod" crap="2.03" count="7"/>
+        <line num="141" type="stmt" count="7"/>
+        <line num="142" type="stmt" count="7"/>
         <line num="143" type="stmt" count="0"/>
-        <line num="145" type="stmt" count="2"/>
-        <line num="146" type="stmt" count="2"/>
+        <line num="145" type="stmt" count="7"/>
+        <line num="146" type="stmt" count="7"/>
         <line num="154" type="method" name="getMethod" crap="2" count="0"/>
         <line num="156" type="stmt" count="0"/>
         <line num="166" type="method" name="setUri" crap="8.74" count="7"/>
@@ -7601,7 +7655,7 @@
     <package name="Zend\Http\PhpEnvironment">
       <file name="/home/gerard/sites/modules.w.doctrine/modules.zendframework.com/vendor/ZF2/library/Zend/Http/PhpEnvironment/Request.php">
         <class name="Request" namespace="Zend\Http\PhpEnvironment" fullPackage="Zend_Http" category="Zend" package="Zend_Http">
-          <metrics methods="18" coveredmethods="12" conditionals="0" coveredconditionals="0" statements="216" coveredstatements="111" elements="234" coveredelements="123"/>
+          <metrics methods="18" coveredmethods="12" conditionals="0" coveredconditionals="0" statements="216" coveredstatements="108" elements="234" coveredelements="120"/>
         </class>
         <line num="0" type="stmt" count="1"/>
         <line num="66" type="method" name="__construct" crap="9.45" count="7"/>
@@ -7669,21 +7723,21 @@
         <line num="217" type="stmt" count="7"/>
         <line num="219" type="stmt" count="7"/>
         <line num="220" type="stmt" count="7"/>
-        <line num="221" type="stmt" count="2"/>
-        <line num="223" type="stmt" count="2"/>
-        <line num="225" type="stmt" count="2"/>
-        <line num="226" type="stmt" count="2"/>
+        <line num="221" type="stmt" count="7"/>
+        <line num="223" type="stmt" count="7"/>
+        <line num="225" type="stmt" count="7"/>
+        <line num="226" type="stmt" count="7"/>
         <line num="227" type="stmt" count="7"/>
         <line num="228" type="stmt" count="0"/>
         <line num="229" type="stmt" count="0"/>
         <line num="230" type="stmt" count="0"/>
         <line num="231" type="stmt" count="7"/>
-        <line num="234" type="stmt" count="2"/>
+        <line num="234" type="stmt" count="7"/>
         <line num="235" type="stmt" count="7"/>
         <line num="237" type="stmt" count="7"/>
         <line num="240" type="stmt" count="7"/>
-        <line num="241" type="stmt" count="2"/>
-        <line num="242" type="stmt" count="2"/>
+        <line num="241" type="stmt" count="7"/>
+        <line num="242" type="stmt" count="7"/>
         <line num="245" type="stmt" count="7"/>
         <line num="246" type="stmt" count="7"/>
         <line num="247" type="stmt" count="7"/>
@@ -7696,11 +7750,11 @@
         <line num="260" type="stmt" count="7"/>
         <line num="261" type="stmt" count="7"/>
         <line num="262" type="stmt" count="7"/>
-        <line num="263" type="stmt" count="2"/>
-        <line num="264" type="stmt" count="2"/>
-        <line num="265" type="stmt" count="2"/>
-        <line num="266" type="stmt" count="2"/>
-        <line num="269" type="stmt" count="2"/>
+        <line num="263" type="stmt" count="7"/>
+        <line num="264" type="stmt" count="7"/>
+        <line num="265" type="stmt" count="7"/>
+        <line num="266" type="stmt" count="7"/>
+        <line num="269" type="stmt" count="7"/>
         <line num="270" type="stmt" count="0"/>
         <line num="271" type="stmt" count="0"/>
         <line num="274" type="stmt" count="0"/>
@@ -7721,8 +7775,8 @@
         <line num="292" type="stmt" count="0"/>
         <line num="294" type="stmt" count="7"/>
         <line num="297" type="stmt" count="7"/>
-        <line num="298" type="stmt" count="2"/>
-        <line num="299" type="stmt" count="2"/>
+        <line num="298" type="stmt" count="7"/>
+        <line num="299" type="stmt" count="7"/>
         <line num="301" type="stmt" count="7"/>
         <line num="303" type="stmt" count="7"/>
         <line num="314" type="method" name="getServer" crap="4.12" count="7"/>
@@ -7764,7 +7818,7 @@
         <line num="397" type="stmt" count="0"/>
         <line num="398" type="stmt" count="0"/>
         <line num="400" type="stmt" count="0"/>
-        <line num="410" type="method" name="detectRequestUri" crap="13.12" count="7"/>
+        <line num="410" type="method" name="detectRequestUri" crap="18.04" count="7"/>
         <line num="412" type="stmt" count="7"/>
         <line num="413" type="stmt" count="7"/>
         <line num="416" type="stmt" count="7"/>
@@ -7783,15 +7837,15 @@
         <line num="438" type="stmt" count="7"/>
         <line num="439" type="stmt" count="7"/>
         <line num="441" type="stmt" count="7"/>
-        <line num="442" type="stmt" count="2"/>
-        <line num="446" type="stmt" count="5"/>
-        <line num="447" type="stmt" count="5"/>
+        <line num="442" type="stmt" count="7"/>
+        <line num="446" type="stmt" count="0"/>
+        <line num="447" type="stmt" count="0"/>
         <line num="448" type="stmt" count="0"/>
         <line num="449" type="stmt" count="0"/>
         <line num="450" type="stmt" count="0"/>
         <line num="451" type="stmt" count="0"/>
         <line num="452" type="stmt" count="0"/>
-        <line num="455" type="stmt" count="5"/>
+        <line num="455" type="stmt" count="0"/>
         <line num="468" type="method" name="detectBaseUrl" crap="50.27" count="2"/>
         <line num="470" type="stmt" count="2"/>
         <line num="471" type="stmt" count="2"/>
@@ -7839,7 +7893,7 @@
         <line num="553" type="stmt" count="0"/>
         <line num="557" type="stmt" count="0"/>
         <line num="560" type="stmt" count="1"/>
-        <metrics loc="559" ncloc="330" classes="1" methods="18" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="216" coveredstatements="111" elements="234" coveredelements="117"/>
+        <metrics loc="559" ncloc="330" classes="1" methods="18" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="216" coveredstatements="108" elements="234" coveredelements="114"/>
       </file>
       <file name="/home/gerard/sites/modules.w.doctrine/modules.zendframework.com/vendor/ZF2/library/Zend/Http/PhpEnvironment/Response.php">
         <class name="Response" namespace="Zend\Http\PhpEnvironment" fullPackage="Zend_Http" category="Zend" package="Zend_Http">
@@ -8793,11 +8847,11 @@
         <line num="123" type="stmt" count="7"/>
         <line num="131" type="method" name="getAutoloadMap" crap="2" count="0"/>
         <line num="133" type="stmt" count="0"/>
-        <line num="142" type="method" name="autoload" crap="2" count="5"/>
-        <line num="144" type="stmt" count="5"/>
-        <line num="145" type="stmt" count="3"/>
-        <line num="146" type="stmt" count="3"/>
-        <line num="147" type="stmt" count="5"/>
+        <line num="142" type="method" name="autoload" crap="2" count="7"/>
+        <line num="144" type="stmt" count="7"/>
+        <line num="145" type="stmt" count="4"/>
+        <line num="146" type="stmt" count="4"/>
+        <line num="147" type="stmt" count="7"/>
         <line num="154" type="method" name="register" crap="2" count="0"/>
         <line num="156" type="stmt" count="0"/>
         <line num="157" type="stmt" count="0"/>
@@ -9072,7 +9126,7 @@
       </file>
       <file name="/home/gerard/sites/modules.w.doctrine/modules.zendframework.com/vendor/ZF2/library/Zend/Loader/StandardAutoloader.php">
         <class name="StandardAutoloader" namespace="Zend\Loader" fullPackage="Zend_Loader" package="Zend_Loader">
-          <metrics methods="13" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="102" coveredstatements="46" elements="115" coveredelements="54"/>
+          <metrics methods="13" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="105" coveredstatements="48" elements="118" coveredelements="56"/>
         </class>
         <line num="0" type="stmt" count="2"/>
         <line num="54" type="method" name="__construct" crap="6" count="0"/>
@@ -9164,33 +9218,36 @@
         <line num="266" type="stmt" count="3"/>
         <line num="267" type="stmt" count="3"/>
         <line num="268" type="stmt" count="3"/>
-        <line num="279" type="method" name="loadClass" crap="11.30" count="3"/>
+        <line num="279" type="method" name="loadClass" crap="13.04" count="3"/>
         <line num="281" type="stmt" count="3"/>
         <line num="282" type="stmt" count="0"/>
         <line num="283" type="stmt" count="0"/>
-        <line num="287" type="stmt" count="3"/>
-        <line num="289" type="stmt" count="0"/>
-        <line num="290" type="stmt" count="0"/>
-        <line num="291" type="stmt" count="0"/>
+        <line num="284" type="stmt" count="3"/>
+        <line num="285" type="stmt" count="0"/>
+        <line num="286" type="stmt" count="0"/>
+        <line num="290" type="stmt" count="3"/>
         <line num="292" type="stmt" count="0"/>
+        <line num="293" type="stmt" count="0"/>
         <line num="294" type="stmt" count="0"/>
-        <line num="298" type="stmt" count="3"/>
-        <line num="299" type="stmt" count="3"/>
+        <line num="295" type="stmt" count="0"/>
+        <line num="297" type="stmt" count="0"/>
         <line num="301" type="stmt" count="3"/>
+        <line num="302" type="stmt" count="3"/>
         <line num="304" type="stmt" count="3"/>
-        <line num="305" type="stmt" count="3"/>
-        <line num="306" type="stmt" count="3"/>
-        <line num="308" type="stmt" count="0"/>
-        <line num="310" type="stmt" count="3"/>
+        <line num="307" type="stmt" count="3"/>
+        <line num="308" type="stmt" count="3"/>
+        <line num="309" type="stmt" count="3"/>
         <line num="311" type="stmt" count="1"/>
-        <line num="320" type="method" name="normalizeDirectory" crap="2.15" count="7"/>
-        <line num="322" type="stmt" count="7"/>
-        <line num="323" type="stmt" count="7"/>
-        <line num="324" type="stmt" count="0"/>
-        <line num="325" type="stmt" count="0"/>
-        <line num="327" type="stmt" count="7"/>
-        <line num="328" type="stmt" count="7"/>
-        <metrics loc="331" ncloc="189" classes="1" methods="13" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="102" coveredstatements="46" elements="115" coveredelements="49"/>
+        <line num="313" type="stmt" count="3"/>
+        <line num="314" type="stmt" count="1"/>
+        <line num="323" type="method" name="normalizeDirectory" crap="2.15" count="7"/>
+        <line num="325" type="stmt" count="7"/>
+        <line num="326" type="stmt" count="7"/>
+        <line num="327" type="stmt" count="0"/>
+        <line num="328" type="stmt" count="0"/>
+        <line num="330" type="stmt" count="7"/>
+        <line num="331" type="stmt" count="7"/>
+        <metrics loc="334" ncloc="192" classes="1" methods="13" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="105" coveredstatements="48" elements="118" coveredelements="51"/>
       </file>
     </package>
     <file name="/home/gerard/sites/modules.w.doctrine/modules.zendframework.com/vendor/ZF2/library/Zend/Loader/PluginClassLocator.php">
@@ -13492,11 +13549,11 @@
         <class name="AbstractOptions" namespace="Zend\Stdlib" fullPackage="Zend_Stdlib" category="Zend" package="Zend_Stdlib">
           <metrics methods="8" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="55" coveredstatements="17" elements="63" coveredelements="21"/>
         </class>
-        <line num="34" type="method" name="__construct" crap="2" count="7"/>
-        <line num="36" type="stmt" count="7"/>
+        <line num="34" type="method" name="__construct" crap="2" count="10"/>
+        <line num="36" type="stmt" count="10"/>
         <line num="37" type="stmt" count="7"/>
         <line num="38" type="stmt" count="7"/>
-        <line num="39" type="stmt" count="7"/>
+        <line num="39" type="stmt" count="10"/>
         <line num="46" type="method" name="setFromArray" crap="4.84" count="7"/>
         <line num="48" type="stmt" count="7"/>
         <line num="49" type="stmt" count="0"/>
@@ -13738,25 +13795,25 @@
         <class name="ErrorHandler" namespace="Zend\Stdlib" fullPackage="Zend_Stdlib" category="Zend" package="Zend_Stdlib">
           <metrics methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="18" coveredstatements="13" elements="22" coveredelements="16"/>
         </class>
-        <line num="44" type="method" name="started" crap="1" count="2"/>
-        <line num="46" type="stmt" count="2"/>
-        <line num="55" type="method" name="start" crap="2.02" count="2"/>
-        <line num="57" type="stmt" count="2"/>
+        <line num="44" type="method" name="started" crap="1" count="7"/>
+        <line num="46" type="stmt" count="7"/>
+        <line num="55" type="method" name="start" crap="2.02" count="7"/>
+        <line num="57" type="stmt" count="7"/>
         <line num="58" type="stmt" count="0"/>
-        <line num="61" type="stmt" count="2"/>
-        <line num="62" type="stmt" count="2"/>
-        <line num="64" type="stmt" count="2"/>
-        <line num="65" type="stmt" count="2"/>
-        <line num="75" type="method" name="stop" crap="4.18" count="2"/>
-        <line num="77" type="stmt" count="2"/>
+        <line num="61" type="stmt" count="7"/>
+        <line num="62" type="stmt" count="7"/>
+        <line num="64" type="stmt" count="7"/>
+        <line num="65" type="stmt" count="7"/>
+        <line num="75" type="method" name="stop" crap="4.18" count="7"/>
+        <line num="77" type="stmt" count="7"/>
         <line num="78" type="stmt" count="0"/>
-        <line num="81" type="stmt" count="2"/>
-        <line num="83" type="stmt" count="2"/>
-        <line num="84" type="stmt" count="2"/>
-        <line num="85" type="stmt" count="2"/>
-        <line num="87" type="stmt" count="2"/>
+        <line num="81" type="stmt" count="7"/>
+        <line num="83" type="stmt" count="7"/>
+        <line num="84" type="stmt" count="7"/>
+        <line num="85" type="stmt" count="7"/>
+        <line num="87" type="stmt" count="7"/>
         <line num="88" type="stmt" count="0"/>
-        <line num="91" type="stmt" count="2"/>
+        <line num="91" type="stmt" count="7"/>
         <line num="103" type="method" name="addError" crap="2" count="0"/>
         <line num="105" type="stmt" count="0"/>
         <line num="106" type="stmt" count="0"/>
@@ -13921,13 +13978,13 @@
         <line num="68" type="stmt" count="1"/>
         <line num="76" type="method" name="toString" crap="2" count="0"/>
         <line num="78" type="stmt" count="0"/>
-        <line num="89" type="method" name="offsetGet" crap="2.15" count="2"/>
-        <line num="91" type="stmt" count="2"/>
-        <line num="92" type="stmt" count="2"/>
+        <line num="89" type="method" name="offsetGet" crap="2.15" count="7"/>
+        <line num="91" type="stmt" count="7"/>
+        <line num="92" type="stmt" count="7"/>
         <line num="94" type="stmt" count="0"/>
         <line num="102" type="method" name="get" crap="2" count="7"/>
         <line num="104" type="stmt" count="7"/>
-        <line num="105" type="stmt" count="2"/>
+        <line num="105" type="stmt" count="7"/>
         <line num="107" type="stmt" count="7"/>
         <line num="115" type="method" name="set" crap="2" count="0"/>
         <line num="117" type="stmt" count="0"/>
@@ -14552,12 +14609,12 @@
         <line num="758" type="method" name="setPath" crap="1" count="7"/>
         <line num="760" type="stmt" count="7"/>
         <line num="761" type="stmt" count="7"/>
-        <line num="774" type="method" name="setQuery" crap="2.26" count="2"/>
-        <line num="776" type="stmt" count="2"/>
+        <line num="774" type="method" name="setQuery" crap="2.26" count="7"/>
+        <line num="776" type="stmt" count="7"/>
         <line num="779" type="stmt" count="0"/>
         <line num="780" type="stmt" count="0"/>
-        <line num="782" type="stmt" count="2"/>
-        <line num="783" type="stmt" count="2"/>
+        <line num="782" type="stmt" count="7"/>
+        <line num="783" type="stmt" count="7"/>
         <line num="794" type="method" name="setFragment" crap="2" count="0"/>
         <line num="796" type="stmt" count="0"/>
         <line num="797" type="stmt" count="0"/>
@@ -14574,18 +14631,18 @@
         <line num="845" type="method" name="validateUserInfo" crap="2" count="0"/>
         <line num="847" type="stmt" count="0"/>
         <line num="848" type="stmt" count="0"/>
-        <line num="868" type="method" name="validateHost" crap="11.82" count="2"/>
-        <line num="875" type="stmt" count="2"/>
-        <line num="876" type="stmt" count="2"/>
+        <line num="868" type="method" name="validateHost" crap="11.82" count="7"/>
+        <line num="875" type="stmt" count="7"/>
+        <line num="876" type="stmt" count="7"/>
         <line num="877" type="stmt" count="0"/>
-        <line num="879" type="stmt" count="2"/>
-        <line num="881" type="stmt" count="2"/>
+        <line num="879" type="stmt" count="7"/>
+        <line num="881" type="stmt" count="7"/>
         <line num="882" type="stmt" count="0"/>
         <line num="883" type="stmt" count="0"/>
         <line num="885" type="stmt" count="0"/>
-        <line num="887" type="stmt" count="2"/>
-        <line num="888" type="stmt" count="2"/>
-        <line num="889" type="stmt" count="2"/>
+        <line num="887" type="stmt" count="7"/>
+        <line num="888" type="stmt" count="7"/>
+        <line num="889" type="stmt" count="7"/>
         <line num="891" type="stmt" count="0"/>
         <line num="893" type="stmt" count="0"/>
         <line num="904" type="method" name="validatePort" crap="30" count="0"/>
@@ -14688,29 +14745,29 @@
         <line num="1135" type="method" name="merge" crap="2" count="0"/>
         <line num="1137" type="stmt" count="0"/>
         <line num="1138" type="stmt" count="0"/>
-        <line num="1148" type="method" name="isValidIpAddress" crap="3.00" count="2"/>
-        <line num="1151" type="stmt" count="2"/>
-        <line num="1152" type="stmt" count="2"/>
-        <line num="1153" type="stmt" count="2"/>
-        <line num="1154" type="stmt" count="2"/>
-        <line num="1155" type="stmt" count="2"/>
-        <line num="1158" type="stmt" count="2"/>
-        <line num="1159" type="stmt" count="2"/>
-        <line num="1160" type="stmt" count="2"/>
+        <line num="1148" type="method" name="isValidIpAddress" crap="3.00" count="7"/>
+        <line num="1151" type="stmt" count="7"/>
+        <line num="1152" type="stmt" count="7"/>
+        <line num="1153" type="stmt" count="7"/>
+        <line num="1154" type="stmt" count="7"/>
+        <line num="1155" type="stmt" count="7"/>
+        <line num="1158" type="stmt" count="7"/>
+        <line num="1159" type="stmt" count="7"/>
+        <line num="1160" type="stmt" count="7"/>
         <line num="1161" type="stmt" count="0"/>
-        <line num="1166" type="stmt" count="2"/>
-        <line num="1167" type="stmt" count="2"/>
-        <line num="1168" type="stmt" count="2"/>
-        <line num="1169" type="stmt" count="2"/>
-        <line num="1170" type="stmt" count="2"/>
-        <line num="1171" type="stmt" count="2"/>
-        <line num="1172" type="stmt" count="2"/>
-        <line num="1173" type="stmt" count="2"/>
-        <line num="1182" type="method" name="isValidDnsHostname" crap="1" count="2"/>
-        <line num="1184" type="stmt" count="2"/>
-        <line num="1185" type="stmt" count="2"/>
-        <line num="1186" type="stmt" count="2"/>
-        <line num="1188" type="stmt" count="2"/>
+        <line num="1166" type="stmt" count="7"/>
+        <line num="1167" type="stmt" count="7"/>
+        <line num="1168" type="stmt" count="7"/>
+        <line num="1169" type="stmt" count="7"/>
+        <line num="1170" type="stmt" count="7"/>
+        <line num="1171" type="stmt" count="7"/>
+        <line num="1172" type="stmt" count="7"/>
+        <line num="1173" type="stmt" count="7"/>
+        <line num="1182" type="method" name="isValidDnsHostname" crap="1" count="7"/>
+        <line num="1184" type="stmt" count="7"/>
+        <line num="1185" type="stmt" count="7"/>
+        <line num="1186" type="stmt" count="7"/>
+        <line num="1188" type="stmt" count="7"/>
         <line num="1197" type="method" name="isValidRegName" crap="2" count="0"/>
         <line num="1199" type="stmt" count="0"/>
         <line num="1200" type="stmt" count="0"/>
@@ -14762,20 +14819,20 @@
         <class name="AbstractValidator" namespace="Zend\Validator" fullPackage="Zend_Validator" category="Zend" package="Zend_Validator">
           <metrics methods="32" coveredmethods="12" conditionals="0" coveredconditionals="0" statements="168" coveredstatements="63" elements="200" coveredelements="75"/>
         </class>
-        <line num="74" type="method" name="__construct" crap="5.09" count="2"/>
-        <line num="77" type="stmt" count="2"/>
+        <line num="74" type="method" name="__construct" crap="5.09" count="7"/>
+        <line num="77" type="stmt" count="7"/>
         <line num="78" type="stmt" count="0"/>
         <line num="79" type="stmt" count="0"/>
-        <line num="81" type="stmt" count="2"/>
-        <line num="82" type="stmt" count="2"/>
-        <line num="83" type="stmt" count="2"/>
-        <line num="85" type="stmt" count="2"/>
-        <line num="86" type="stmt" count="2"/>
-        <line num="87" type="stmt" count="2"/>
-        <line num="89" type="stmt" count="2"/>
-        <line num="90" type="stmt" count="2"/>
-        <line num="91" type="stmt" count="2"/>
-        <line num="92" type="stmt" count="2"/>
+        <line num="81" type="stmt" count="7"/>
+        <line num="82" type="stmt" count="7"/>
+        <line num="83" type="stmt" count="7"/>
+        <line num="85" type="stmt" count="7"/>
+        <line num="86" type="stmt" count="7"/>
+        <line num="87" type="stmt" count="7"/>
+        <line num="89" type="stmt" count="7"/>
+        <line num="90" type="stmt" count="7"/>
+        <line num="91" type="stmt" count="7"/>
+        <line num="92" type="stmt" count="7"/>
         <line num="101" type="method" name="getOption" crap="20" count="0"/>
         <line num="103" type="stmt" count="0"/>
         <line num="104" type="stmt" count="0"/>
@@ -14788,24 +14845,24 @@
         <line num="123" type="stmt" count="0"/>
         <line num="124" type="stmt" count="0"/>
         <line num="125" type="stmt" count="0"/>
-        <line num="135" type="method" name="setOptions" crap="12.58" count="2"/>
-        <line num="137" type="stmt" count="2"/>
+        <line num="135" type="method" name="setOptions" crap="12.58" count="7"/>
+        <line num="137" type="stmt" count="7"/>
         <line num="138" type="stmt" count="0"/>
-        <line num="141" type="stmt" count="2"/>
-        <line num="142" type="stmt" count="2"/>
-        <line num="143" type="stmt" count="2"/>
-        <line num="144" type="stmt" count="2"/>
+        <line num="141" type="stmt" count="7"/>
+        <line num="142" type="stmt" count="7"/>
+        <line num="143" type="stmt" count="7"/>
+        <line num="144" type="stmt" count="7"/>
         <line num="145" type="stmt" count="0"/>
-        <line num="146" type="stmt" count="2"/>
-        <line num="147" type="stmt" count="2"/>
-        <line num="148" type="stmt" count="2"/>
+        <line num="146" type="stmt" count="7"/>
+        <line num="147" type="stmt" count="7"/>
+        <line num="148" type="stmt" count="7"/>
         <line num="149" type="stmt" count="0"/>
-        <line num="150" type="stmt" count="2"/>
-        <line num="151" type="stmt" count="2"/>
-        <line num="152" type="stmt" count="2"/>
+        <line num="150" type="stmt" count="7"/>
+        <line num="151" type="stmt" count="7"/>
+        <line num="152" type="stmt" count="7"/>
         <line num="153" type="stmt" count="0"/>
-        <line num="155" type="stmt" count="2"/>
-        <line num="157" type="stmt" count="2"/>
+        <line num="155" type="stmt" count="7"/>
+        <line num="157" type="stmt" count="7"/>
         <line num="165" type="method" name="getMessages" crap="1" count="1"/>
         <line num="167" type="stmt" count="1"/>
         <line num="176" type="method" name="__invoke" crap="2" count="0"/>
@@ -14848,72 +14905,72 @@
         <line num="271" type="stmt" count="0"/>
         <line num="273" type="stmt" count="0"/>
         <line num="276" type="stmt" count="0"/>
-        <line num="291" type="method" name="createMessage" crap="22.15" count="2"/>
-        <line num="293" type="stmt" count="2"/>
+        <line num="291" type="method" name="createMessage" crap="22.15" count="7"/>
+        <line num="293" type="stmt" count="7"/>
         <line num="294" type="stmt" count="0"/>
-        <line num="297" type="stmt" count="2"/>
-        <line num="299" type="stmt" count="2"/>
-        <line num="301" type="stmt" count="2"/>
+        <line num="297" type="stmt" count="7"/>
+        <line num="299" type="stmt" count="7"/>
+        <line num="301" type="stmt" count="7"/>
         <line num="302" type="stmt" count="0"/>
-        <line num="303" type="stmt" count="2"/>
+        <line num="303" type="stmt" count="7"/>
         <line num="304" type="stmt" count="0"/>
-        <line num="305" type="stmt" count="2"/>
+        <line num="305" type="stmt" count="7"/>
         <line num="306" type="stmt" count="0"/>
         <line num="307" type="stmt" count="0"/>
-        <line num="308" type="stmt" count="2"/>
-        <line num="311" type="stmt" count="2"/>
+        <line num="308" type="stmt" count="7"/>
+        <line num="311" type="stmt" count="7"/>
         <line num="312" type="stmt" count="0"/>
         <line num="313" type="stmt" count="0"/>
-        <line num="315" type="stmt" count="2"/>
-        <line num="316" type="stmt" count="2"/>
-        <line num="317" type="stmt" count="2"/>
+        <line num="315" type="stmt" count="7"/>
+        <line num="316" type="stmt" count="7"/>
+        <line num="317" type="stmt" count="7"/>
         <line num="318" type="stmt" count="0"/>
         <line num="319" type="stmt" count="0"/>
         <line num="320" type="stmt" count="0"/>
         <line num="321" type="stmt" count="0"/>
         <line num="322" type="stmt" count="0"/>
-        <line num="323" type="stmt" count="2"/>
-        <line num="325" type="stmt" count="2"/>
-        <line num="326" type="stmt" count="2"/>
-        <line num="328" type="stmt" count="2"/>
-        <line num="329" type="stmt" count="2"/>
+        <line num="323" type="stmt" count="7"/>
+        <line num="325" type="stmt" count="7"/>
+        <line num="326" type="stmt" count="7"/>
+        <line num="328" type="stmt" count="7"/>
+        <line num="329" type="stmt" count="7"/>
         <line num="330" type="stmt" count="0"/>
         <line num="331" type="stmt" count="0"/>
-        <line num="333" type="stmt" count="2"/>
-        <line num="341" type="method" name="error" crap="3.33" count="2"/>
-        <line num="343" type="stmt" count="2"/>
+        <line num="333" type="stmt" count="7"/>
+        <line num="341" type="method" name="error" crap="3.33" count="7"/>
+        <line num="343" type="stmt" count="7"/>
         <line num="344" type="stmt" count="0"/>
         <line num="345" type="stmt" count="0"/>
         <line num="346" type="stmt" count="0"/>
-        <line num="348" type="stmt" count="2"/>
-        <line num="349" type="stmt" count="2"/>
-        <line num="350" type="stmt" count="2"/>
-        <line num="352" type="stmt" count="2"/>
-        <line num="353" type="stmt" count="2"/>
+        <line num="348" type="stmt" count="7"/>
+        <line num="349" type="stmt" count="7"/>
+        <line num="350" type="stmt" count="7"/>
+        <line num="352" type="stmt" count="7"/>
+        <line num="353" type="stmt" count="7"/>
         <line num="360" type="method" name="getValue" crap="2" count="0"/>
         <line num="362" type="stmt" count="0"/>
-        <line num="371" type="method" name="setValue" crap="1" count="2"/>
-        <line num="373" type="stmt" count="2"/>
-        <line num="374" type="stmt" count="2"/>
-        <line num="375" type="stmt" count="2"/>
+        <line num="371" type="method" name="setValue" crap="1" count="7"/>
+        <line num="373" type="stmt" count="7"/>
+        <line num="374" type="stmt" count="7"/>
+        <line num="375" type="stmt" count="7"/>
         <line num="383" type="method" name="setValueObscured" crap="2" count="0"/>
         <line num="385" type="stmt" count="0"/>
         <line num="386" type="stmt" count="0"/>
-        <line num="395" type="method" name="isValueObscured" crap="1" count="2"/>
-        <line num="397" type="stmt" count="2"/>
+        <line num="395" type="method" name="isValueObscured" crap="1" count="7"/>
+        <line num="397" type="stmt" count="7"/>
         <line num="408" type="method" name="setTranslator" crap="6" count="0"/>
         <line num="410" type="stmt" count="0"/>
         <line num="411" type="stmt" count="0"/>
         <line num="412" type="stmt" count="0"/>
         <line num="413" type="stmt" count="0"/>
         <line num="414" type="stmt" count="0"/>
-        <line num="422" type="method" name="getTranslator" crap="3.04" count="2"/>
-        <line num="424" type="stmt" count="2"/>
+        <line num="422" type="method" name="getTranslator" crap="3.04" count="7"/>
+        <line num="424" type="stmt" count="7"/>
         <line num="425" type="stmt" count="0"/>
-        <line num="428" type="stmt" count="2"/>
-        <line num="429" type="stmt" count="2"/>
-        <line num="430" type="stmt" count="2"/>
-        <line num="432" type="stmt" count="2"/>
+        <line num="428" type="stmt" count="7"/>
+        <line num="429" type="stmt" count="7"/>
+        <line num="430" type="stmt" count="7"/>
+        <line num="432" type="stmt" count="7"/>
         <line num="440" type="method" name="hasTranslator" crap="2" count="0"/>
         <line num="442" type="stmt" count="0"/>
         <line num="451" type="method" name="setTranslatorTextDomain" crap="2" count="0"/>
@@ -14931,8 +14988,8 @@
         <line num="485" type="stmt" count="0"/>
         <line num="486" type="stmt" count="0"/>
         <line num="487" type="stmt" count="0"/>
-        <line num="494" type="method" name="getDefaultTranslator" crap="1" count="2"/>
-        <line num="496" type="stmt" count="2"/>
+        <line num="494" type="method" name="getDefaultTranslator" crap="1" count="7"/>
+        <line num="496" type="stmt" count="7"/>
         <line num="504" type="method" name="hasDefaultTranslator" crap="2" count="0"/>
         <line num="506" type="stmt" count="0"/>
         <line num="515" type="method" name="setDefaultTranslatorTextDomain" crap="2" count="0"/>
@@ -14943,17 +15000,17 @@
         <line num="536" type="method" name="setTranslatorEnabled" crap="2" count="0"/>
         <line num="538" type="stmt" count="0"/>
         <line num="539" type="stmt" count="0"/>
-        <line num="547" type="method" name="isTranslatorEnabled" crap="1" count="2"/>
-        <line num="549" type="stmt" count="2"/>
-        <line num="557" type="method" name="getMessageLength" crap="1" count="2"/>
-        <line num="559" type="stmt" count="2"/>
+        <line num="547" type="method" name="isTranslatorEnabled" crap="1" count="7"/>
+        <line num="549" type="stmt" count="7"/>
+        <line num="557" type="method" name="getMessageLength" crap="1" count="7"/>
+        <line num="559" type="stmt" count="7"/>
         <line num="567" type="method" name="setMessageLength" crap="2" count="0"/>
         <line num="569" type="stmt" count="0"/>
         <line num="570" type="stmt" count="0"/>
-        <line num="579" type="method" name="translateMessage" crap="6.46" count="2"/>
-        <line num="581" type="stmt" count="2"/>
-        <line num="582" type="stmt" count="2"/>
-        <line num="583" type="stmt" count="2"/>
+        <line num="579" type="method" name="translateMessage" crap="6.46" count="7"/>
+        <line num="581" type="stmt" count="7"/>
+        <line num="582" type="stmt" count="7"/>
+        <line num="583" type="stmt" count="7"/>
         <line num="586" type="stmt" count="0"/>
         <line num="587" type="stmt" count="0"/>
         <line num="588" type="stmt" count="0"/>
@@ -14969,8 +15026,8 @@
         <class name="Hostname" namespace="Zend\Validator" fullPackage="Zend_Validator" category="Zend" package="Zend_Validator">
           <metrics methods="11" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="214" coveredstatements="36" elements="225" coveredelements="41"/>
         </class>
-        <line num="317" type="method" name="__construct" crap="17.53" count="2"/>
-        <line num="319" type="stmt" count="2"/>
+        <line num="317" type="method" name="__construct" crap="17.53" count="7"/>
+        <line num="319" type="stmt" count="7"/>
         <line num="320" type="stmt" count="0"/>
         <line num="321" type="stmt" count="0"/>
         <line num="322" type="stmt" count="0"/>
@@ -14984,24 +15041,24 @@
         <line num="332" type="stmt" count="0"/>
         <line num="334" type="stmt" count="0"/>
         <line num="335" type="stmt" count="0"/>
-        <line num="337" type="stmt" count="2"/>
-        <line num="338" type="stmt" count="2"/>
-        <line num="339" type="stmt" count="2"/>
-        <line num="341" type="stmt" count="2"/>
-        <line num="342" type="stmt" count="2"/>
+        <line num="337" type="stmt" count="7"/>
+        <line num="338" type="stmt" count="7"/>
+        <line num="339" type="stmt" count="7"/>
+        <line num="341" type="stmt" count="7"/>
+        <line num="342" type="stmt" count="7"/>
         <line num="349" type="method" name="getIpValidator" crap="2" count="0"/>
         <line num="351" type="stmt" count="0"/>
-        <line num="358" type="method" name="setIpValidator" crap="2" count="2"/>
-        <line num="360" type="stmt" count="2"/>
-        <line num="361" type="stmt" count="2"/>
-        <line num="362" type="stmt" count="2"/>
-        <line num="364" type="stmt" count="2"/>
-        <line num="365" type="stmt" count="2"/>
-        <line num="373" type="method" name="getAllow" crap="1" count="2"/>
-        <line num="375" type="stmt" count="2"/>
-        <line num="384" type="method" name="setAllow" crap="1" count="2"/>
-        <line num="386" type="stmt" count="2"/>
-        <line num="387" type="stmt" count="2"/>
+        <line num="358" type="method" name="setIpValidator" crap="2" count="7"/>
+        <line num="360" type="stmt" count="7"/>
+        <line num="361" type="stmt" count="7"/>
+        <line num="362" type="stmt" count="7"/>
+        <line num="364" type="stmt" count="7"/>
+        <line num="365" type="stmt" count="7"/>
+        <line num="373" type="method" name="getAllow" crap="1" count="7"/>
+        <line num="375" type="stmt" count="7"/>
+        <line num="384" type="method" name="setAllow" crap="1" count="7"/>
+        <line num="386" type="stmt" count="7"/>
+        <line num="387" type="stmt" count="7"/>
         <line num="395" type="method" name="getIdnCheck" crap="2" count="0"/>
         <line num="397" type="stmt" count="0"/>
         <line num="408" type="method" name="useIdnCheck" crap="2" count="0"/>
@@ -15012,31 +15069,31 @@
         <line num="432" type="method" name="useTldCheck" crap="2" count="0"/>
         <line num="434" type="stmt" count="0"/>
         <line num="435" type="stmt" count="0"/>
-        <line num="446" type="method" name="isValid" crap="1200.68" count="2"/>
-        <line num="448" type="stmt" count="2"/>
+        <line num="446" type="method" name="isValid" crap="1200.68" count="7"/>
+        <line num="448" type="stmt" count="7"/>
         <line num="449" type="stmt" count="0"/>
         <line num="450" type="stmt" count="0"/>
-        <line num="453" type="stmt" count="2"/>
-        <line num="455" type="stmt" count="2"/>
-        <line num="456" type="stmt" count="2"/>
+        <line num="453" type="stmt" count="7"/>
+        <line num="455" type="stmt" count="7"/>
+        <line num="456" type="stmt" count="7"/>
         <line num="457" type="stmt" count="0"/>
         <line num="458" type="stmt" count="0"/>
         <line num="459" type="stmt" count="0"/>
         <line num="461" type="stmt" count="0"/>
-        <line num="466" type="stmt" count="2"/>
-        <line num="467" type="stmt" count="2"/>
+        <line num="466" type="stmt" count="7"/>
+        <line num="467" type="stmt" count="7"/>
         <line num="468" type="stmt" count="0"/>
         <line num="469" type="stmt" count="0"/>
         <line num="471" type="stmt" count="0"/>
         <line num="472" type="stmt" count="0"/>
         <line num="474" type="stmt" count="0"/>
-        <line num="475" type="stmt" count="2"/>
-        <line num="477" type="stmt" count="2"/>
-        <line num="480" type="stmt" count="2"/>
-        <line num="481" type="stmt" count="2"/>
+        <line num="475" type="stmt" count="7"/>
+        <line num="477" type="stmt" count="7"/>
+        <line num="480" type="stmt" count="7"/>
+        <line num="481" type="stmt" count="7"/>
         <line num="482" type="stmt" count="0"/>
         <line num="483" type="stmt" count="0"/>
-        <line num="486" type="stmt" count="2"/>
+        <line num="486" type="stmt" count="7"/>
         <line num="487" type="stmt" count="0"/>
         <line num="489" type="stmt" count="0"/>
         <line num="490" type="stmt" count="0"/>
@@ -15104,21 +15161,21 @@
         <line num="586" type="stmt" count="0"/>
         <line num="589" type="stmt" count="0"/>
         <line num="590" type="stmt" count="0"/>
-        <line num="592" type="stmt" count="2"/>
-        <line num="593" type="stmt" count="2"/>
-        <line num="594" type="stmt" count="2"/>
-        <line num="597" type="stmt" count="2"/>
+        <line num="592" type="stmt" count="7"/>
+        <line num="593" type="stmt" count="7"/>
+        <line num="594" type="stmt" count="7"/>
+        <line num="597" type="stmt" count="7"/>
         <line num="598" type="stmt" count="0"/>
         <line num="599" type="stmt" count="0"/>
         <line num="601" type="stmt" count="0"/>
         <line num="603" type="stmt" count="0"/>
-        <line num="606" type="stmt" count="2"/>
-        <line num="607" type="stmt" count="2"/>
-        <line num="608" type="stmt" count="2"/>
-        <line num="609" type="stmt" count="2"/>
-        <line num="613" type="stmt" count="2"/>
-        <line num="614" type="stmt" count="2"/>
-        <line num="615" type="stmt" count="2"/>
+        <line num="606" type="stmt" count="7"/>
+        <line num="607" type="stmt" count="7"/>
+        <line num="608" type="stmt" count="7"/>
+        <line num="609" type="stmt" count="7"/>
+        <line num="613" type="stmt" count="7"/>
+        <line num="614" type="stmt" count="7"/>
+        <line num="615" type="stmt" count="7"/>
         <line num="619" type="stmt" count="0"/>
         <line num="620" type="stmt" count="0"/>
         <line num="621" type="stmt" count="0"/>
@@ -15201,44 +15258,44 @@
         <class name="Ip" namespace="Zend\Validator" fullPackage="Zend_Validator" category="Zend" package="Zend_Validator">
           <metrics methods="5" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="55" coveredstatements="18" elements="60" coveredelements="21"/>
         </class>
-        <line num="51" type="method" name="setOptions" crap="4.25" count="2"/>
-        <line num="53" type="stmt" count="2"/>
-        <line num="55" type="stmt" count="2"/>
+        <line num="51" type="method" name="setOptions" crap="4.25" count="7"/>
+        <line num="53" type="stmt" count="7"/>
+        <line num="55" type="stmt" count="7"/>
         <line num="56" type="stmt" count="0"/>
-        <line num="59" type="stmt" count="2"/>
-        <line num="68" type="method" name="isValid" crap="22.50" count="2"/>
-        <line num="70" type="stmt" count="2"/>
+        <line num="59" type="stmt" count="7"/>
+        <line num="68" type="method" name="isValid" crap="22.50" count="7"/>
+        <line num="70" type="stmt" count="7"/>
         <line num="71" type="stmt" count="0"/>
         <line num="72" type="stmt" count="0"/>
-        <line num="75" type="stmt" count="2"/>
-        <line num="77" type="stmt" count="2"/>
+        <line num="75" type="stmt" count="7"/>
+        <line num="77" type="stmt" count="7"/>
         <line num="78" type="stmt" count="0"/>
-        <line num="80" type="stmt" count="2"/>
+        <line num="80" type="stmt" count="7"/>
         <line num="81" type="stmt" count="0"/>
         <line num="82" type="stmt" count="0"/>
         <line num="83" type="stmt" count="0"/>
         <line num="84" type="stmt" count="0"/>
         <line num="85" type="stmt" count="0"/>
-        <line num="87" type="stmt" count="2"/>
-        <line num="88" type="stmt" count="2"/>
-        <line num="89" type="stmt" count="2"/>
+        <line num="87" type="stmt" count="7"/>
+        <line num="88" type="stmt" count="7"/>
+        <line num="89" type="stmt" count="7"/>
         <line num="90" type="stmt" count="0"/>
-        <line num="93" type="stmt" count="2"/>
-        <line num="94" type="stmt" count="2"/>
-        <line num="103" type="method" name="validateIPv4" crap="9.66" count="2"/>
-        <line num="105" type="stmt" count="2"/>
+        <line num="93" type="stmt" count="7"/>
+        <line num="94" type="stmt" count="7"/>
+        <line num="103" type="method" name="validateIPv4" crap="9.66" count="7"/>
+        <line num="105" type="stmt" count="7"/>
         <line num="107" type="stmt" count="0"/>
         <line num="108" type="stmt" count="0"/>
-        <line num="109" type="stmt" count="2"/>
+        <line num="109" type="stmt" count="7"/>
         <line num="111" type="stmt" count="0"/>
         <line num="112" type="stmt" count="0"/>
-        <line num="113" type="stmt" count="2"/>
+        <line num="113" type="stmt" count="7"/>
         <line num="115" type="stmt" count="0"/>
         <line num="116" type="stmt" count="0"/>
         <line num="117" type="stmt" count="0"/>
-        <line num="119" type="stmt" count="2"/>
-        <line num="120" type="stmt" count="2"/>
-        <line num="121" type="stmt" count="2"/>
+        <line num="119" type="stmt" count="7"/>
+        <line num="120" type="stmt" count="7"/>
+        <line num="121" type="stmt" count="7"/>
         <line num="124" type="stmt" count="0"/>
         <line num="134" type="method" name="validateIPv6" crap="72" count="0"/>
         <line num="136" type="stmt" count="0"/>
@@ -18647,8 +18704,8 @@
         <line num="368" type="method" name="setUserEntityClass" crap="1" count="7"/>
         <line num="370" type="stmt" count="7"/>
         <line num="371" type="stmt" count="7"/>
-        <line num="379" type="method" name="getUserEntityClass" crap="1" count="2"/>
-        <line num="381" type="stmt" count="2"/>
+        <line num="379" type="method" name="getUserEntityClass" crap="1" count="3"/>
+        <line num="381" type="stmt" count="3"/>
         <line num="390" type="method" name="setPasswordCost" crap="2" count="0"/>
         <line num="392" type="stmt" count="0"/>
         <line num="393" type="stmt" count="0"/>
@@ -18782,87 +18839,83 @@
     <package name="ZfcUserDoctrineORM\Entity">
       <file name="/home/gerard/sites/modules.w.doctrine/modules.zendframework.com/vendor/ZfcUserDoctrineORM/src/ZfcUserDoctrineORM/Entity/User.php">
         <class name="User" namespace="ZfcUserDoctrineORM\Entity">
-          <metrics methods="6" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="0" elements="15" coveredelements="0"/>
+          <metrics methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
         </class>
-        <line num="17" type="method" name="getUserComments" crap="2" count="0"/>
-        <line num="18" type="stmt" count="0"/>
-        <line num="20" type="method" name="setUserComments" crap="2" count="0"/>
-        <line num="21" type="stmt" count="0"/>
-        <line num="22" type="stmt" count="0"/>
-        <line num="24" type="method" name="getCreatedAt" crap="2" count="0"/>
-        <line num="26" type="stmt" count="0"/>
-        <line num="29" type="method" name="setCreatedAt" crap="2" count="0"/>
-        <line num="31" type="stmt" count="0"/>
-        <line num="32" type="stmt" count="0"/>
-        <line num="38" type="method" name="getPhotoUrl" crap="2" count="0"/>
-        <line num="40" type="stmt" count="0"/>
-        <line num="48" type="method" name="setPhotoUrl" crap="2" count="0"/>
-        <line num="50" type="stmt" count="0"/>
-        <line num="51" type="stmt" count="0"/>
-        <line num="54" type="stmt" count="1"/>
-        <metrics loc="53" ncloc="41" classes="1" methods="6" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="0" elements="15" coveredelements="0"/>
+        <line num="11" type="stmt" count="1"/>
+        <metrics loc="10" ncloc="10" classes="1" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
     <package name="ZfcUserDoctrineORM\Mapper">
       <file name="/home/gerard/sites/modules.w.doctrine/modules.zendframework.com/vendor/ZfcUserDoctrineORM/src/ZfcUserDoctrineORM/Mapper/User.php">
         <class name="User" namespace="ZfcUserDoctrineORM\Mapper">
-          <metrics methods="9" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="28" coveredstatements="15" elements="37" coveredelements="19"/>
+          <metrics methods="13" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="35" coveredstatements="22" elements="48" coveredelements="28"/>
         </class>
-        <line num="0" type="stmt" count="1"/>
-        <line num="22" type="method" name="__construct" crap="1" count="5"/>
-        <line num="24" type="stmt" count="5"/>
-        <line num="25" type="stmt" count="5"/>
-        <line num="26" type="stmt" count="5"/>
-        <line num="28" type="method" name="findByEmail" crap="1" count="2"/>
-        <line num="30" type="stmt" count="2"/>
-        <line num="31" type="stmt" count="2"/>
+        <line num="0" type="stmt" count="2"/>
+        <line num="22" type="method" name="__construct" crap="1" count="8"/>
+        <line num="24" type="stmt" count="8"/>
+        <line num="25" type="stmt" count="8"/>
+        <line num="26" type="stmt" count="8"/>
+        <line num="28" type="method" name="findByEmail" crap="1" count="3"/>
+        <line num="30" type="stmt" count="3"/>
+        <line num="31" type="stmt" count="3"/>
         <line num="34" type="method" name="findByUsername" crap="2" count="0"/>
         <line num="36" type="stmt" count="0"/>
         <line num="37" type="stmt" count="0"/>
-        <line num="40" type="method" name="findAll" crap="3.58" count="1"/>
-        <line num="42" type="stmt" count="1"/>
-        <line num="43" type="stmt" count="1"/>
-        <line num="44" type="stmt" count="0"/>
-        <line num="45" type="stmt" count="0"/>
-        <line num="47" type="stmt" count="1"/>
-        <line num="48" type="stmt" count="1"/>
-        <line num="49" type="stmt" count="0"/>
-        <line num="50" type="stmt" count="0"/>
-        <line num="51" type="stmt" count="1"/>
-        <line num="53" type="stmt" count="1"/>
-        <line num="59" type="method" name="getBaseQueryBuilder" crap="1" count="1"/>
-        <line num="61" type="stmt" count="1"/>
-        <line num="62" type="stmt" count="1"/>
-        <line num="63" type="stmt" count="1"/>
-        <line num="64" type="stmt" count="1"/>
-        <line num="66" type="method" name="findById" crap="2" count="0"/>
-        <line num="68" type="stmt" count="0"/>
-        <line num="69" type="stmt" count="0"/>
-        <line num="72" type="method" name="insert" crap="2" count="0"/>
-        <line num="74" type="stmt" count="0"/>
-        <line num="77" type="method" name="update" crap="2" count="0"/>
-        <line num="79" type="stmt" count="0"/>
-        <line num="82" type="method" name="persist" crap="2" count="0"/>
-        <line num="84" type="stmt" count="0"/>
-        <line num="85" type="stmt" count="0"/>
+        <line num="40" type="method" name="findAll" crap="3" count="3"/>
+        <line num="42" type="stmt" count="3"/>
+        <line num="43" type="stmt" count="3"/>
+        <line num="44" type="stmt" count="1"/>
+        <line num="45" type="stmt" count="1"/>
+        <line num="47" type="stmt" count="3"/>
+        <line num="48" type="stmt" count="3"/>
+        <line num="49" type="stmt" count="1"/>
+        <line num="50" type="stmt" count="1"/>
+        <line num="51" type="stmt" count="3"/>
+        <line num="53" type="stmt" count="3"/>
+        <line num="59" type="method" name="getBaseQueryBuilder" crap="1" count="3"/>
+        <line num="61" type="stmt" count="3"/>
+        <line num="62" type="stmt" count="3"/>
+        <line num="63" type="stmt" count="3"/>
+        <line num="64" type="stmt" count="3"/>
+        <line num="66" type="stmt" count="3"/>
+        <line num="68" type="method" name="findById" crap="2" count="0"/>
+        <line num="70" type="stmt" count="0"/>
+        <line num="71" type="stmt" count="0"/>
+        <line num="74" type="method" name="insert" crap="2" count="0"/>
+        <line num="76" type="stmt" count="0"/>
+        <line num="79" type="method" name="update" crap="2" count="0"/>
+        <line num="81" type="stmt" count="0"/>
+        <line num="84" type="method" name="persist" crap="2" count="0"/>
+        <line num="86" type="stmt" count="0"/>
         <line num="87" type="stmt" count="0"/>
-        <metrics loc="88" ncloc="75" classes="1" methods="9" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="28" coveredstatements="15" elements="37" coveredelements="18"/>
+        <line num="89" type="stmt" count="0"/>
+        <line num="96" type="method" name="setOptions" crap="2" count="0"/>
+        <line num="98" type="stmt" count="0"/>
+        <line num="100" type="stmt" count="0"/>
+        <line num="107" type="method" name="getOptions" crap="1" count="3"/>
+        <line num="109" type="stmt" count="3"/>
+        <line num="116" type="method" name="setEntityManager" crap="2" count="0"/>
+        <line num="118" type="stmt" count="0"/>
+        <line num="120" type="stmt" count="0"/>
+        <line num="126" type="method" name="getEntityManager" crap="1" count="3"/>
+        <line num="128" type="stmt" count="3"/>
+        <metrics loc="129" ncloc="97" classes="1" methods="13" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="35" coveredstatements="22" elements="48" coveredelements="28"/>
       </file>
     </package>
     <package name="ZfcUserDoctrineORM\Options">
       <file name="/home/gerard/sites/modules.w.doctrine/modules.zendframework.com/vendor/ZfcUserDoctrineORM/src/ZfcUserDoctrineORM/Options/ModuleOptions.php">
         <class name="ModuleOptions" namespace="ZfcUserDoctrineORM\Options">
-          <metrics methods="3" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="2" elements="7" coveredelements="4"/>
+          <metrics methods="3" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="1" elements="7" coveredelements="2"/>
         </class>
-        <line num="19" type="method" name="getDocUserEntityClass" crap="1" count="1"/>
-        <line num="20" type="stmt" count="1"/>
+        <line num="19" type="method" name="getDocUserEntityClass" crap="2" count="0"/>
+        <line num="20" type="stmt" count="0"/>
         <line num="26" type="method" name="setEnableDefaultEntities" crap="2" count="0"/>
         <line num="28" type="stmt" count="0"/>
         <line num="29" type="stmt" count="0"/>
         <line num="35" type="method" name="getEnableDefaultEntities" crap="1" count="7"/>
         <line num="37" type="stmt" count="7"/>
         <line num="40" type="stmt" count="1"/>
-        <metrics loc="39" ncloc="27" classes="1" methods="3" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="2" elements="7" coveredelements="4"/>
+        <metrics loc="39" ncloc="27" classes="1" methods="3" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="1" elements="7" coveredelements="2"/>
       </file>
     </package>
     <package name="Composer\Autoload">
@@ -18926,42 +18979,42 @@
         <line num="171" type="method" name="unregister" crap="2" count="0"/>
         <line num="173" type="stmt" count="0"/>
         <line num="174" type="stmt" count="0"/>
-        <line num="182" type="method" name="loadClass" crap="2" count="5"/>
-        <line num="184" type="stmt" count="5"/>
-        <line num="185" type="stmt" count="4"/>
-        <line num="187" type="stmt" count="4"/>
-        <line num="189" type="stmt" count="3"/>
-        <line num="198" type="method" name="findFile" crap="16.20" count="5"/>
-        <line num="201" type="stmt" count="5"/>
+        <line num="182" type="method" name="loadClass" crap="2" count="7"/>
+        <line num="184" type="stmt" count="7"/>
+        <line num="185" type="stmt" count="5"/>
+        <line num="187" type="stmt" count="5"/>
+        <line num="189" type="stmt" count="6"/>
+        <line num="198" type="method" name="findFile" crap="16.20" count="7"/>
+        <line num="201" type="stmt" count="7"/>
         <line num="202" type="stmt" count="0"/>
         <line num="203" type="stmt" count="0"/>
-        <line num="205" type="stmt" count="5"/>
+        <line num="205" type="stmt" count="7"/>
         <line num="206" type="stmt" count="0"/>
-        <line num="209" type="stmt" count="5"/>
-        <line num="211" type="stmt" count="5"/>
-        <line num="212" type="stmt" count="5"/>
-        <line num="213" type="stmt" count="5"/>
-        <line num="215" type="stmt" count="2"/>
-        <line num="216" type="stmt" count="2"/>
-        <line num="219" type="stmt" count="5"/>
-        <line num="221" type="stmt" count="5"/>
-        <line num="222" type="stmt" count="5"/>
-        <line num="223" type="stmt" count="4"/>
-        <line num="224" type="stmt" count="4"/>
-        <line num="225" type="stmt" count="4"/>
-        <line num="226" type="stmt" count="4"/>
-        <line num="227" type="stmt" count="4"/>
+        <line num="209" type="stmt" count="7"/>
+        <line num="211" type="stmt" count="6"/>
+        <line num="212" type="stmt" count="6"/>
+        <line num="213" type="stmt" count="6"/>
+        <line num="215" type="stmt" count="5"/>
+        <line num="216" type="stmt" count="5"/>
+        <line num="219" type="stmt" count="7"/>
+        <line num="221" type="stmt" count="7"/>
+        <line num="222" type="stmt" count="7"/>
+        <line num="223" type="stmt" count="5"/>
+        <line num="224" type="stmt" count="5"/>
+        <line num="225" type="stmt" count="5"/>
+        <line num="226" type="stmt" count="5"/>
+        <line num="227" type="stmt" count="5"/>
         <line num="229" type="stmt" count="0"/>
         <line num="230" type="stmt" count="0"/>
-        <line num="231" type="stmt" count="4"/>
+        <line num="231" type="stmt" count="5"/>
         <line num="232" type="stmt" count="1"/>
-        <line num="234" type="stmt" count="3"/>
+        <line num="234" type="stmt" count="6"/>
         <line num="235" type="stmt" count="0"/>
         <line num="236" type="stmt" count="0"/>
-        <line num="238" type="stmt" count="3"/>
-        <line num="240" type="stmt" count="3"/>
+        <line num="238" type="stmt" count="6"/>
+        <line num="240" type="stmt" count="6"/>
         <line num="241" type="stmt" count="0"/>
-        <line num="244" type="stmt" count="3"/>
+        <line num="244" type="stmt" count="6"/>
         <metrics loc="246" ncloc="155" classes="1" methods="12" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="79" coveredstatements="26" elements="91" coveredelements="27"/>
       </file>
     </package>
@@ -19126,9 +19179,9 @@
         <class name="ArrayCollection" namespace="Doctrine\Common\Collections">
           <metrics methods="33" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="83" coveredstatements="4" elements="116" coveredelements="7"/>
         </class>
-        <line num="47" type="method" name="__construct" crap="1" count="3"/>
-        <line num="49" type="stmt" count="3"/>
-        <line num="50" type="stmt" count="3"/>
+        <line num="47" type="method" name="__construct" crap="1" count="4"/>
+        <line num="49" type="stmt" count="4"/>
+        <line num="50" type="stmt" count="4"/>
         <line num="55" type="method" name="toArray" crap="2" count="0"/>
         <line num="57" type="stmt" count="0"/>
         <line num="63" type="method" name="first" crap="2" count="0"/>
@@ -19245,6 +19298,60 @@
         <line num="386" type="stmt" count="1"/>
         <metrics loc="385" ncloc="242" classes="1" methods="33" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="83" coveredstatements="4" elements="116" coveredelements="7"/>
       </file>
+      <file name="/home/gerard/sites/modules.w.doctrine/modules.zendframework.com/vendor/doctrine/collections/lib/Doctrine/Common/Collections/Criteria.php">
+        <class name="Criteria" namespace="Doctrine\Common\Collections">
+          <metrics methods="13" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="34" coveredstatements="0" elements="47" coveredelements="0"/>
+        </class>
+        <line num="73" type="method" name="create" crap="2" count="0"/>
+        <line num="75" type="stmt" count="0"/>
+        <line num="83" type="method" name="expr" crap="6" count="0"/>
+        <line num="85" type="stmt" count="0"/>
+        <line num="86" type="stmt" count="0"/>
+        <line num="87" type="stmt" count="0"/>
+        <line num="88" type="stmt" count="0"/>
+        <line num="99" type="method" name="__construct" crap="2" count="0"/>
+        <line num="101" type="stmt" count="0"/>
+        <line num="102" type="stmt" count="0"/>
+        <line num="103" type="stmt" count="0"/>
+        <line num="104" type="stmt" count="0"/>
+        <line num="105" type="stmt" count="0"/>
+        <line num="114" type="method" name="where" crap="2" count="0"/>
+        <line num="116" type="stmt" count="0"/>
+        <line num="117" type="stmt" count="0"/>
+        <line num="128" type="method" name="andWhere" crap="6" count="0"/>
+        <line num="130" type="stmt" count="0"/>
+        <line num="131" type="stmt" count="0"/>
+        <line num="134" type="stmt" count="0"/>
+        <line num="135" type="stmt" count="0"/>
+        <line num="136" type="stmt" count="0"/>
+        <line num="138" type="stmt" count="0"/>
+        <line num="149" type="method" name="orWhere" crap="6" count="0"/>
+        <line num="151" type="stmt" count="0"/>
+        <line num="152" type="stmt" count="0"/>
+        <line num="155" type="stmt" count="0"/>
+        <line num="156" type="stmt" count="0"/>
+        <line num="157" type="stmt" count="0"/>
+        <line num="159" type="stmt" count="0"/>
+        <line num="167" type="method" name="getWhereExpression" crap="2" count="0"/>
+        <line num="169" type="stmt" count="0"/>
+        <line num="177" type="method" name="getOrderings" crap="2" count="0"/>
+        <line num="179" type="stmt" count="0"/>
+        <line num="194" type="method" name="orderBy" crap="2" count="0"/>
+        <line num="196" type="stmt" count="0"/>
+        <line num="197" type="stmt" count="0"/>
+        <line num="205" type="method" name="getFirstResult" crap="2" count="0"/>
+        <line num="207" type="stmt" count="0"/>
+        <line num="217" type="method" name="setFirstResult" crap="2" count="0"/>
+        <line num="219" type="stmt" count="0"/>
+        <line num="220" type="stmt" count="0"/>
+        <line num="228" type="method" name="getMaxResults" crap="2" count="0"/>
+        <line num="230" type="stmt" count="0"/>
+        <line num="240" type="method" name="setMaxResults" crap="2" count="0"/>
+        <line num="242" type="stmt" count="0"/>
+        <line num="243" type="stmt" count="0"/>
+        <line num="246" type="stmt" count="1"/>
+        <metrics loc="245" ncloc="114" classes="1" methods="13" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="34" coveredstatements="0" elements="47" coveredelements="0"/>
+      </file>
     </package>
     <file name="/home/gerard/sites/modules.w.doctrine/modules.zendframework.com/vendor/doctrine/collections/lib/Doctrine/Common/Collections/Collection.php">
       <line num="262" type="stmt" count="1"/>
@@ -19327,9 +19434,9 @@
         <line num="203" type="stmt" count="0"/>
         <line num="204" type="stmt" count="0"/>
         <line num="207" type="stmt" count="0"/>
-        <line num="232" type="method" name="classExists" crap="25.48" count="3"/>
-        <line num="234" type="stmt" count="3"/>
-        <line num="235" type="stmt" count="3"/>
+        <line num="232" type="method" name="classExists" crap="25.48" count="5"/>
+        <line num="234" type="stmt" count="5"/>
+        <line num="235" type="stmt" count="5"/>
         <line num="238" type="stmt" count="1"/>
         <line num="239" type="stmt" count="1"/>
         <line num="240" type="stmt" count="1"/>
@@ -19532,9 +19639,9 @@
         <line num="320" type="stmt" count="5"/>
         <line num="322" type="stmt" count="5"/>
         <line num="324" type="stmt" count="5"/>
-        <line num="325" type="stmt" count="3"/>
-        <line num="326" type="stmt" count="3"/>
-        <line num="327" type="stmt" count="3"/>
+        <line num="325" type="stmt" count="5"/>
+        <line num="326" type="stmt" count="5"/>
+        <line num="327" type="stmt" count="5"/>
         <line num="329" type="stmt" count="5"/>
         <line num="331" type="stmt" count="5"/>
         <line num="332" type="stmt" count="5"/>
@@ -19765,7 +19872,7 @@
         <line num="154" type="stmt" count="5"/>
         <line num="155" type="stmt" count="5"/>
         <line num="156" type="stmt" count="5"/>
-        <line num="158" type="stmt" count="3"/>
+        <line num="158" type="stmt" count="5"/>
         <line num="160" type="stmt" count="0"/>
         <line num="161" type="stmt" count="0"/>
         <line num="164" type="stmt" count="0"/>
@@ -21673,8 +21780,8 @@
         <line num="2756" type="stmt" count="0"/>
         <line num="2764" type="method" name="supportsViews" crap="2" count="0"/>
         <line num="2766" type="stmt" count="0"/>
-        <line num="2775" type="method" name="getDateTimeFormatString" crap="1" count="3"/>
-        <line num="2777" type="stmt" count="3"/>
+        <line num="2775" type="method" name="getDateTimeFormatString" crap="1" count="4"/>
+        <line num="2777" type="stmt" count="4"/>
         <line num="2786" type="method" name="getDateTimeTzFormatString" crap="2" count="0"/>
         <line num="2788" type="stmt" count="0"/>
         <line num="2797" type="method" name="getDateFormatString" crap="2" count="0"/>
@@ -22138,13 +22245,13 @@
         <line num="50" type="method" name="convertToDatabaseValue" crap="6" count="0"/>
         <line num="52" type="stmt" count="0"/>
         <line num="53" type="stmt" count="0"/>
-        <line num="59" type="method" name="convertToPHPValue" crap="4.59" count="3"/>
-        <line num="61" type="stmt" count="3"/>
+        <line num="59" type="method" name="convertToPHPValue" crap="4.59" count="4"/>
+        <line num="61" type="stmt" count="4"/>
         <line num="62" type="stmt" count="0"/>
-        <line num="65" type="stmt" count="3"/>
-        <line num="66" type="stmt" count="3"/>
+        <line num="65" type="stmt" count="4"/>
+        <line num="66" type="stmt" count="4"/>
         <line num="67" type="stmt" count="0"/>
-        <line num="70" type="stmt" count="3"/>
+        <line num="70" type="stmt" count="4"/>
         <line num="73" type="stmt" count="1"/>
         <metrics loc="72" ncloc="38" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="4" elements="14" coveredelements="4"/>
       </file>
@@ -24043,16 +24150,16 @@
         <class name="PersistentCollection" namespace="Doctrine\ORM">
           <metrics methods="52" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="223" coveredstatements="10" elements="275" coveredelements="13"/>
         </class>
-        <line num="123" type="method" name="__construct" crap="1" count="3"/>
-        <line num="125" type="stmt" count="3"/>
-        <line num="126" type="stmt" count="3"/>
-        <line num="127" type="stmt" count="3"/>
-        <line num="128" type="stmt" count="3"/>
-        <line num="140" type="method" name="setOwner" crap="2" count="3"/>
-        <line num="142" type="stmt" count="3"/>
-        <line num="143" type="stmt" count="3"/>
-        <line num="144" type="stmt" count="3"/>
-        <line num="145" type="stmt" count="3"/>
+        <line num="123" type="method" name="__construct" crap="1" count="4"/>
+        <line num="125" type="stmt" count="4"/>
+        <line num="126" type="stmt" count="4"/>
+        <line num="127" type="stmt" count="4"/>
+        <line num="128" type="stmt" count="4"/>
+        <line num="140" type="method" name="setOwner" crap="2" count="4"/>
+        <line num="142" type="stmt" count="4"/>
+        <line num="143" type="stmt" count="4"/>
+        <line num="144" type="stmt" count="4"/>
+        <line num="145" type="stmt" count="4"/>
         <line num="153" type="method" name="getOwner" crap="2" count="0"/>
         <line num="155" type="stmt" count="0"/>
         <line num="161" type="method" name="getTypeClass" crap="2" count="0"/>
@@ -24131,9 +24238,9 @@
         <line num="354" type="method" name="setDirty" crap="2" count="0"/>
         <line num="356" type="stmt" count="0"/>
         <line num="357" type="stmt" count="0"/>
-        <line num="366" type="method" name="setInitialized" crap="1" count="3"/>
-        <line num="368" type="stmt" count="3"/>
-        <line num="369" type="stmt" count="3"/>
+        <line num="366" type="method" name="setInitialized" crap="1" count="4"/>
+        <line num="368" type="stmt" count="4"/>
+        <line num="369" type="stmt" count="4"/>
         <line num="376" type="method" name="isInitialized" crap="2" count="0"/>
         <line num="378" type="stmt" count="0"/>
         <line num="384" type="method" name="first" crap="2" count="0"/>
@@ -25926,11 +26033,11 @@
         <line num="2574" type="stmt" count="4"/>
         <line num="2575" type="stmt" count="0"/>
         <line num="2578" type="stmt" count="4"/>
-        <line num="2580" type="stmt" count="3"/>
+        <line num="2580" type="stmt" count="4"/>
         <line num="2581" type="stmt" count="0"/>
-        <line num="2584" type="stmt" count="3"/>
-        <line num="2586" type="stmt" count="3"/>
-        <line num="2587" type="stmt" count="3"/>
+        <line num="2584" type="stmt" count="4"/>
+        <line num="2586" type="stmt" count="4"/>
+        <line num="2587" type="stmt" count="4"/>
         <line num="2588" type="stmt" count="0"/>
         <line num="2590" type="stmt" count="0"/>
         <line num="2592" type="stmt" count="0"/>
@@ -25997,19 +26104,19 @@
         <line num="2695" type="stmt" count="0"/>
         <line num="2696" type="stmt" count="0"/>
         <line num="2698" type="stmt" count="0"/>
-        <line num="2700" type="stmt" count="3"/>
-        <line num="2702" type="stmt" count="3"/>
-        <line num="2703" type="stmt" count="3"/>
-        <line num="2704" type="stmt" count="3"/>
-        <line num="2706" type="stmt" count="3"/>
-        <line num="2707" type="stmt" count="3"/>
-        <line num="2709" type="stmt" count="3"/>
+        <line num="2700" type="stmt" count="4"/>
+        <line num="2702" type="stmt" count="4"/>
+        <line num="2703" type="stmt" count="4"/>
+        <line num="2704" type="stmt" count="4"/>
+        <line num="2706" type="stmt" count="4"/>
+        <line num="2707" type="stmt" count="4"/>
+        <line num="2709" type="stmt" count="4"/>
         <line num="2710" type="stmt" count="0"/>
         <line num="2711" type="stmt" count="0"/>
         <line num="2712" type="stmt" count="0"/>
-        <line num="2714" type="stmt" count="3"/>
-        <line num="2715" type="stmt" count="3"/>
-        <line num="2716" type="stmt" count="3"/>
+        <line num="2714" type="stmt" count="4"/>
+        <line num="2715" type="stmt" count="4"/>
+        <line num="2716" type="stmt" count="4"/>
         <line num="2717" type="stmt" count="4"/>
         <line num="2719" type="stmt" count="4"/>
         <line num="2720" type="stmt" count="4"/>
@@ -27223,9 +27330,9 @@
         <line num="889" type="stmt" count="5"/>
         <line num="890" type="stmt" count="5"/>
         <line num="892" type="stmt" count="5"/>
-        <line num="893" type="stmt" count="3"/>
-        <line num="894" type="stmt" count="3"/>
-        <line num="895" type="stmt" count="3"/>
+        <line num="893" type="stmt" count="5"/>
+        <line num="894" type="stmt" count="5"/>
+        <line num="895" type="stmt" count="5"/>
         <line num="896" type="stmt" count="5"/>
         <line num="897" type="stmt" count="5"/>
         <line num="907" type="method" name="initializeReflection" crap="2" count="5"/>
@@ -27244,7 +27351,7 @@
         <line num="936" type="stmt" count="5"/>
         <line num="945" type="method" name="validateAssociations" crap="3.07" count="5"/>
         <line num="947" type="stmt" count="5"/>
-        <line num="948" type="stmt" count="3"/>
+        <line num="948" type="stmt" count="5"/>
         <line num="949" type="stmt" count="0"/>
         <line num="951" type="stmt" count="5"/>
         <line num="952" type="stmt" count="5"/>
@@ -27348,27 +27455,27 @@
         <line num="1295" type="stmt" count="0"/>
         <line num="1296" type="stmt" count="0"/>
         <line num="1297" type="stmt" count="5"/>
-        <line num="1309" type="method" name="_validateAndCompleteAssociationMapping" crap="116.16" count="3"/>
-        <line num="1311" type="stmt" count="3"/>
-        <line num="1312" type="stmt" count="3"/>
-        <line num="1313" type="stmt" count="3"/>
-        <line num="1314" type="stmt" count="3"/>
-        <line num="1315" type="stmt" count="3"/>
-        <line num="1316" type="stmt" count="3"/>
-        <line num="1317" type="stmt" count="3"/>
-        <line num="1320" type="stmt" count="3"/>
-        <line num="1321" type="stmt" count="3"/>
-        <line num="1322" type="stmt" count="3"/>
-        <line num="1326" type="stmt" count="3"/>
-        <line num="1328" type="stmt" count="3"/>
-        <line num="1329" type="stmt" count="3"/>
-        <line num="1330" type="stmt" count="3"/>
-        <line num="1331" type="stmt" count="3"/>
-        <line num="1333" type="stmt" count="3"/>
-        <line num="1334" type="stmt" count="3"/>
-        <line num="1335" type="stmt" count="3"/>
+        <line num="1309" type="method" name="_validateAndCompleteAssociationMapping" crap="116.16" count="5"/>
+        <line num="1311" type="stmt" count="5"/>
+        <line num="1312" type="stmt" count="4"/>
+        <line num="1313" type="stmt" count="4"/>
+        <line num="1314" type="stmt" count="5"/>
+        <line num="1315" type="stmt" count="5"/>
+        <line num="1316" type="stmt" count="5"/>
+        <line num="1317" type="stmt" count="5"/>
+        <line num="1320" type="stmt" count="5"/>
+        <line num="1321" type="stmt" count="5"/>
+        <line num="1322" type="stmt" count="5"/>
+        <line num="1326" type="stmt" count="5"/>
+        <line num="1328" type="stmt" count="5"/>
+        <line num="1329" type="stmt" count="5"/>
+        <line num="1330" type="stmt" count="5"/>
+        <line num="1331" type="stmt" count="5"/>
+        <line num="1333" type="stmt" count="5"/>
+        <line num="1334" type="stmt" count="5"/>
+        <line num="1335" type="stmt" count="5"/>
         <line num="1337" type="stmt" count="0"/>
-        <line num="1341" type="stmt" count="3"/>
+        <line num="1341" type="stmt" count="5"/>
         <line num="1342" type="stmt" count="0"/>
         <line num="1343" type="stmt" count="0"/>
         <line num="1346" type="stmt" count="0"/>
@@ -27383,56 +27490,56 @@
         <line num="1358" type="stmt" count="0"/>
         <line num="1359" type="stmt" count="0"/>
         <line num="1360" type="stmt" count="0"/>
-        <line num="1364" type="stmt" count="3"/>
+        <line num="1364" type="stmt" count="5"/>
         <line num="1365" type="stmt" count="0"/>
-        <line num="1367" type="stmt" count="3"/>
+        <line num="1367" type="stmt" count="5"/>
         <line num="1368" type="stmt" count="0"/>
-        <line num="1372" type="stmt" count="3"/>
-        <line num="1373" type="stmt" count="3"/>
+        <line num="1372" type="stmt" count="5"/>
+        <line num="1373" type="stmt" count="4"/>
         <line num="1374" type="stmt" count="0"/>
         <line num="1375" type="stmt" count="0"/>
         <line num="1376" type="stmt" count="0"/>
         <line num="1377" type="stmt" count="0"/>
         <line num="1378" type="stmt" count="0"/>
-        <line num="1379" type="stmt" count="3"/>
-        <line num="1380" type="stmt" count="3"/>
-        <line num="1383" type="stmt" count="3"/>
+        <line num="1379" type="stmt" count="4"/>
+        <line num="1380" type="stmt" count="5"/>
+        <line num="1383" type="stmt" count="5"/>
         <line num="1384" type="stmt" count="0"/>
-        <line num="1388" type="stmt" count="3"/>
-        <line num="1389" type="stmt" count="3"/>
-        <line num="1390" type="stmt" count="3"/>
-        <line num="1393" type="stmt" count="3"/>
-        <line num="1395" type="stmt" count="3"/>
+        <line num="1388" type="stmt" count="5"/>
+        <line num="1389" type="stmt" count="5"/>
+        <line num="1390" type="stmt" count="5"/>
+        <line num="1393" type="stmt" count="5"/>
+        <line num="1395" type="stmt" count="5"/>
         <line num="1396" type="stmt" count="0"/>
         <line num="1397" type="stmt" count="0"/>
-        <line num="1399" type="stmt" count="3"/>
+        <line num="1399" type="stmt" count="5"/>
         <line num="1400" type="stmt" count="0"/>
         <line num="1401" type="stmt" count="0"/>
         <line num="1402" type="stmt" count="0"/>
         <line num="1403" type="stmt" count="0"/>
         <line num="1404" type="stmt" count="0"/>
-        <line num="1407" type="stmt" count="3"/>
-        <line num="1408" type="stmt" count="3"/>
-        <line num="1409" type="stmt" count="3"/>
-        <line num="1410" type="stmt" count="3"/>
-        <line num="1411" type="stmt" count="3"/>
-        <line num="1412" type="stmt" count="3"/>
-        <line num="1414" type="stmt" count="3"/>
-        <line num="1427" type="method" name="_validateAndCompleteOneToOneMapping" crap="83.70" count="3"/>
-        <line num="1429" type="stmt" count="3"/>
-        <line num="1431" type="stmt" count="3"/>
-        <line num="1432" type="stmt" count="3"/>
-        <line num="1433" type="stmt" count="3"/>
-        <line num="1435" type="stmt" count="3"/>
-        <line num="1436" type="stmt" count="3"/>
-        <line num="1438" type="stmt" count="3"/>
-        <line num="1439" type="stmt" count="3"/>
-        <line num="1440" type="stmt" count="3"/>
-        <line num="1441" type="stmt" count="3"/>
-        <line num="1442" type="stmt" count="3"/>
-        <line num="1444" type="stmt" count="3"/>
-        <line num="1445" type="stmt" count="3"/>
-        <line num="1446" type="stmt" count="3"/>
+        <line num="1407" type="stmt" count="5"/>
+        <line num="1408" type="stmt" count="5"/>
+        <line num="1409" type="stmt" count="5"/>
+        <line num="1410" type="stmt" count="5"/>
+        <line num="1411" type="stmt" count="5"/>
+        <line num="1412" type="stmt" count="5"/>
+        <line num="1414" type="stmt" count="5"/>
+        <line num="1427" type="method" name="_validateAndCompleteOneToOneMapping" crap="83.70" count="4"/>
+        <line num="1429" type="stmt" count="4"/>
+        <line num="1431" type="stmt" count="4"/>
+        <line num="1432" type="stmt" count="4"/>
+        <line num="1433" type="stmt" count="4"/>
+        <line num="1435" type="stmt" count="4"/>
+        <line num="1436" type="stmt" count="4"/>
+        <line num="1438" type="stmt" count="4"/>
+        <line num="1439" type="stmt" count="4"/>
+        <line num="1440" type="stmt" count="4"/>
+        <line num="1441" type="stmt" count="4"/>
+        <line num="1442" type="stmt" count="4"/>
+        <line num="1444" type="stmt" count="4"/>
+        <line num="1445" type="stmt" count="4"/>
+        <line num="1446" type="stmt" count="4"/>
         <line num="1447" type="stmt" count="0"/>
         <line num="1448" type="stmt" count="0"/>
         <line num="1449" type="stmt" count="0"/>
@@ -27440,51 +27547,51 @@
         <line num="1451" type="stmt" count="0"/>
         <line num="1452" type="stmt" count="0"/>
         <line num="1454" type="stmt" count="0"/>
-        <line num="1456" type="stmt" count="3"/>
+        <line num="1456" type="stmt" count="4"/>
         <line num="1457" type="stmt" count="0"/>
         <line num="1458" type="stmt" count="0"/>
-        <line num="1460" type="stmt" count="3"/>
+        <line num="1460" type="stmt" count="4"/>
         <line num="1461" type="stmt" count="0"/>
         <line num="1462" type="stmt" count="0"/>
-        <line num="1464" type="stmt" count="3"/>
+        <line num="1464" type="stmt" count="4"/>
         <line num="1465" type="stmt" count="0"/>
         <line num="1466" type="stmt" count="0"/>
         <line num="1467" type="stmt" count="0"/>
-        <line num="1469" type="stmt" count="3"/>
+        <line num="1469" type="stmt" count="4"/>
         <line num="1470" type="stmt" count="0"/>
         <line num="1471" type="stmt" count="0"/>
         <line num="1472" type="stmt" count="0"/>
-        <line num="1474" type="stmt" count="3"/>
-        <line num="1475" type="stmt" count="3"/>
-        <line num="1476" type="stmt" count="3"/>
-        <line num="1477" type="stmt" count="3"/>
-        <line num="1479" type="stmt" count="3"/>
+        <line num="1474" type="stmt" count="4"/>
+        <line num="1475" type="stmt" count="4"/>
+        <line num="1476" type="stmt" count="4"/>
+        <line num="1477" type="stmt" count="4"/>
+        <line num="1479" type="stmt" count="4"/>
         <line num="1480" type="stmt" count="0"/>
         <line num="1481" type="stmt" count="0"/>
         <line num="1483" type="stmt" count="0"/>
         <line num="1485" type="stmt" count="0"/>
         <line num="1486" type="stmt" count="0"/>
-        <line num="1488" type="stmt" count="3"/>
-        <line num="1489" type="stmt" count="3"/>
-        <line num="1491" type="stmt" count="3"/>
-        <line num="1492" type="stmt" count="3"/>
-        <line num="1494" type="stmt" count="3"/>
+        <line num="1488" type="stmt" count="4"/>
+        <line num="1489" type="stmt" count="4"/>
+        <line num="1491" type="stmt" count="4"/>
+        <line num="1492" type="stmt" count="4"/>
+        <line num="1494" type="stmt" count="4"/>
         <line num="1495" type="stmt" count="0"/>
         <line num="1496" type="stmt" count="0"/>
-        <line num="1498" type="stmt" count="3"/>
+        <line num="1498" type="stmt" count="4"/>
         <line num="1499" type="stmt" count="0"/>
-        <line num="1502" type="stmt" count="3"/>
-        <line num="1515" type="method" name="_validateAndCompleteOneToManyMapping" crap="8.30" count="3"/>
-        <line num="1517" type="stmt" count="3"/>
-        <line num="1520" type="stmt" count="3"/>
+        <line num="1502" type="stmt" count="4"/>
+        <line num="1515" type="method" name="_validateAndCompleteOneToManyMapping" crap="8.30" count="5"/>
+        <line num="1517" type="stmt" count="5"/>
+        <line num="1520" type="stmt" count="5"/>
         <line num="1521" type="stmt" count="0"/>
-        <line num="1524" type="stmt" count="3"/>
-        <line num="1525" type="stmt" count="3"/>
-        <line num="1527" type="stmt" count="3"/>
+        <line num="1524" type="stmt" count="5"/>
+        <line num="1525" type="stmt" count="5"/>
+        <line num="1527" type="stmt" count="5"/>
         <line num="1528" type="stmt" count="0"/>
         <line num="1529" type="stmt" count="0"/>
         <line num="1531" type="stmt" count="0"/>
-        <line num="1533" type="stmt" count="3"/>
+        <line num="1533" type="stmt" count="5"/>
         <line num="1545" type="method" name="_validateAndCompleteManyToManyMapping" crap="702" count="0"/>
         <line num="1547" type="stmt" count="0"/>
         <line num="1548" type="stmt" count="0"/>
@@ -27812,27 +27919,27 @@
         <line num="2355" type="stmt" count="0"/>
         <line num="2356" type="stmt" count="0"/>
         <line num="2357" type="stmt" count="0"/>
-        <line num="2366" type="method" name="mapOneToMany" crap="1" count="3"/>
-        <line num="2368" type="stmt" count="3"/>
-        <line num="2369" type="stmt" count="3"/>
-        <line num="2370" type="stmt" count="3"/>
-        <line num="2371" type="stmt" count="3"/>
-        <line num="2380" type="method" name="mapManyToOne" crap="1" count="3"/>
-        <line num="2382" type="stmt" count="3"/>
-        <line num="2384" type="stmt" count="3"/>
-        <line num="2385" type="stmt" count="3"/>
-        <line num="2386" type="stmt" count="3"/>
+        <line num="2366" type="method" name="mapOneToMany" crap="1" count="5"/>
+        <line num="2368" type="stmt" count="5"/>
+        <line num="2369" type="stmt" count="5"/>
+        <line num="2370" type="stmt" count="5"/>
+        <line num="2371" type="stmt" count="5"/>
+        <line num="2380" type="method" name="mapManyToOne" crap="1" count="4"/>
+        <line num="2382" type="stmt" count="4"/>
+        <line num="2384" type="stmt" count="4"/>
+        <line num="2385" type="stmt" count="4"/>
+        <line num="2386" type="stmt" count="4"/>
         <line num="2395" type="method" name="mapManyToMany" crap="2" count="0"/>
         <line num="2397" type="stmt" count="0"/>
         <line num="2398" type="stmt" count="0"/>
         <line num="2399" type="stmt" count="0"/>
         <line num="2400" type="stmt" count="0"/>
-        <line num="2411" type="method" name="_storeAssociationMapping" crap="3.07" count="3"/>
-        <line num="2413" type="stmt" count="3"/>
-        <line num="2415" type="stmt" count="3"/>
+        <line num="2411" type="method" name="_storeAssociationMapping" crap="3.07" count="5"/>
+        <line num="2413" type="stmt" count="5"/>
+        <line num="2415" type="stmt" count="5"/>
         <line num="2416" type="stmt" count="0"/>
-        <line num="2419" type="stmt" count="3"/>
-        <line num="2420" type="stmt" count="3"/>
+        <line num="2419" type="stmt" count="5"/>
+        <line num="2420" type="stmt" count="5"/>
         <line num="2429" type="method" name="setCustomRepositoryClass" crap="1" count="5"/>
         <line num="2431" type="stmt" count="5"/>
         <line num="2432" type="stmt" count="5"/>
@@ -28016,7 +28123,7 @@
         <line num="3014" type="stmt" count="0"/>
         <line num="3021" type="method" name="fullyQualifiedClassName" crap="4" count="5"/>
         <line num="3023" type="stmt" count="5"/>
-        <line num="3024" type="stmt" count="3"/>
+        <line num="3024" type="stmt" count="4"/>
         <line num="3027" type="stmt" count="5"/>
         <line num="3035" type="method" name="getMetadataValue" crap="6" count="0"/>
         <line num="3037" type="stmt" count="0"/>
@@ -28058,10 +28165,10 @@
         <line num="42" type="stmt" count="0"/>
         <line num="48" type="method" name="propertyToColumnName" crap="1" count="5"/>
         <line num="50" type="stmt" count="5"/>
-        <line num="56" type="method" name="referenceColumnName" crap="1" count="3"/>
-        <line num="58" type="stmt" count="3"/>
-        <line num="64" type="method" name="joinColumnName" crap="1" count="3"/>
-        <line num="66" type="stmt" count="3"/>
+        <line num="56" type="method" name="referenceColumnName" crap="1" count="4"/>
+        <line num="58" type="stmt" count="4"/>
+        <line num="64" type="method" name="joinColumnName" crap="1" count="4"/>
+        <line num="66" type="stmt" count="4"/>
         <line num="72" type="method" name="joinTableName" crap="2" count="0"/>
         <line num="74" type="stmt" count="0"/>
         <line num="75" type="stmt" count="0"/>
@@ -28144,10 +28251,10 @@
         <line num="54" type="method" name="loadMetadataForClass" crap="6057.67" count="5"/>
         <line num="58" type="stmt" count="5"/>
         <line num="60" type="stmt" count="5"/>
-        <line num="61" type="stmt" count="3"/>
+        <line num="61" type="stmt" count="5"/>
         <line num="62" type="stmt" count="0"/>
         <line num="63" type="stmt" count="0"/>
-        <line num="64" type="stmt" count="3"/>
+        <line num="64" type="stmt" count="5"/>
         <line num="65" type="stmt" count="0"/>
         <line num="66" type="stmt" count="0"/>
         <line num="67" type="stmt" count="5"/>
@@ -28357,63 +28464,63 @@
         <line num="352" type="stmt" count="0"/>
         <line num="353" type="stmt" count="0"/>
         <line num="356" type="stmt" count="5"/>
-        <line num="357" type="stmt" count="3"/>
-        <line num="359" type="stmt" count="3"/>
-        <line num="360" type="stmt" count="3"/>
-        <line num="361" type="stmt" count="3"/>
-        <line num="362" type="stmt" count="3"/>
-        <line num="364" type="stmt" count="3"/>
+        <line num="357" type="stmt" count="5"/>
+        <line num="359" type="stmt" count="5"/>
+        <line num="360" type="stmt" count="5"/>
+        <line num="361" type="stmt" count="5"/>
+        <line num="362" type="stmt" count="5"/>
+        <line num="364" type="stmt" count="5"/>
         <line num="365" type="stmt" count="0"/>
         <line num="366" type="stmt" count="0"/>
-        <line num="368" type="stmt" count="3"/>
+        <line num="368" type="stmt" count="5"/>
         <line num="369" type="stmt" count="0"/>
         <line num="370" type="stmt" count="0"/>
-        <line num="372" type="stmt" count="3"/>
+        <line num="372" type="stmt" count="5"/>
         <line num="373" type="stmt" count="0"/>
         <line num="374" type="stmt" count="0"/>
-        <line num="376" type="stmt" count="3"/>
+        <line num="376" type="stmt" count="5"/>
         <line num="377" type="stmt" count="0"/>
         <line num="378" type="stmt" count="0"/>
         <line num="379" type="stmt" count="0"/>
         <line num="380" type="stmt" count="0"/>
         <line num="381" type="stmt" count="0"/>
         <line num="382" type="stmt" count="0"/>
-        <line num="384" type="stmt" count="3"/>
+        <line num="384" type="stmt" count="5"/>
         <line num="385" type="stmt" count="0"/>
-        <line num="386" type="stmt" count="3"/>
+        <line num="386" type="stmt" count="5"/>
         <line num="387" type="stmt" count="0"/>
-        <line num="390" type="stmt" count="3"/>
-        <line num="391" type="stmt" count="3"/>
-        <line num="392" type="stmt" count="3"/>
+        <line num="390" type="stmt" count="5"/>
+        <line num="391" type="stmt" count="5"/>
+        <line num="392" type="stmt" count="5"/>
         <line num="395" type="stmt" count="5"/>
-        <line num="396" type="stmt" count="3"/>
-        <line num="398" type="stmt" count="3"/>
-        <line num="399" type="stmt" count="3"/>
-        <line num="400" type="stmt" count="3"/>
-        <line num="402" type="stmt" count="3"/>
+        <line num="396" type="stmt" count="4"/>
+        <line num="398" type="stmt" count="4"/>
+        <line num="399" type="stmt" count="4"/>
+        <line num="400" type="stmt" count="4"/>
+        <line num="402" type="stmt" count="4"/>
         <line num="403" type="stmt" count="0"/>
         <line num="404" type="stmt" count="0"/>
-        <line num="406" type="stmt" count="3"/>
+        <line num="406" type="stmt" count="4"/>
         <line num="407" type="stmt" count="0"/>
         <line num="408" type="stmt" count="0"/>
-        <line num="410" type="stmt" count="3"/>
-        <line num="411" type="stmt" count="3"/>
-        <line num="412" type="stmt" count="3"/>
-        <line num="414" type="stmt" count="3"/>
-        <line num="416" type="stmt" count="3"/>
-        <line num="417" type="stmt" count="3"/>
-        <line num="418" type="stmt" count="3"/>
+        <line num="410" type="stmt" count="4"/>
+        <line num="411" type="stmt" count="4"/>
+        <line num="412" type="stmt" count="4"/>
+        <line num="414" type="stmt" count="4"/>
+        <line num="416" type="stmt" count="4"/>
+        <line num="417" type="stmt" count="4"/>
+        <line num="418" type="stmt" count="4"/>
         <line num="419" type="stmt" count="0"/>
         <line num="420" type="stmt" count="0"/>
         <line num="421" type="stmt" count="0"/>
         <line num="422" type="stmt" count="0"/>
-        <line num="424" type="stmt" count="3"/>
-        <line num="426" type="stmt" count="3"/>
+        <line num="424" type="stmt" count="4"/>
+        <line num="426" type="stmt" count="4"/>
         <line num="427" type="stmt" count="0"/>
         <line num="428" type="stmt" count="0"/>
-        <line num="430" type="stmt" count="3"/>
-        <line num="431" type="stmt" count="3"/>
-        <line num="432" type="stmt" count="3"/>
+        <line num="430" type="stmt" count="4"/>
+        <line num="431" type="stmt" count="4"/>
+        <line num="432" type="stmt" count="4"/>
         <line num="435" type="stmt" count="5"/>
         <line num="436" type="stmt" count="0"/>
         <line num="438" type="stmt" count="0"/>
@@ -28537,23 +28644,23 @@
         <line num="607" type="stmt" count="0"/>
         <line num="609" type="stmt" count="0"/>
         <line num="611" type="stmt" count="0"/>
-        <line num="622" type="method" name="joinColumnToArray" crap="8.12" count="3"/>
-        <line num="625" type="stmt" count="3"/>
-        <line num="626" type="stmt" count="3"/>
-        <line num="627" type="stmt" count="3"/>
-        <line num="629" type="stmt" count="3"/>
+        <line num="622" type="method" name="joinColumnToArray" crap="8.12" count="4"/>
+        <line num="625" type="stmt" count="4"/>
+        <line num="626" type="stmt" count="4"/>
+        <line num="627" type="stmt" count="4"/>
+        <line num="629" type="stmt" count="4"/>
         <line num="630" type="stmt" count="0"/>
         <line num="631" type="stmt" count="0"/>
-        <line num="633" type="stmt" count="3"/>
+        <line num="633" type="stmt" count="4"/>
         <line num="634" type="stmt" count="0"/>
         <line num="635" type="stmt" count="0"/>
-        <line num="637" type="stmt" count="3"/>
+        <line num="637" type="stmt" count="4"/>
         <line num="638" type="stmt" count="0"/>
         <line num="639" type="stmt" count="0"/>
-        <line num="641" type="stmt" count="3"/>
+        <line num="641" type="stmt" count="4"/>
         <line num="642" type="stmt" count="0"/>
         <line num="643" type="stmt" count="0"/>
-        <line num="645" type="stmt" count="3"/>
+        <line num="645" type="stmt" count="4"/>
         <line num="655" type="method" name="columnToArray" crap="16.01" count="5"/>
         <line num="658" type="stmt" count="5"/>
         <line num="659" type="stmt" count="5"/>
@@ -28598,10 +28705,10 @@
         <line num="731" type="stmt" count="5"/>
         <line num="732" type="stmt" count="5"/>
         <line num="734" type="stmt" count="5"/>
-        <line num="735" type="stmt" count="3"/>
-        <line num="736" type="stmt" count="3"/>
-        <line num="737" type="stmt" count="3"/>
-        <line num="738" type="stmt" count="3"/>
+        <line num="735" type="stmt" count="5"/>
+        <line num="736" type="stmt" count="5"/>
+        <line num="737" type="stmt" count="5"/>
+        <line num="738" type="stmt" count="5"/>
         <line num="739" type="stmt" count="5"/>
         <line num="740" type="stmt" count="5"/>
         <line num="741" type="stmt" count="5"/>
@@ -29098,12 +29205,12 @@
         <line num="1235" type="stmt" count="4"/>
         <line num="1236" type="stmt" count="4"/>
         <line num="1238" type="stmt" count="4"/>
-        <line num="1239" type="stmt" count="2"/>
-        <line num="1241" type="stmt" count="2"/>
+        <line num="1239" type="stmt" count="4"/>
+        <line num="1241" type="stmt" count="4"/>
         <line num="1242" type="stmt" count="0"/>
         <line num="1243" type="stmt" count="0"/>
-        <line num="1245" type="stmt" count="2"/>
-        <line num="1246" type="stmt" count="2"/>
+        <line num="1245" type="stmt" count="4"/>
+        <line num="1246" type="stmt" count="4"/>
         <line num="1249" type="stmt" count="0"/>
         <line num="1251" type="stmt" count="0"/>
         <line num="1252" type="stmt" count="0"/>
@@ -29153,9 +29260,9 @@
         <line num="1314" type="stmt" count="4"/>
         <line num="1316" type="stmt" count="4"/>
         <line num="1318" type="stmt" count="4"/>
-        <line num="1331" type="method" name="getSelectColumnAssociationSQL" crap="40.66" count="2"/>
-        <line num="1333" type="stmt" count="2"/>
-        <line num="1334" type="stmt" count="2"/>
+        <line num="1331" type="method" name="getSelectColumnAssociationSQL" crap="40.66" count="4"/>
+        <line num="1333" type="stmt" count="4"/>
+        <line num="1334" type="stmt" count="4"/>
         <line num="1337" type="stmt" count="0"/>
         <line num="1338" type="stmt" count="0"/>
         <line num="1340" type="stmt" count="0"/>
@@ -32533,7 +32640,7 @@
         <line num="63" type="method" name="loadClassMetadata" crap="3.21" count="5"/>
         <line num="65" type="stmt" count="5"/>
         <line num="67" type="stmt" count="5"/>
-        <line num="68" type="stmt" count="3"/>
+        <line num="68" type="stmt" count="5"/>
         <line num="69" type="stmt" count="0"/>
         <line num="70" type="stmt" count="0"/>
         <line num="71" type="stmt" count="5"/>
@@ -32562,6 +32669,6 @@
         <metrics loc="103" ncloc="52" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="5" elements="32" coveredelements="5"/>
       </file>
     </package>
-    <metrics files="490" loc="97437" ncloc="56212" classes="365" methods="3615" coveredmethods="904" conditionals="0" coveredconditionals="0" statements="25626" coveredstatements="8211" elements="29241" coveredelements="9115"/>
+    <metrics files="494" loc="97780" ncloc="56376" classes="370" methods="3634" coveredmethods="907" conditionals="0" coveredconditionals="0" statements="25680" coveredstatements="8220" elements="29314" coveredelements="9127"/>
   </project>
 </coverage>

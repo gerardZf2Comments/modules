@@ -11,7 +11,7 @@ use Zend\Stdlib\Hydrator\HydratorInterface;
  * comment mapper uses doctrine
  * @author gerard
  */
-class Comment 
+class Comment
 {
     /**
      * to be set in factory
@@ -110,12 +110,12 @@ class Comment
          /** @var qb Doctrine/ORM/QueryBuilder */
        $qb = $this->getBaseQueryBuilder();
       
-        if($orderBy) {
-            $qb->orderBy('c.'.$orderBy , $sort);
+        if ($orderBy) {
+            $qb->orderBy('c.'.$orderBy, $sort);
         }
          /** @var q \Doctrine\ORM\Query */
         $q = $qb->getQuery();
-        if($limit) {          
+        if ($limit) {          
             $q->setMaxResults($limit);
         } 
         $result = $q->getResult();
@@ -138,16 +138,16 @@ class Comment
          /** @var qb Doctrine/ORM/QueryBuilder */
        $qb = $this->getBaseQueryBuilder();
       
-        if($orderBy) {
-            $qb->orderBy('c.'.$orderBy , $sort);
+        if ($orderBy) {
+            $qb->orderBy('c.'.$orderBy, $sort);
         }
        
         $qb->where('c.'.$by .'= :id');
         $qb->setParameter('id', $id);
        
         /** @var q \Doctrine\ORM\Query */
-        $q = $qb->getQuery();
-        if($limit) {          
+        $q = $qb->getQuery(); 
+        if ($limit) {          
             $q->setMaxResults($limit);
         } 
         $result = $q->getResult();
@@ -172,8 +172,8 @@ class Comment
        $qb->add('select', 'c')
                   ->add('from', "ZfModule\Entity\Comment c");
     
-        if($orderBy) {
-            $qb->orderBy('c.'.$orderBy , $sort);
+        if ($orderBy) {
+            $qb->orderBy('c.'.$orderBy , $sort); 
         }
        
        // $qb->where('c.'.$by .'= :id');
@@ -181,15 +181,15 @@ class Comment
         $qb->where('c.hasParent = 0');
        
         $where = $qb->expr()->andX(
-                $qb->expr()->eq('c.'.$where , ':id'),
-                $qb->expr()->eq('c.hasParent', 0)
-                );
+            $qb->expr()->eq('c.'.$where, ':id'),
+            $qb->expr()->eq('c.hasParent', 0)
+        );
         $qb->add('where', $where);
         $qb->setParameter('id', $id);
        
         /** @var q \Doctrine\ORM\Query */
         $q = $qb->getQuery();
-        if($limit) {          
+        if ($limit) {          
             $q->setMaxResults($limit);
         } 
         $result = $q->getResult();

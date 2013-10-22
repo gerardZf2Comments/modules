@@ -1,6 +1,6 @@
 <?php
 
-use Zend\Test\PHPUnit\Database;
+use GolTest\PHPUnit\Database\DoctrineTestCase;
 use Zend\Mvc\Application;
 use Zend\Mvc\MvcEvent;
 use Doctrine\ORM\Mapping\Driver;
@@ -12,20 +12,19 @@ use Doctrine\ORM\Mapping\Driver;
  *
  * @author gerard
  */
-class ExampleTest extends Database\TestCase
+class ExampleTest extends DoctrineTestCase
 {
-    /**
-     * 
-     * @param string $name
-     * @param array $data
-     * @param string $dataName
+ 
+   /**
+     * set the doctrine.configuration.orm_default
+     * @todo unset mysql fk checks before parent::setUp
+     * @todo then reset them
      */
-    public function __construct($name = NULL, array $data = array(), $dataName = '') 
-    {
-        $this->_baseDir = '/home/gerard/sites/modules.w.doctrine/modules.zendframework.com';
-        $this->_testDir = $this->_baseDir . '/module/ZfModule/test';
-        $this->_configPath = $this->_baseDir . '/config/application.config.php';
-        parent::__construct($name, $data, $dataName);
+    public function getApplicationConfig()
+    {           
+        $baseDir = '/home/gerard/sites/modules.w.doctrine/modules.zendframework.com';
+        
+        return include $baseDir . '/config/application.config.php';
     }
     /**
      * this is an example test it just exists to show the basic format 
@@ -37,5 +36,14 @@ class ExampleTest extends Database\TestCase
         $entity = $em->find('User\Entity\User', 1);          
         $userName = $entity->getUsername();
         $this->assertEquals($userName, 'bla', 'you fucked up');   
-    }     
+    } 
+    /**
+     * this will used in getDataSet
+     * createMySQLXMLDataSet
+     * @return string
+     */
+    public function getDataSetPath()
+    {
+        return '/home/gerard/sites/modules.w.doctrine/modules.zendframework.com/module/ZfModule/test/data/dataset/moduleswdoctrine.xml';
+    }
 }
