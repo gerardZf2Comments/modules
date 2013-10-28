@@ -343,9 +343,9 @@
     <package name="User">
       <file name="/home/gerard/sites/modules.w.doctrine/modules.zendframework.com/module/User/Module.php">
         <class name="Module" namespace="User">
-          <metrics methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="35" coveredstatements="13" elements="40" coveredelements="18"/>
+          <metrics methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="37" coveredstatements="22" elements="42" coveredelements="27"/>
         </class>
-        <line num="12" type="method" name="bootstrap" crap="2.75" count="7"/>
+        <line num="12" type="method" name="bootstrap" crap="3.11" count="7"/>
         <line num="14" type="stmt" count="7"/>
         <line num="15" type="stmt" count="7"/>
         <line num="17" type="stmt" count="7"/>
@@ -370,14 +370,19 @@
         <line num="39" type="stmt" count="7"/>
         <line num="40" type="stmt" count="7"/>
         <line num="42" type="method" name="getServiceConfig" crap="1" count="7"/>
-        <line num="58" type="stmt" count="7"/>
-        <line num="59" type="stmt" count="7"/>
-        <line num="62" type="method" name="getDir" crap="1" count="7"/>
-        <line num="64" type="stmt" count="7"/>
-        <line num="67" type="method" name="getNamespace" crap="1" count="7"/>
-        <line num="69" type="stmt" count="7"/>
-        <line num="72" type="stmt" count="1"/>
-        <metrics loc="71" ncloc="59" classes="1" methods="5" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="27" coveredstatements="12" elements="32" coveredelements="15"/>
+        <line num="46" type="stmt" count="7"/>
+        <line num="47" type="stmt" count="5"/>
+        <line num="48" type="stmt" count="5"/>
+        <line num="49" type="stmt" count="5"/>
+        <line num="50" type="stmt" count="7"/>
+        <line num="51" type="stmt" count="7"/>
+        <line num="52" type="stmt" count="7"/>
+        <line num="55" type="method" name="getDir" crap="1" count="7"/>
+        <line num="57" type="stmt" count="7"/>
+        <line num="60" type="method" name="getNamespace" crap="1" count="7"/>
+        <line num="62" type="stmt" count="7"/>
+        <line num="65" type="stmt" count="1"/>
+        <metrics loc="64" ncloc="64" classes="1" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="32" coveredstatements="17" elements="36" coveredelements="20"/>
       </file>
     </package>
     <file name="/home/gerard/sites/modules.w.doctrine/modules.zendframework.com/module/User/autoload_classmap.php">
@@ -456,10 +461,21 @@
     <package name="User\Mapper">
       <file name="/home/gerard/sites/modules.w.doctrine/modules.zendframework.com/module/User/src/User/Mapper/User.php">
         <class name="User" namespace="User\Mapper">
-          <metrics methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+          <metrics methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="11" coveredelements="11"/>
         </class>
-        <line num="28" type="stmt" count="1"/>
-        <metrics loc="27" ncloc="-9" classes="1" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        <line num="9" type="method" name="findAll" crap="3" count="3"/>
+        <line num="11" type="stmt" count="3"/>
+        <line num="12" type="stmt" count="3"/>
+        <line num="13" type="stmt" count="1"/>
+        <line num="14" type="stmt" count="1"/>
+        <line num="16" type="stmt" count="3"/>
+        <line num="17" type="stmt" count="3"/>
+        <line num="18" type="stmt" count="1"/>
+        <line num="19" type="stmt" count="1"/>
+        <line num="20" type="stmt" count="3"/>
+        <line num="22" type="stmt" count="3"/>
+        <line num="43" type="stmt" count="1"/>
+        <metrics loc="42" ncloc="3" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="11" coveredelements="11"/>
       </file>
     </package>
     <package name="ZendDeveloperTools">
@@ -8849,8 +8865,8 @@
         <line num="133" type="stmt" count="0"/>
         <line num="142" type="method" name="autoload" crap="2" count="7"/>
         <line num="144" type="stmt" count="7"/>
-        <line num="145" type="stmt" count="4"/>
-        <line num="146" type="stmt" count="4"/>
+        <line num="145" type="stmt" count="3"/>
+        <line num="146" type="stmt" count="3"/>
         <line num="147" type="stmt" count="7"/>
         <line num="154" type="method" name="register" crap="2" count="0"/>
         <line num="156" type="stmt" count="0"/>
@@ -18773,7 +18789,7 @@
     <package name="ZfcUserDoctrineORM">
       <file name="/home/gerard/sites/modules.w.doctrine/modules.zendframework.com/vendor/ZfcUserDoctrineORM/Module.php">
         <class name="Module" namespace="ZfcUserDoctrineORM">
-          <metrics methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="37" coveredstatements="37" elements="42" coveredelements="42"/>
+          <metrics methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="37" coveredstatements="29" elements="42" coveredelements="34"/>
         </class>
         <line num="10" type="method" name="onBootstrap" crap="2" count="7"/>
         <line num="12" type="stmt" count="7"/>
@@ -18800,18 +18816,18 @@
         <line num="48" type="stmt" count="7"/>
         <line num="49" type="stmt" count="7"/>
         <line num="50" type="stmt" count="7"/>
-        <line num="51" type="method" name="anonymous function" crap="1" count="7"/>
-        <line num="52" type="stmt" count="5"/>
-        <line num="53" type="stmt" count="5"/>
-        <line num="54" type="stmt" count="5"/>
-        <line num="55" type="stmt" count="5"/>
+        <line num="51" type="method" name="anonymous function" crap="1.30" count="7"/>
+        <line num="52" type="stmt" count="0"/>
+        <line num="53" type="stmt" count="0"/>
+        <line num="54" type="stmt" count="0"/>
+        <line num="55" type="stmt" count="0"/>
         <line num="56" type="stmt" count="7"/>
         <line num="57" type="stmt" count="7"/>
         <line num="58" type="stmt" count="7"/>
         <line num="61" type="method" name="getConfig" crap="1" count="7"/>
         <line num="63" type="stmt" count="7"/>
         <line num="66" type="stmt" count="1"/>
-        <metrics loc="65" ncloc="63" classes="1" methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="31" coveredstatements="31" elements="36" coveredelements="36"/>
+        <metrics loc="65" ncloc="63" classes="1" methods="5" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="31" coveredstatements="27" elements="36" coveredelements="31"/>
       </file>
     </package>
     <file name="/home/gerard/sites/modules.w.doctrine/modules.zendframework.com/vendor/ZfcUserDoctrineORM/autoload_classmap.php">
@@ -18848,7 +18864,7 @@
     <package name="ZfcUserDoctrineORM\Mapper">
       <file name="/home/gerard/sites/modules.w.doctrine/modules.zendframework.com/vendor/ZfcUserDoctrineORM/src/ZfcUserDoctrineORM/Mapper/User.php">
         <class name="User" namespace="ZfcUserDoctrineORM\Mapper">
-          <metrics methods="13" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="35" coveredstatements="22" elements="48" coveredelements="28"/>
+          <metrics methods="13" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="35" coveredstatements="12" elements="48" coveredelements="17"/>
         </class>
         <line num="0" type="stmt" count="2"/>
         <line num="22" type="method" name="__construct" crap="1" count="8"/>
@@ -18861,17 +18877,17 @@
         <line num="34" type="method" name="findByUsername" crap="2" count="0"/>
         <line num="36" type="stmt" count="0"/>
         <line num="37" type="stmt" count="0"/>
-        <line num="40" type="method" name="findAll" crap="3" count="3"/>
-        <line num="42" type="stmt" count="3"/>
-        <line num="43" type="stmt" count="3"/>
-        <line num="44" type="stmt" count="1"/>
-        <line num="45" type="stmt" count="1"/>
-        <line num="47" type="stmt" count="3"/>
-        <line num="48" type="stmt" count="3"/>
-        <line num="49" type="stmt" count="1"/>
-        <line num="50" type="stmt" count="1"/>
-        <line num="51" type="stmt" count="3"/>
-        <line num="53" type="stmt" count="3"/>
+        <line num="40" type="method" name="findAll" crap="12" count="0"/>
+        <line num="42" type="stmt" count="0"/>
+        <line num="43" type="stmt" count="0"/>
+        <line num="44" type="stmt" count="0"/>
+        <line num="45" type="stmt" count="0"/>
+        <line num="47" type="stmt" count="0"/>
+        <line num="48" type="stmt" count="0"/>
+        <line num="49" type="stmt" count="0"/>
+        <line num="50" type="stmt" count="0"/>
+        <line num="51" type="stmt" count="0"/>
+        <line num="53" type="stmt" count="0"/>
         <line num="59" type="method" name="getBaseQueryBuilder" crap="1" count="3"/>
         <line num="61" type="stmt" count="3"/>
         <line num="62" type="stmt" count="3"/>
@@ -18899,7 +18915,7 @@
         <line num="120" type="stmt" count="0"/>
         <line num="126" type="method" name="getEntityManager" crap="1" count="3"/>
         <line num="128" type="stmt" count="3"/>
-        <metrics loc="129" ncloc="97" classes="1" methods="13" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="35" coveredstatements="22" elements="48" coveredelements="28"/>
+        <metrics loc="129" ncloc="97" classes="1" methods="13" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="35" coveredstatements="12" elements="48" coveredelements="17"/>
       </file>
     </package>
     <package name="ZfcUserDoctrineORM\Options">
@@ -32669,6 +32685,6 @@
         <metrics loc="103" ncloc="52" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="5" elements="32" coveredelements="5"/>
       </file>
     </package>
-    <metrics files="494" loc="97780" ncloc="56376" classes="370" methods="3634" coveredmethods="907" conditionals="0" coveredconditionals="0" statements="25680" coveredstatements="8220" elements="29314" coveredelements="9127"/>
+    <metrics files="494" loc="97788" ncloc="56393" classes="370" methods="3634" coveredmethods="906" conditionals="0" coveredconditionals="0" statements="25695" coveredstatements="8221" elements="29329" coveredelements="9127"/>
   </project>
 </coverage>
