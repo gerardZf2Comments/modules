@@ -21,7 +21,7 @@ class IndexController extends AbstractActionController
                
         //throw new \Exception('bla');
         // i've removed the query part of the route
-        $query =  $this->params()->fromQuery('query', null);
+            $query =  $this->params()->fromQuery('query', null);
 
         $page = (int) $this->params()->fromRoute('page', 1);
         $sm = $this->getServiceLocator();
