@@ -33,8 +33,8 @@ class CommentControllerTest extends AbstractControllerTestCase
             ),
         );
     }
-
     /**
+     * @runInSeparateProcess
      * @dataProvider addReplyGoodData
      */
     public function testAddReplyUriGoodData($uri) {
@@ -67,8 +67,8 @@ class CommentControllerTest extends AbstractControllerTestCase
             ),
         );
     }
-
     /**
+     * @runInSeparateProcess
      * @dataProvider addReplyBadData
      */
     public function testAddReplyUriBadData($uri)
@@ -83,7 +83,11 @@ class CommentControllerTest extends AbstractControllerTestCase
         $this->assertResponseStatusCode(404);      
     }
 
-    public function serverArray() {
+    /**
+     * this is needed for an internal dependency on normal server params
+     */
+    public function serverArray()
+    {
         return array('REDIRECT_APPLICATION_ENV' => 'development', 
                      'REDIRECT_STATUS' => '200', 
                      'APPLICATION_ENV' => 'development', 

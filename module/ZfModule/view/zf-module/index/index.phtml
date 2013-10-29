@@ -6,6 +6,7 @@ if (empty($this->repositories)) {
 }
 
 foreach($repositories as $module) {
+  
     echo $this->moduleView(array(
         'owner' => $module->owner->login,
         'name' => $module->name,

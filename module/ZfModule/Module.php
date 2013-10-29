@@ -282,6 +282,10 @@ class Module implements AutoloaderProviderInterface {
                     $viewHelper->setFormContainer($formContainer);
                     return $viewHelper;
                 },
+                'DisplayModuleTags' => function($sm) {
+                    $viewHelper = new \ZfModule\View\Helper\TagDisplay();                    
+                    return $viewHelper;
+                },
             )
         );
     }

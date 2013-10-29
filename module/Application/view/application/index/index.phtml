@@ -32,7 +32,8 @@
         <div class="sidebar">
                <?= $this->newModule() ?>
            <?= $this->newUsers() ?>
-               <?= $this->zfmoduleComments(1) ?>
+               <?= $this->zfmoduleComments($this->modules[0]->getId()) ?>
+               <?= $this->DisplayModuleTags($this->modules[0]) ?>
         </div>
     </div>
 </div>

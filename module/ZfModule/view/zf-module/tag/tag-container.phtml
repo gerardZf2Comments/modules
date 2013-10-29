@@ -1,7 +1,19 @@
+
+<div id="tags-wrapper"  class="block">
+    
+    <div class="row">
+        
+        <span class="module-comments-title span4"><h4><?= $this->translate('Tags') ?></h4></span>
+        
+    </div><!-- end // class="row" -->
+    <div class="tag-container">
 <div id="tag-container">   
     <?php 
        foreach ($tags as $tag) {
-           $this->partial('zf-module/tag/tag/' , array('tag' => $tag));           
+           echo $this->partial('zf-module/tag/tag' , array('tag' => $tag));           
        } 
-    ?>  
+    ?> 
+</div><!-- end class="module-comment-container" -->
 </div><!-- end  id="tag-container" -->
+</div><!-- end id="tags-wrapper" -->
+

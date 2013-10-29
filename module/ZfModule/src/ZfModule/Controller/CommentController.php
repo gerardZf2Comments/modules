@@ -16,9 +16,9 @@ use Zend\Mvc\Controller\AbstractActionController,
 class CommentController extends AbstractActionController
 {
    public function __construct()
-    {
-       $brk=1;
-    }
+   {
+        $brk=1;
+   }
 
     /**
      * add comment, user must be logged in
@@ -38,7 +38,7 @@ class CommentController extends AbstractActionController
         $form = new \ZfModule\Form\Comment();
         $formIsValid = $this->validateCommentForm($form, $moduleId, $comment, $title);
           
-        if(!$form->isValid()){
+        if (!$form->isValid()) {
               
            return $this->renderAddValidationFailed($form);
         } 
@@ -47,12 +47,14 @@ class CommentController extends AbstractActionController
         $success = $service->add($userId, $moduleId, $comment, $title);         
        
         // it seems the add function either returns a collection or something else
-        if($success){
+        if ($success) {
             $success = $success;
+            
             return $this->renderComment($success, true); 
         }
         
         $message = 'Comment not added';
+        
         throw new Exception\DomainException($message);
         
     }

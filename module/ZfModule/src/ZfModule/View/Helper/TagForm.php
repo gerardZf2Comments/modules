@@ -1,6 +1,6 @@
 <?php
 
-namespace;
+namespace ZfModule\View\Helper;
 
 /**
  * 
@@ -10,5 +10,3 @@ namespace;
 class TagForm {
     //put your code here
 }
-
-?>

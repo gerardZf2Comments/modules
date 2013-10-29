@@ -17,17 +17,18 @@
           </div>
         </div>
     </div>
+    <?= $this->zfmoduleComments($this->module->getId()) ?>
     <div class="span4">
-        <div class="sidebar"><?php
-            // infos
-			echo $this->moduleDescription(array(
-				'owner' => $repository->owner->login,
-				'name' => $repository->name,
-				'created_at' => $repository->created_at,
-				'url' => $repository->html_url,
-				'photo_url' => $repository->owner->avatar_url,
-				'description' => $repository->description
-				));
-        ?></div>
+        <div class="sidebar">
+            <?=   $this->moduleDescription(
+                      array(
+			  'owner' => $repository->owner->login,
+		          'name' => $repository->name,
+			  'created_at' => $repository->created_at,
+			  'url' => $repository->html_url,
+			  'photo_url' => $repository->owner->avatar_url,
+			  'description' => $repository->description
+	             ));
+            ?></div>
     </div>
 </div>
