@@ -1,4 +1,9 @@
-<div id="tag-wrapper">
-    <?= $this->renderChildModel('tagContainer'); ?>
-     <?= $this->renderChildModel('formContainer'); ?>
+<?php
+if (! isset($form)){
+    $form = null;
+}
+?>
+<div id="tag-wrapper" module-id="<?= $module->getId() ?>">
+    <?= $this->DisplayModuleTags($module) ?>
+    <?= $this->TagForm($form) ?>
 </div>

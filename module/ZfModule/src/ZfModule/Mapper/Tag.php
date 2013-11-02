@@ -159,12 +159,29 @@ class Tag
     {
         /** @var qb Doctrine/ORM/QueryBuilder */
         $qb = $this->getBaseQueryBuilder();
-
-        $qb->add('where', $qb->expr()->eq('tag', $tag));
-                       
+        $qb->where('t.tag = :tag');
+        $qb->setParameter('tag', $tag);              
         $result = $qb->getQuery()->getSingleResult();
-        $this->postRead($result);
+        //$this->postRead($result);
        
         return $result;
+    }
+    public function findOrCreate($tag)
+    {
+        try {
+            return $this->findByTag($tag);
+        
+        } catch (\Doctrine\ORM\NoResultException $exc) {
+            return $this->create($tag);
+        }
+    }
+    public function create($tag)
+    {
+        $entity = new \ZfModule\Entity\Tag;
+        $entity->setTag($tag);
+        
+        $this->insert($entity);
+        
+        return $entity;
     }
 }

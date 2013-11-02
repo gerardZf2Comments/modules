@@ -125,11 +125,11 @@ class SearchController extends AbstractActionController
      * uses \ZfModule\Service\TagSearch to get a array of tags
      * @param string $query
      * @return array
-     * @todo write service facory for  new \ZfModule\Service\TagSearch();
+     * @todo write service facory for  new \ZfModule\Service\Tag();
      */
      public function getTags($query)
     {
-        $service = new \ZfModule\Service\TagSearch();
+        $service = new \ZfModule\Service\Tag();
         $service->setServiceLocator($this->getServiceLocator());
           
         return $service->search($query); 

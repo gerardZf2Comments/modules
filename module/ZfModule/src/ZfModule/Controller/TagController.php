@@ -3,6 +3,7 @@
 namespace ZfModule\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
+
 use Zend\View\Model\ViewModel;
 
 /**
@@ -20,13 +21,15 @@ class TagController extends AbstractActionController
      */
     public function addAction()
     {
+                
         if (!$this->zfcUserAuthentication()->hasIdentity()) {
           //  return $this->redirect()->toRoute('zfcuser/login');
         }
         list($userId, $moduleId, $tag) =  $this->requestInfo();           
              
-        $service = $this->getServiceLocator()->get('zfmodule_service_tag');
-        
+        $service = new \ZfModule\Service\Tag();
+        $service->setServiceLocator($this->getServiceLocator());
+          
         $form = new \ZfModule\Form\Tag();
         $form->setData(
             array(
@@ -41,15 +44,16 @@ class TagController extends AbstractActionController
             return $this->renderValidationFailed($form);
         }           
             
-        $success = $service->add($userId, $moduleId, $tag);
+        $success = $service->addNew($moduleId, $tag);
        
-        if (is_array($success) && isset($success[0])) {
-            $success = $success[0];
-            
-            return $this->renderTag($success, true); 
-        }
-        $domainExcMessage = 'Something went wrong there';
-        throw new Exception\DomainException($domainExcMessage);         
+        $template = 'zf-module/tag/tag-wrapper.phtml';
+        $vM = new ViewModel(
+                array( 'module' => $success[0])
+              );
+        $vM->setTemplate($template);
+        $vM->setTerminal(true); 
+        
+        return $vM;
     }
 
     /**

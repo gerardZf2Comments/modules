@@ -12,21 +12,26 @@ $form->setAttribute('method', 'post');
 
 $form->prepare();
 ?>
-<form action="/tag/add" method="post" class="add-tag-form">
+<form action="/tag/add" method="post" id="user-add-tag-form" class="add-tag-form">
     
     <div class="element-wrapper">
         <input type="hidden" name="module-id" value="<?php $moduleId ?>" >
-    </div><!-- end - class="input-wrapper"-->
+    </div><!-- end - class="element-wrapper"-->
     <?php ?>
   
    
     <div class="element-wrapper">
         <?= $this->formRow($form->get('tag')); ?>
-    </div><!-- end - class="input-wrapper"-->
+    </div><!-- end - class="element-wrapper"-->
     
     <div class="element-wrapper">
          <?= $this->formSubmit($form->get('submit')); ?>
-    </div><!-- end - class="input-wrapper"-->
+    </div><!-- end - class="element-wrapper"-->
 
 </form>
 </div><!-- end  id="form-container" -->
+
+ <?php
+    $this->inlineScript()->appendScript(
+        '$("#tag-live-search").liveSearch({ tagClickHandler: tagClickHandler, submitHandler: tagSubmit, url: "/search/tag-ajax/"});'
+    );?>

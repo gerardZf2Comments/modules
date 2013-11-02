@@ -197,11 +197,12 @@ class Module implements AutoloaderProviderInterface {
 
                     return $form;
                 },
-                'zfmodule_form_tag_form' => function($sm) {
+                'zfmodule_tag_form' => function($sm) {
                     $form = new \ZfModule\Form\Tag();
-
+                    
                     return $form;
                 },
+                
                 'zfmodule_form_comment_form' => function($sm) {
                     $form = new \ZfModule\Form\Comment();
 
@@ -284,6 +285,11 @@ class Module implements AutoloaderProviderInterface {
                 },
                 'DisplayModuleTags' => function($sm) {
                     $viewHelper = new \ZfModule\View\Helper\TagDisplay();                    
+                    return $viewHelper;
+                },
+                'TagForm' => function($sm) {
+                    $viewHelper = new \ZfModule\View\Helper\TagForm();   
+                    $viewHelper->setForm($sm->getserviceLocator()->get('zfmodule_tag_form'));
                     return $viewHelper;
                 },
             )

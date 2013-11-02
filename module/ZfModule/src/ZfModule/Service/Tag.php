@@ -15,7 +15,7 @@ use ZfcBase\EventManager\EventProvider;
  * @todo find view/model caching module
  * @todo refactor location and test
  */
-class TagSearch extends EventProvider implements ServiceLocatorAwareInterface 
+class Tag extends EventProvider implements ServiceLocatorAwareInterface
 {
     /**
      * service locator
@@ -30,10 +30,26 @@ class TagSearch extends EventProvider implements ServiceLocatorAwareInterface
      */
     public function search($query)
     {
-      $tagMapper = $this->getServiceLocator()->get('zfmodule_mapper_tag');      
+        $tagMapper = $this->getServiceLocator()->get('zfmodule_mapper_tag');      
      
-      return  $tagMapper->findByStarts($query, 15);                    
-     }    
+        return  $tagMapper->findByStarts($query, 15);                    
+    } 
+    public function addNew($moduleId, $tag)
+    {
+        $mM = $this->getServiceLocator()->get('zfmodule_mapper_module');
+        $module = $mM->findById($moduleId);
+        $tM = $this->getServiceLocator()->get('zfmodule_mapper_tag');
+        $tag = $tM->findOrCreate($tag);
+        $tags = $module->getTags();
+             
+        if ( ! $tags->contains($tag)) {
+            $tags->add($tag);
+        }
+        $mM->update($module);
+        
+        return array($module, $tag);
+    }
+        
     /**
      *  Zend\ServiceManager\ServiceLocator
      * @return \Zend\ServiceManager\ServiceLocatorInterface
@@ -53,5 +69,4 @@ class TagSearch extends EventProvider implements ServiceLocatorAwareInterface
         $this->serviceLocator = $sm;
         return $this;
     }
-
 }

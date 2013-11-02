@@ -32,11 +32,15 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-           ' ZfModule\Controller\Tag' =>' ZfModule\Controller\TagController', 
+            'ZfModule\Controller\TagController' => 'ZfModule\Controller\TagController', 
             'ZfModule\Controller\Index' => 'ZfModule\Controller\IndexController',
             'ZfModule\Controller\Repo' => 'ZfModule\Controller\RepoController',
             'ZfModule\Controller\Comment' => 'ZfModule\Controller\CommentController',
             'ZfModule\Controller\Search' => 'ZfModule\Controller\SearchController'
+        ),
+        'aliases' => array(
+           'ZfModule\Controller\Tag' =>'ZfModule\Controller\TagController', 
+            
         ),
     ),
     'router' => array(
@@ -171,7 +175,7 @@ return array(
                 'options' => array (
                     'route' => '/tag',
                     'defaults' => array(
-                        'controller' => 'ZfModule\Controller\Tag',
+                        'controller' => 'ZfModule\Controller\TagController',
                         'action' => 'list',
                     ),
                 ),

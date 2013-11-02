@@ -30,10 +30,13 @@
         </div><!-- end - id="search-results-wrapper"-->
     <div class="span4">
         <div class="sidebar">
-               <?= $this->newModule() ?>
+           <?= $this->newModule() ?>
            <?= $this->newUsers() ?>
-               <?= $this->zfmoduleComments($this->modules[0]->getId()) ?>
-               <?= $this->DisplayModuleTags($this->modules[0]) ?>
+           <?= $this->zfmoduleComments($this->modules[0]->getId()) ?>
+            <?= $this->partial('zf-module/tag/tag-wrapper.phtml',
+                           array( 'module' => $this->modules[0],)
+                    );             
+             ?>
         </div>
     </div>
 </div>

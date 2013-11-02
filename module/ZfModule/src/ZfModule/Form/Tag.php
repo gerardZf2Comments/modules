@@ -9,7 +9,7 @@ use Zend\Validator\Digits;
  * form can display errors and valiadte tag input
  * @todo check if controller needs more elements added
  */
-class Tag extends Form 
+class Tag extends Form
 {
     /**
      * the input filter object
@@ -27,11 +27,20 @@ class Tag extends Form
         $this->setInputFilter($this->getInputFilter()); 
         
         $this->add(array(
+            'name' => 'tag-id',
+            'type' => 'Zend\Form\Element\Hidden',
+            'attributes' => array(
+              
+                'class' => 'tag-id',
+            ),
+        ));
+        
+        $this->add(array(
             'name' => 'module-id',
             'type' => 'Zend\Form\Element\Hidden',
             'attributes' => array(
               
-                'class' => 'module-id',
+                'class' => 'tag-module-id',
             ),
         ));
        
@@ -40,6 +49,10 @@ class Tag extends Form
             'type' => 'Zend\Form\Element\Text',
             'options' => array(
                 'label' => 'Tag',
+            ),
+             'attributes' => array(
+              
+                'id' => 'tag-live-search',
             ),
           
         ));
@@ -62,13 +75,23 @@ class Tag extends Form
         if (!$this->inputFilter) {
             $inputFilter = new InputFilter();
             $inputFilter->add(array(
+                'name' => 'tag-id',
+                'required' => false,
+                'filters' => array(
+                    array('name' => 'Int'),
+                ),
+                'validators' => array(
+                $this->getIntegerValidator(),                     
+                    ),
+            ));
+            $inputFilter->add(array(
                 'name' => 'module-id',
                 'required' => false,
                 'filters' => array(
                     array('name' => 'Int'),
                 ),
                 'validators' => array(
-                $this->getModuleIdIntegerValidator(),                     
+                $this->getIntegerValidator(),                     
                     ),
             ));
             $inputFilter->add(array(
@@ -81,9 +104,7 @@ class Tag extends Form
                 'validators' => array(
                 $this->getTagStringLengthValidator(),
                      
-                    ),
-                   
-               
+                    ),                               
             ));
             
             $this->inputFilter = $inputFilter;
@@ -108,7 +129,7 @@ class Tag extends Form
      * not changing the default functionality of objects here
      * @return \Zend\Validator\Digits
      */
-    public function getModuleIdIntegerValidator()
+    public function getIntegerValidator()
     {
         $validator = new \Zend\Validator\Digits();
                
