@@ -33,5 +33,5 @@ $form->prepare();
 
  <?php
     $this->inlineScript()->appendScript(
-        '$("#tag-live-search").liveSearch({ tagClickHandler: tagClickHandler, submitHandler: tagSubmit, url: "/search/tag-ajax/"});'
+        '$("#tag-live-search").liveSearch({ inputId: "tag-live-search", tagClickHandler: tagClickHandler, submitHandler: tagSubmit, url: "/search/tag-ajax/"});'
     );?>
