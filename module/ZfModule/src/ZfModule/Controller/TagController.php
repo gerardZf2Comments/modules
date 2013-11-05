@@ -20,22 +20,24 @@ class TagController extends AbstractActionController
      * @throws \ZfModule\Controller\Exception\DomainException
      */
     public function addAction()
-    {
-                
-        if (!$this->zfcUserAuthentication()->hasIdentity()) {
+    {             
+        if (! $this->zfcUserAuthentication()->hasIdentity()) {
           //  return $this->redirect()->toRoute('zfcuser/login');
         }
-        list($userId, $moduleId, $tag) =  $this->requestInfo();           
-             
+        // not actualy using $userId or $tagId
+        list($userId, $moduleId, $tag, $tagId, $security) =  $this->requestInfo();           
+         
         $service = new \ZfModule\Service\Tag();
         $service->setServiceLocator($this->getServiceLocator());
-          
+       
         $form = new \ZfModule\Form\Tag();
+
         $form->setData(
             array(
             /** @todo add module validator to chain */
-            'module-id' => $moduleId,
-            'tag'=> $tag,    
+                'module-id' => $moduleId,
+                'tag'=> $tag,
+                'security'=> $security,
             )
         );
            
@@ -47,8 +49,9 @@ class TagController extends AbstractActionController
         $success = $service->addNew($moduleId, $tag);
        
         $template = 'zf-module/tag/tag-wrapper.phtml';
-        $vM = new ViewModel(
-                array( 'module' => $success[0])
+        $vM = new ViewModel(array(
+                  'module' => $success[0],
+                  )
               );
         $vM->setTemplate($template);
         $vM->setTerminal(true); 
@@ -67,8 +70,9 @@ class TagController extends AbstractActionController
         $moduleId = $this->params()->fromPost('module-id', '');
         $tag = $this->params()->fromPost('tag', ''); 
         $tagId = $this->params()->fromPost('tag-id', ''); 
+        $security = $this->params()->fromPost('security', '');
         
-        return array($userId, $moduleId, $tag, $tagId);
+        return array($userId, $moduleId, $tag, $tagId, $security);
     }
    /**
     * edit module tag, user must be logged in

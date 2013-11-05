@@ -36,13 +36,31 @@ return array(
             'ZfModule\Controller\Index' => 'ZfModule\Controller\IndexController',
             'ZfModule\Controller\Repo' => 'ZfModule\Controller\RepoController',
             'ZfModule\Controller\Comment' => 'ZfModule\Controller\CommentController',
-            'ZfModule\Controller\Search' => 'ZfModule\Controller\SearchController'
+            'ZfModule\Controller\Search' => 'ZfModule\Controller\SearchController',
+            'ZfModule\Controller\SearchIndexer' => 'ZfModule\Controller\SearchIndexerController',
         ),
         'aliases' => array(
            'ZfModule\Controller\Tag' =>'ZfModule\Controller\TagController', 
             
         ),
     ),
+    'console' => array(
+        'router' => array(
+            'routes' => array(
+          'view-module' => array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route' => 'index/all',
+                    'defaults' => array(
+                        'controller' => 'ZfModule\Controller\SearchIndexer',
+                        'action' => 'all',
+                    ),
+                ),
+            ),
+            )
+        )
+     ),
+
     'router' => array(
         'routes' => array(
             'view-module' => array(

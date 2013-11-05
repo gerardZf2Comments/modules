@@ -56,6 +56,11 @@ class Tag extends Form
             ),
           
         ));
+         
+        $this->add(array(
+            'name' => 'security',
+            'type' => 'Zend\Form\Element\Csrf',
+        ));
         
         $this->add(array(
             'name' => 'submit',
@@ -106,7 +111,15 @@ class Tag extends Form
                      
                     ),                               
             ));
-            
+            $inputFilter->add(array(
+                'name' =>  'security',
+                'required' => true,
+                'validators' => array(
+                $this->getCSRFValidator(),
+                     
+                    ),                               
+            ));
+           
             $this->inputFilter = $inputFilter;
         }
         
@@ -135,6 +148,9 @@ class Tag extends Form
                
         return $validator;       
     }
-
+    public function getCSRFValidator()
+    {
+        return new \Zend\Validator\Csrf(array('name'=>'security'));        
+    }
 }
 

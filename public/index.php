@@ -5,7 +5,7 @@
  */
     error_reporting(E_All);
 ini_set('display_errors', 1);
-
+$_SERVER['HTTPS'] = 'on';
 chdir(dirname(__DIR__));
 // Setup autoloading
 include 'init_autoloader.php';

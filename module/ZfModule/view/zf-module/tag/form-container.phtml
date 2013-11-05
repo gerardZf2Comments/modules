@@ -23,7 +23,8 @@ $form->prepare();
     <div class="element-wrapper">
         <?= $this->formRow($form->get('tag')); ?>
     </div><!-- end - class="element-wrapper"-->
-    
+    <?= $this->formElement($form->get('security')) ?>
+
     <div class="element-wrapper">
          <?= $this->formSubmit($form->get('submit')); ?>
     </div><!-- end - class="element-wrapper"-->

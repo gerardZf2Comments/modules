@@ -4,6 +4,7 @@ namespace ZfModule\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+use Zend\Paginator\Paginator;
 
 /**
  * controller to search tags and modules
@@ -30,6 +31,7 @@ class SearchController extends AbstractActionController
      */
     public function moduleAjaxAction()
     {  
+        $this->index();
          //do search
         $query =  $this->params()->fromRoute('query', '');
         $modules = $this->getModules($query); 
@@ -45,7 +47,7 @@ class SearchController extends AbstractActionController
      * @return Zend\View\Model Description
      */
     public function moduleAction()
-    {        
+    {    
          //do search
         $query =  $this->params()->fromRoute('query', '');
         $modules = $this->getModules($query);
@@ -82,7 +84,7 @@ class SearchController extends AbstractActionController
      * @param bool $ajax
      * @return \Zend\View\Model\ViewModel
      */
-    public function renderModuleLayout(\ArrayIterator $modules, \Zend\Paginator\Paginator $paginator, $query, $ajax = false)
+    public function renderModuleLayout(\ArrayIterator $modules, Paginator $paginator, $query, $ajax = false)
     {      
         $viewModel = new ViewModel(array(
             'modules' => $modules,
@@ -127,36 +129,25 @@ class SearchController extends AbstractActionController
      * @return array
      * @todo write service facory for  new \ZfModule\Service\Tag();
      */
-     public function getTags($query)
+    public function getTags($query)
     {
         $service = new \ZfModule\Service\Tag();
         $service->setServiceLocator($this->getServiceLocator());
           
         return $service->search($query); 
     }
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     /**
-     * this function is a development utility to be removed
+     * this exists in searchIndexController
      * @deprecated since version 1
      */
-    public function index()
+    protected function indexModules()
     {
         $service = new \ZfModule\Service\Search\ModuleIndexer();
         $options = new \ZfModule\Options\ModuleOptions;
         $service->setOptions($options);
         $service->setServiceLocator($this->getServiceLocator());
         $service->addAll();
+        
+        return;
     }
-    
 }
