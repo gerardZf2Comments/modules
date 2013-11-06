@@ -108,7 +108,7 @@ class Tag extends Form
                 ),
                 'validators' => array(
                 $this->getTagStringLengthValidator(),
-                     
+                 $this->noSpacesValidator(), 
                     ),                               
             ));
             $inputFilter->add(array(
@@ -116,7 +116,7 @@ class Tag extends Form
                 'required' => true,
                 'validators' => array(
                 $this->getCSRFValidator(),
-                     
+                 
                     ),                               
             ));
            
@@ -151,6 +151,10 @@ class Tag extends Form
     public function getCSRFValidator()
     {
         return new \Zend\Validator\Csrf(array('name'=>'security'));        
+    }
+    public function noSpacesValidator()
+    {
+        return new \Zend\Validator\Regex(array('pattern' => "/^(.*[^\s])$/" ));
     }
 }
 
