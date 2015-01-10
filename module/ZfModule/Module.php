@@ -2,7 +2,7 @@
 
 /**
  * Zend Framework (http://framework.zend.com/)
- *a change
+ *another change
  * @link      http://github.com/zendframework/ZendSkeletonModule for the canonical source repository
  * @copyright Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd New BSD License
@@ -102,8 +102,8 @@ class Module implements AutoloaderProviderInterface {
                     );
                 },
                 'zfmodule_mapper_comment' => function ($sm) {
-                    $options = new \ZfModule\Options\ModuleOptions();
-                    $options->setCommentEntityClassName('ZfModule\Entity\Comment');
+                    $options = new \Comments\Options\CommentOptions();
+                    $options->setCommentEntityClassName('Comments\Entity\Comment');
                     $options->setUserEntityClassName('User\Entity\User');
                     return new \ZfModule\Mapper\Comment(
                             $sm->get('doctrine.entitymanager.orm_default'), $options
@@ -268,6 +268,7 @@ class Module implements AutoloaderProviderInterface {
     public function getViewHelperConfig() {
         return array(
             'factories' => array(
+                // todo - complete refactor
                 'zfmoduleComments' => function ($sm) {
                     $helper = new \ZfModule\View\Helper\Comments;
                     $helper->setCommentService($sm->getServiceLocator()->get('zfmodule_service_comment'));

@@ -36,3 +36,6 @@
 [submodule "module/ZendDeveloperTools"]
 	path = module/ZendDeveloperTools
 	url = https://github.com/zendframework/ZendDeveloperTools
+[submodule "module/Comments"]
+	path = module/Comments
+	url = https://github.com/gerardZf2Comments/comments.git

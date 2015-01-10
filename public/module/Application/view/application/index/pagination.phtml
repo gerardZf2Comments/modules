@@ -1,0 +1,43 @@
+<?php if ($this->pageCount): ?>
+<div class="row-fluid module-row ">
+    <div class="span12">
+        <div class="row-fluid">
+            <div class="pagination pull-right">
+                <ul>
+                    <?php if(isset($this->previous)): ?>
+                    <!-- First page link -->
+                    <li>
+                        <a class="module-search-pagination-link" href="<?php echo $this->url('gol-search/module-ajax', array('page' => $this->first, 'query' => $query, /* 'limit'=> $limit, */)); ?>">&lt;&lt; First</a>
+                    </li>
+
+                    <!-- Previous page link -->
+                    <li>
+                        <a class="module-search-pagination-link" href="<?php echo $this->url('gol-search/module-ajax', array('page' => $this->previous,'query' => $query, /* 'limit'=> $limit, */)) ?>">Previous &gt;</a>
+                    </li>
+                    <?php endif; ?>
+
+
+                    <!-- Numbered page links -->
+                    <?php foreach ($this->pagesInRange as $page): ?>
+                    <li<?php echo ($page == $this->current) ? ' class="active"' : ''; ?>>
+                        <a class="module-search-pagination-link" href="<?php echo $this->url('gol-search/module-ajax', array( 'query' => $query, 'page' => $page,/* 'limit'=> $limit, */)); ?>"><?php echo $page; ?></a>
+                    </li>
+                    <?php endforeach; ?>
+
+                    <?php if(isset($this->next)): ?>
+                    <!-- Next page link -->
+                    <li>
+                        <a class="module-search-pagination-link" href="<?php echo $this->url('gol-search/module-ajax', array( 'query'=>$query, 'page' => $this->next,/* 'limit'=> $limit, */)); ?>">Next &gt;</a>
+                    </li>
+
+                    <!-- Last page link -->
+                    <li>
+                        <a class="module-search-pagination-link" href="<?php echo $this->url('gol-search/module-ajax', array('page' => $this->last, 'query' => $query, /* 'limit'=> $limit, */)); ?>">Last &gt;&gt;</a>
+                    </li>
+                    <?php endif; ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<?php endif; ?>

@@ -8,7 +8,7 @@
         <span class="module-comments-username"><strong><?= $this->EscapeHtml($comment->getUser()->getUserName()) ?></strong> </span>
     </div>
     <div>
-        <span class="module-comments-comment"><?= $this->EscapeHtml($comment->getComment()) ?> </span>
+        <span class="module-comments-comment"><?= $this->EscapeHtml($comment->getContent()) ?> </span>
     </div> 
 
     <div class="child-comments-wrapper" parent-id="<?= $comment->getId() ?>">

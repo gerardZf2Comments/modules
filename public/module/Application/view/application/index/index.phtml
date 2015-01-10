@@ -1,0 +1,42 @@
+
+<?php /** @todo uncomment line 33 */ ?>
+<div class="row">
+    <div class="span8">
+      <div class="row-fluid">
+        <div class="span12">
+          <div class="navbar">
+            <div class="navbar-inner" >
+              <form  class="navbar-search pull-left span12" id="live-search">
+                <input type="text" name="query" id="search-query"class="search-query span12" placeholder="Type to start searching...">
+              </form>
+            </div>
+            <?php
+            $this->inlineScript()->appendScript('
+                $(\'#live-search input[name="query"]\').liveSearch({url: "/search/tag-ajax/"});
+            ');?>
+
+          </div>
+        </div>
+      </div>
+        <div id="search-results-wrapper">
+      
+             <?= $this->partial('zf-module/search/module-entities.phtml',
+                           array('paginator' => $this->paginator, 
+                                  'modules' => $this->modules,
+                                  'query' => $this->query,));
+             
+             ?>
+        </div>
+        </div><!-- end - id="search-results-wrapper"-->
+    <div class="span4">
+        <div class="sidebar">
+           <?= $this->newModule() ?>
+           <?= $this->newUsers() ?>
+               <?= $this->Comments($this->modules[0]->getId()) ?>
+            <?= $this->partial('zf-module/tag/tag-wrapper.phtml',
+                           array( 'module' => $this->modules[0],)
+                    );             
+             ?>
+        </div>
+    </div>
+</div>

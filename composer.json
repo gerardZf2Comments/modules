@@ -1,7 +1,7 @@
 {
     "require": {
         "doctrine/doctrine-module": "0.*",
-        "doctrine/doctrine-orm-module": "*"
-       
+        "doctrine/doctrine-orm-module": "*",
+        "zf-commons/zfc-twig": "dev-master"
     }
 }

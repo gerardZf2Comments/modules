@@ -3,7 +3,7 @@
  * This makes our life easier when dealing with paths. Everything is relative
  * to the application root now.
  */
-    error_reporting(E_All);
+    error_reporting(E_ALL);
 ini_set('display_errors', 1);
 $_SERVER['HTTPS'] = 'on';
 chdir(dirname(__DIR__));

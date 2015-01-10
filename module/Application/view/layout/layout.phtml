@@ -1,5 +1,4 @@
-<?php /** @todo uncomment line 35 */
-echo $this->doctype(); ?>
+<?= $this->doctype(); ?>
 
 <html lang="en">
 <head>
@@ -120,12 +119,37 @@ echo $this->doctype(); ?>
 </footer>
 
 <?php echo $this->inlineScript()
-         ->prependFile($this->basePath() . '/js/jquery.comments.js')
-    ->prependFile($this->basePath() . '/js/jquery.livesearch.js')
+         /*
+        ->prependFile($this->basePath() . '/js/comments/comments.js')
+
+        ->prependFile($this->basePath() . '/js/comments/comment/comment.js')
+     
+        ->prependFile($this->basePath() . '/js/comments/comment/controls.js')
+        ->prependFile($this->basePath() . '/js/comments/comment/edit-form.js')
+        ->prependFile($this->basePath() . '/js/comments/comment/form.js')
+        ->prependFile($this->basePath() . '/js/comments/replies/replies.js')
+        ->prependFile($this->basePath() . '/js/comments/replies/reply/reply.js')
+        ->prependFile($this->basePath() . '/js/comments/replies/reply/form.js')
+        ->prependFile($this->basePath() . '/js/jquery.comments.js')
+  
+  */   ->prependFile($this->basePath() . '/js/jquery.livesearch.js')
+     
+    ->prependFile($this->basePath() . '/js/jquery.validate.js')
     ->prependFile($this->basePath() . '/js/bootstrap.min.js')
     ->prependFile($this->basePath() . '/js/jquery.min.js')
+   // ->prependFile($this->basePath() . '/js/require.js')
    
 //                ->appendFile($this->basePath() . '/js/slide.js')
         ?>
+<script src="js/require.js" data-main="js/main" ></script>
+<!----<script>
+jQuery(function (){
+    var moduleId, wrapper = $('#comments-wrapper');
+    moduleId = wrapper.data('module-id');
+    moduleId = (moduleId ? moduleId : window.location);
+    comments(wrapper, moduleId);
+});</script>
+-----!>
+
 </body>
 </html>

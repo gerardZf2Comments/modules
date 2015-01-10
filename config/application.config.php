@@ -22,6 +22,7 @@ return array(
         'ZfModule',
         'EdpMarkdown',
         'ZendDeveloperTools',
+         'Comments',
     ),
     'module_listener_options' => array(
         'config_glob_paths'    => array(

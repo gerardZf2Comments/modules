@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                  http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+                  
+    <entity name="ZfModule\Entity\Module" table="module">
+        <id name="id" column="module_id" type="integer" >
+            <generator strategy="AUTO" />
+        </id>
+        	
+         <field name="name" column="name" type="string" length="255" nullable="false"  />
+         <field name="description" column="description" type="string"  nullable="false"  />
+         <field name="watched" column="watched" type="integer"  nullable="true"  />
+          <field name="repoId" column="repo_id" type="integer"  nullable="false"  />
+         <field name="url" column="url" type="string" length="500" nullable="false"  />
+         <field name="metaData" column="meta_data" type="string" length="255" nullable="true"  />
+         <field name="createdAt" column="created_at" type="datetime"   />
+         <field name="updatedAt" column="updated_at" type="datetime"   />  
+       
+          <field name="photoUrl" column="photo_url" type="string" length="255" nullable="true"  />      
+          <field name="owner" column="owner" type="string" length="255" nullable="false"  />      
+   
+           <many-to-many field="tags" target-entity="Tag">
+            <join-table name="module_tag">
+            <join-columns>
+                <join-column name="module_id" referenced-column-name="module_id"/>
+            </join-columns>
+            <inverse-join-columns>
+                <join-column name="tag_id" referenced-column-name="tag_id"/>
+            </inverse-join-columns>
+        </join-table>
+          <cascade>
+            <cascade-all/>
+        </cascade>
+        </many-to-many>
+        
+          <one-to-many field="comments" target-entity="Comment" mappedBy="moduleId">
+            <cascade>
+                <cascade-persist/>
+            </cascade>
+            
+        </one-to-many>
+    </entity>
+
+</doctrine-mapping>

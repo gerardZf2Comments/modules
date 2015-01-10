@@ -12,8 +12,8 @@
             </div>
             <?php
             $this->inlineScript()->appendScript('
-                $(\'#live-search input[name="query"]\').liveSearch({url: "/search/tag-ajax/"});
-            ');?>
+             
+');?>
 
           </div>
         </div>
@@ -32,8 +32,8 @@
         <div class="sidebar">
            <?= $this->newModule() ?>
            <?= $this->newUsers() ?>
-           <?= $this->zfmoduleComments($this->modules[0]->getId()) ?>
-            <?= $this->partial('zf-module/tag/tag-wrapper.phtml',
+           <?= $this->Comments('zfmodule',$this->modules[0]->getId()) ?>
+           <?= $this->partial('zf-module/tag/tag-wrapper.phtml',
                            array( 'module' => $this->modules[0],)
                     );             
              ?>
