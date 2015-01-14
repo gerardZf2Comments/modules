@@ -2,12 +2,13 @@
 
 namespace User\Entity;
 
-use ZfcUserDoctrineORM\Entity\User as ZfcUser;
-
+use ZfcUserDoctrineORM\Entity\User as ZfcUser,
+    Doctrine\Common\Collections\ArrayCollection;
 class User extends ZfcUser
 {
-    public function __construct($initializer = null, $cloner = null) {
-        $this->userComments = array();
+    public function __construct($initializer = null, $cloner = null)
+    {
+        $this->userComments = new ArrayCollection();
         $this->state = 1;
     }
 
@@ -18,6 +19,7 @@ class User extends ZfcUser
     protected $photoUrl;
 
     protected $createdAt;
+    
     public function setState($state)
     {
         $this->state = $state;
